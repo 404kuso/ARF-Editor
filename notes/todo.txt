@@ -1,0 +1,4 @@
+﻿Einstellungsfenster (Einstellungen bearbeiten) (%appdata%\ARF-Editor)
+
+Attackeneditor fertig machen
+- Autmatisches dis/enablen von dem Statusänderungszeugs bei Karte öffnen

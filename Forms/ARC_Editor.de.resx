@@ -1,0 +1,531 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="kartearcToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+N</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="kartearcToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="kartearcToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Neue Karte</value>
+  </data>
+  <data name="attackearaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="attackearaToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Neue Attacke</value>
+  </data>
+  <data name="itemariToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 22</value>
+  </data>
+  <data name="itemariToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Neues Item</value>
+  </data>
+  <data name="neuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 22</value>
+  </data>
+  <data name="neuToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Neue Datei</value>
+  </data>
+  <data name="öffnenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+O</value>
+  </data>
+  <data name="öffnenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 22</value>
+  </data>
+  <data name="öffnenToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Öffnet eine Datei</value>
+  </data>
+  <data name="speichernToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+S</value>
+  </data>
+  <data name="speichernToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 22</value>
+  </data>
+  <data name="speichernToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Speichert die aktuelle Karte in der geöffneten Datei</value>
+  </data>
+  <data name="speichernUnterToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Umschalttaste+S</value>
+  </data>
+  <data name="speichernUnterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 22</value>
+  </data>
+  <data name="speichernUnterToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Speichert die Karte in einer anderen Datei</value>
+  </data>
+  <data name="dateiToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Dateiverwaltung und so</value>
+  </data>
+  <data name="inDatenbankEintragenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+Umschalttaste+D</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="inDatenbankEintragenToolStripMenuItem.ShowShortcutKeys" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="inDatenbankEintragenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
+  <data name="inDatenbankEintragenToolStripMenuItem.Text" xml:space="preserve">
+    <value>In Datenbank eintragen</value>
+  </data>
+  <data name="inDatenbankEintragenToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Trägt die aktuelle Karte in die Datenbank ein</value>
+  </data>
+  <data name="iDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 22</value>
+  </data>
+  <data name="iDToolStripMenuItem.Text" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="iDToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Überprüft die ID von der Karte</value>
+  </data>
+  <data name="nameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 22</value>
+  </data>
+  <data name="nameToolStripMenuItem.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="nameToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Überprüft den Namen der Karte</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+D</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Überprüft die Kartendetails</value>
+  </data>
+  <data name="statsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+S</value>
+  </data>
+  <data name="statsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="statsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="statsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Prüft die Statuswerte</value>
+  </data>
+  <data name="boostsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+B</value>
+  </data>
+  <data name="boostsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="boostsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Boosts</value>
+  </data>
+  <data name="boostsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Prüft die Kartenboosts</value>
+  </data>
+  <data name="attackenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+A</value>
+  </data>
+  <data name="attackenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="attackenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Attacken</value>
+  </data>
+  <data name="attackenToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Prüft die Attacken</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+P</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Prüfen</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Prüft die Daten der Karte</value>
+  </data>
+  <data name="toolstrip_changeToARA_Editor.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+Umschalttaste+A</value>
+  </data>
+  <data name="toolstrip_changeToARA_Editor.Text" xml:space="preserve">
+    <value>ARA-Editor</value>
+  </data>
+  <data name="aRIEditorToolStripMenuItem2.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+Umschalttaste+I</value>
+  </data>
+  <data name="aRIEditorToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="aRIEditorToolStripMenuItem2.Text" xml:space="preserve">
+    <value>ARI-Editor</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Wechseln</value>
+  </data>
+  <data name="toolStripMenuItem1.ToolTipText" xml:space="preserve">
+    <value>Wechselt das aktuelle Fenster</value>
+  </data>
+  <data name="aRCEditorToolStripMenuItem1.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Umschalttaste+Q</value>
+  </data>
+  <data name="aRCEditorToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 22</value>
+  </data>
+  <data name="aRCEditorToolStripMenuItem1.Text" xml:space="preserve">
+    <value>ARC-Editor</value>
+  </data>
+  <data name="toolStripMenuItem4.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Umschalttaste+A</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 22</value>
+  </data>
+  <data name="toolStripMenuItem4.Text" xml:space="preserve">
+    <value>ARA-Editor</value>
+  </data>
+  <data name="aRIEditorToolStripMenuItem3.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Umschalttaste+I</value>
+  </data>
+  <data name="aRIEditorToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 22</value>
+  </data>
+  <data name="aRIEditorToolStripMenuItem3.Text" xml:space="preserve">
+    <value>ARI-Editor</value>
+  </data>
+  <data name="neuToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="neuToolStripMenuItem1.ToolTipText" xml:space="preserve">
+    <value>Öffnet ein neues seperates Fenster</value>
+  </data>
+  <data name="fensterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
+  <data name="fensterToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fenster</value>
+  </data>
+  <data name="fensterToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Fensterverwaltung</value>
+  </data>
+  <data name="toolsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Tools für die Bearbeitung</value>
+  </data>
+  <data name="datenbankpfadAuswählenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Datenbankpfad auswählen</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 24</value>
+  </data>
+  <data name="numericUpDown_PK.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="numericUpDown_PK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 23</value>
+  </data>
+  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 269</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>21, 15</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>PK</value>
+  </data>
+  <data name="comboBox_cardGeschlecht.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 228</value>
+  </data>
+  <data name="comboBox_cardGeschlecht.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 231</value>
+  </data>
+  <data name="comboBox_cardSeltenheit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 194</value>
+  </data>
+  <data name="comboBox_cardSeltenheit.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 197</value>
+  </data>
+  <data name="comboBox_boostCards4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="comboBox_boostCards4.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="comboBox_boostCards2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="comboBox_boostCards2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="comboBox_boostCards5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="comboBox_boostCards5.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="comboBox_boostCards3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 19</value>
+  </data>
+  <data name="comboBox_boostCards1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="txt_cardHerkunft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 160</value>
+  </data>
+  <data name="txt_cardHerkunft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 23</value>
+  </data>
+  <data name="txt_cardHerkunft.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 163</value>
+  </data>
+  <data name="richtTxt_CardBeschreibung.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 72</value>
+  </data>
+  <data name="richtTxt_CardBeschreibung.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 80</value>
+  </data>
+  <data name="richtTxt_CardBeschreibung.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 52</value>
+  </data>
+  <data name="numUpDown_cardID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 17</value>
+  </data>
+  <data name="numUpDown_cardID.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="numUpDown_cardID.ThousandsSeparator" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 19</value>
+  </data>
+  <data name="txt_cardName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 17</value>
+  </data>
+  <data name="txt_cardName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 23</value>
+  </data>
+  <data name="txt_cardName.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 21</value>
+  </data>
+  <data name="tabPage_Allgemein.Size" type="System.Drawing.Size, System.Drawing">
+    <value>754, 295</value>
+  </data>
+  <data name="txt_StatsSum.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 15</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Statuswerte</value>
+  </data>
+  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 12</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 15</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="comboBox_attack2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 23</value>
+  </data>
+  <data name="comboBox_attack1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 23</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 205</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 15</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Attacken</value>
+  </data>
+  <data name="numericUpDown_LP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 166</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 15</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Lebenspunkte</value>
+  </data>
+  <data name="numericUpDown_Spe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 137</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 15</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Schnelligkeit</value>
+  </data>
+  <data name="numericUpDown_Def.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="numericUpDown_Att.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 108</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 15</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Verteidigung</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 77</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 15</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Angriff</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>754, 295</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 323</value>
+  </data>
+  <data name="notifyIcon1.Text" xml:space="preserve">
+    <value>notifyIcon1</value>
+  </data>
+  <data name="notifyIcon1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>762, 357</value>
+  </data>
+</root>

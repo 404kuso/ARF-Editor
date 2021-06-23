@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ARF_Editor</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Authors>DaRealKuso</Authors>
+    <Company>AnimeJunkies.tv</Company>
+    <Description>Ein Editor für AnimeRoyale Karten, Item und Attackendateien, der das Erstellen und Bearbeiten erleichtern soll</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/404kuso/ARF-Editor</RepositoryUrl>
+    <StartupObject></StartupObject>
+    <Version>0.0.1</Version>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="KartenCore\**" />
+    <EmbeddedResource Remove="KartenCore\**" />
+    <None Remove="KartenCore\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Database\cards.index.db" />
+    <None Remove="Database\index.db" />
+    <None Remove="settings.ini" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Database\index.db" />
+    <Content Include="settings.ini">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.114" />
+  </ItemGroup>
+
+</Project>
