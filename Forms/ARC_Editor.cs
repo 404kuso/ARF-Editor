@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Web;
 
 using ARF_Editor;
 using ARF_Editor.Tools;
 using ARF_Editor.ARFCore;
 using ARF_Editor.ARFCore.Karten;
 using System.Threading;
+using System.Net;
 
 namespace ARF_Editor.Forms
 {
@@ -71,7 +73,6 @@ namespace ARF_Editor.Forms
                 Directory.CreateDirectory(Environment.GetEnvironmentVariable("appdata") + @"\ARF-Editor");
             // Setzt die Einstellungen
             settings = new INISettings();
-
             if (File.Exists(settings.objects["Database"]["path"]))
                 Database.Settings.dbPath = settings.objects["Database"]["path"];
             #endregion
@@ -87,10 +88,11 @@ namespace ARF_Editor.Forms
             catch (System.Data.SQLite.SQLiteException)
             {
                 // Wenn der angegebene Pfad für die Datenbank nicht existiert
-                if (!File.Exists(Database.Settings.dbPath))
+                if (!File.Exists(Database.Settings.dbPath) || !Database.Settings.dbPath.EndsWith(".db"))
                 {
+                    var dbResult = MessageBox.Show("Die Datenbank konnte nicht gefunden werden. Möchtest du sie lokalisieren (Ja) oder runterladen (Nein) oder gar nichts (abbrechen)?", "Datenbank Fehler", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                     // Fragt den User ob er die Datenbank manuell lokalisierten will
-                    if (MessageBox.Show("Die Datenbank konnte nicht gefunden werden. Möchtest du sie lokalisieren?", "Datenbank Fehler", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (dbResult == DialogResult.Yes)
                     {
                         // Wenn ja, wird der Pfad zum Ergebnis von dem FileDialog gesetzt
                         string pfad = OpenDatabase();
@@ -100,6 +102,15 @@ namespace ARF_Editor.Forms
                             return;
                         settings.Set("Database", "path", pfad);
                         MessageBox.Show("Der Pfad wurde erfolgreich aktuallisiert!");
+                    }
+                    else if (dbResult == DialogResult.No)
+                    {
+                        using (WebClient client = new WebClient())
+                            client.DownloadFile("https://github.com/404kuso/ARF-Editor/raw/master/Database/index.db", "index.db");
+                        settings.Set("Database", "path", "./index.db");
+
+                        System.Diagnostics.Process.Start(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+                        Environment.Exit(0);
                     }
                 }
             }
@@ -146,6 +157,8 @@ namespace ARF_Editor.Forms
 
             this.comboBox_attack1.Items.Clear();
             this.comboBox_attack2.Items.Clear();
+            this.comboBox_attack3.Items.Clear();
+            this.comboBox_attack4.Items.Clear();
         }
         /// <summary>
         /// Setzt alle dropbox items
@@ -181,11 +194,21 @@ namespace ARF_Editor.Forms
             this.comboBox_attack1.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
             this.comboBox_attack2.Items.Add(new ComboBoxItem("(keine)", 0x00));
             this.comboBox_attack2.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
+            this.comboBox_attack3.Items.Add(new ComboBoxItem("(keine)", 0x00));
+            this.comboBox_attack3.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
+            this.comboBox_attack4.Items.Add(new ComboBoxItem("(keine)", 0x00));
+            this.comboBox_attack4.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
 
-            if(attacks.Length > 0)
-                this.comboBox_attack1.SelectedIndex = 1;
-            this.comboBox_attack2.SelectedIndex = 0;
+            if (attacks.Length > 0)
+                this.comboBox_attack1.SelectedIndex = 0;
+            this.comboBox_attack2.SelectedIndex = this.comboBox_attack3.SelectedIndex = this.comboBox_attack4.SelectedIndex = 0;
 
+            foreach(ComboBox box in this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>())
+            {
+                box.Items.Add(new ComboBoxItem("(keine)", 0x00));
+                box.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
+                box.SelectedIndex = 0;
+            }
         }
         #endregion
 
@@ -252,12 +275,17 @@ namespace ARF_Editor.Forms
                 for (int i = 0; i < attacks.Length; i++)
                 {
                     // * Checkt ob das Comboboxitem (die ID von der Attacke) der AttackenID von der Karte entspricht, wenn ja wird der index ausgewählt *
-
                     if (Convert.ToUInt16((this.comboBox_attack1.Items[i] as ComboBoxItem).Value) == card.AttackenID_1)
                         this.comboBox_attack1.SelectedItem = this.comboBox_attack1.Items[i];
 
                     if (Convert.ToUInt16((this.comboBox_attack2.Items[i] as ComboBoxItem).Value) == card.AttackenID_2)
                         this.comboBox_attack2.SelectedItem = this.comboBox_attack2.Items[i];
+
+                    if (Convert.ToUInt16((this.comboBox_attack3.Items[i] as ComboBoxItem).Value) == card.AttackenID_3)
+                        this.comboBox_attack3.SelectedItem = this.comboBox_attack3.Items[i];
+
+                    if (Convert.ToUInt16((this.comboBox_attack4.Items[i] as ComboBoxItem).Value) == card.AttackenID_4)
+                        this.comboBox_attack4.SelectedItem = this.comboBox_attack4.Items[i];
                 }
             else
             {
@@ -265,6 +293,15 @@ namespace ARF_Editor.Forms
 
                 this.comboBox_attack1.SelectedValue = card.AttackenID_1.ToString();
                 this.comboBox_attack2.SelectedValue = card.AttackenID_2.ToString();
+                this.comboBox_attack3.SelectedValue = card.AttackenID_3.ToString();
+                this.comboBox_attack4.SelectedValue = card.AttackenID_4.ToString();
+            }
+            #endregion
+            #region Erlernbare Attacken
+            for (int i = 0; i < card.ErlernbareAtacken.Length; i++)
+            {
+                this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<NumericUpDown>().ToArray()[i].Value = card.ErlernbareAtacken[i].Item1;
+                this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().ToArray()[i].SelectedIndex = card.ErlernbareAtacken[i].Item2;
             }
             #endregion
         }
@@ -297,6 +334,17 @@ namespace ARF_Editor.Forms
             #region attacks
             card.AttackenID_1 = Convert.ToUInt16((this.comboBox_attack1.SelectedItem as ComboBoxItem).Value);
             card.AttackenID_2 = Convert.ToUInt16((this.comboBox_attack2.SelectedItem as ComboBoxItem).Value);
+            card.AttackenID_3 = Convert.ToUInt16((this.comboBox_attack3.SelectedItem as ComboBoxItem).Value);
+            card.AttackenID_4 = Convert.ToUInt16((this.comboBox_attack4.SelectedItem as ComboBoxItem).Value);
+            #endregion
+            #region erlernbare attacken
+            ushort[] attacks = flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().Select(x => Convert.ToUInt16((x.SelectedItem as ComboBoxItem).Value)).ToArray();
+            byte[] levels = flowLayoutPanel_ErlernbareAttacken.Controls.OfType<NumericUpDown>().Select(x => (byte) x.Value).ToArray();
+
+            (byte, ushort)[] erlernbareAttacken = new (byte, ushort)[15];
+            for (int i = 0; i < attacks.Length; i++)
+                erlernbareAttacken[i] = (levels[i], attacks[i]);
+            card.ErlernbareAtacken = erlernbareAttacken;
             #endregion
         }
         #endregion Update
@@ -404,9 +452,7 @@ namespace ARF_Editor.Forms
                 cardStream = null;
             }
             if(!File.Exists(path))
-            {
                 MessageBox.Show(path, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             OpenCard(new FileStream(path, FileMode.Open, FileAccess.ReadWrite, FileShare.Read));
         }
@@ -588,7 +634,8 @@ namespace ARF_Editor.Forms
                 return;
             }
 
-            if (MessageBox.Show("Es wird vorher gespeichert. Fortfahren?", "Speichern bestätigen", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            DialogResult result = MessageBox.Show("Es wird vorher gespeichert. Fortfahren?", "Speichern bestätigen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No || result == DialogResult.Cancel)
                 return;
             // Speichert Karte
             SaveCurrentFormCard();
@@ -617,6 +664,8 @@ namespace ARF_Editor.Forms
                 [Attacken]
                 {this.comboBox_attack1.SelectedItem}
                 {this.comboBox_attack2.SelectedItem}
+                {this.comboBox_attack3.SelectedItem}
+                {this.comboBox_attack4.SelectedItem}
             ".Replace("  ", "");
             // Wenn noch kein Eintrag mit der PK vorliegt
             if (!reader.HasRows)
@@ -788,11 +837,6 @@ namespace ARF_Editor.Forms
             this.Close();
         }
 
-        // Neue Datei
-        private void NewARAFile_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void comboBox_boostCards_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -822,6 +866,55 @@ namespace ARF_Editor.Forms
                 else
                     this.toolTip_attackInfo.SetToolTip(me, "[leer]");
             }
+        }
+
+        private void comboBox_erlernbareAttackeSelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox me = (sender as ComboBox);
+
+            ComboBox[] boxes = this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().ToArray();
+            NumericUpDown[] numUpDowns = this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<NumericUpDown>().ToArray();
+
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                if (boxes[i] == me)
+                {
+                    numUpDowns[i].Enabled = me.SelectedIndex != 0;
+                    numUpDowns[i].Value = me.SelectedIndex != 0 ? 1 : 0;
+                }
+            }
+        }
+
+        private void comboBox_Leave(object sender, EventArgs e)
+        {
+            ComboBox me = (sender as ComboBox);
+            if (me.SelectedIndex == -1)
+                me.SelectedIndex = 0;
+        }
+
+        private void btn_AddAttacke_Click(object sender, EventArgs e)
+        {
+            ComboBox box = new ComboBox();
+
+            box.Size = new Size(235, 23);
+            box.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            box.AutoCompleteSource = AutoCompleteSource.ListItems;
+            box.Leave += new EventHandler(this.comboBox_Leave);
+            box.Items.Add(new ComboBoxItem("(keine)", 0x00));
+            box.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
+            box.SelectedIndex = 0;
+
+            this.flowLayoutPanel_AttackenPerItem.Controls.Add(box);
+        }
+
+        private void btn_EntferneItemAttacke_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ClearItemAttacks_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

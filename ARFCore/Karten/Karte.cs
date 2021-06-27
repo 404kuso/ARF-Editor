@@ -22,19 +22,24 @@ namespace ARF_Editor.ARFCore.Karten
         }
         private static byte[] emptyStats
         {
-            get => Enumerable.Repeat((byte)0x00, 8).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 0x08).ToArray();
         }
         private static byte[] emptyAttacks
         {
-            get => Enumerable.Repeat((byte)0x00, 6).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 0x0A).ToArray();
+        }
+        private static byte[] emptyErlernbareAttacken
+        {
+            get => Enumerable.Repeat((byte)0x00, 45).ToArray();
         }
 
         public static byte[] emptyCard
         {
-            get => headerBytes.
-                Concat(emptyDetails).ToArray().Concat(new byte[3] {0xFF, 0xFF, 0xFF}).ToArray()
+            get => headerBytes
+                .Concat(emptyDetails).ToArray().Concat(new byte[3] {0xFF, 0xFF, 0xFF}).ToArray()
                 .Concat(emptyStats).ToArray().Concat(new byte[2] { 0xFF, 0xFF }).ToArray()
-                .Concat(emptyAttacks).ToArray().Concat(new byte[3] { 0xFF, 0xFF, 0xFF }).ToArray();
+                .Concat(emptyAttacks).ToArray().Concat(new byte[3] { 0xFF, 0xFF, 0xFF }).ToArray()
+                .Concat(emptyErlernbareAttacken).ToArray();
         }
         #endregion
 
@@ -83,7 +88,7 @@ namespace ARF_Editor.ARFCore.Karten
         {
             this.fs = fs;
             
-            this.fileContent = new byte[1000];
+            this.fileContent = new byte[2000];
             this.fs.Read(this.fileContent);
 
             this.UpdatePK();
@@ -137,7 +142,7 @@ namespace ARF_Editor.ARFCore.Karten
             return BitConverter.GetBytes(Checksum.CRC16_CCITT(block, 0, block.Length - ChecksumLen));
         }
 
-        #region attributes
+        #region Attributes
         #region Header
         public byte[] Header
         {
@@ -177,7 +182,7 @@ namespace ARF_Editor.ARFCore.Karten
         #region AttacksBlock
         public byte[] AttacksBlock
         {
-            get => this.fileContent[0x16A..0x170];
+            get => this.fileContent[0x16A..0x174];
             set => this.fileContent.Set(0x16A, value);
         }
         public void FixSumAttacksBlock()
@@ -200,7 +205,7 @@ namespace ARF_Editor.ARFCore.Karten
         /// </summary>
         public string Name
         {
-            get => StringCode.DecodeBytes(this.DetailsBlock[0x02..0x2E]);
+            get => StringCode.DecodeBytes(this.DetailsBlock[0x02..0x22]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x02, StringCode.EncodeString(value, 32));
         }
         /// <summary>
@@ -355,12 +360,55 @@ namespace ARF_Editor.ARFCore.Karten
             set => this.AttacksBlock = this.AttacksBlock.Set(0x02, BitConverter.GetBytes(value));
         }
         /// <summary>
+        /// Die ID von der 3. Attacke
+        /// </summary>
+        public ushort AttackenID_3
+        {
+            get => BitConverter.ToUInt16(this.AttacksBlock[0x04..0x06]);
+            set => this.AttacksBlock = this.AttacksBlock.Set(0x04, BitConverter.GetBytes(value));
+        }
+        /// <summary>
+        /// Die ID von der 4. Attacke
+        /// </summary>
+        public ushort AttackenID_4
+        {
+            get => BitConverter.ToUInt16(this.AttacksBlock[0x06..0x08]);
+            set => this.AttacksBlock = this.AttacksBlock.Set(0x06, BitConverter.GetBytes(value));
+        }
+        /// <summary>
         /// Die Checksum für den Attackenblock
         /// </summary>
         public byte[] AttacksBlockChecksum
         {
-            get => this.AttacksBlock[0x04..0x06];
-            set => this.AttacksBlock = this.AttacksBlock.Set(0x04, value);
+            get => this.AttacksBlock[0x08..0x0A];
+            set => this.AttacksBlock = this.AttacksBlock.Set(0x08, value);
+        }
+        #endregion
+        #region Erlernbare Atacken
+        public byte[] ErlernbareAttackenBlock
+        {
+            get => this.fileContent[0x177..0x1A4];
+            set => this.fileContent = this.fileContent.Set(0x177, value);
+        }
+        /// <summary>
+        /// 15 erlernbare Attacken
+        /// </summary>
+        public (byte, ushort)[] ErlernbareAtacken
+        {
+            get
+            {
+                List<(byte, ushort)> attacken = new List<(byte, ushort)>();
+                for (int i = 0; i < this.ErlernbareAttackenBlock.Length; i += 3)
+                    attacken.Add((this.ErlernbareAttackenBlock[i], BitConverter.ToUInt16(this.ErlernbareAttackenBlock[(i + 1)..(i + 3)])));
+                return attacken.ToArray();
+            }
+            set
+            {
+                List<byte> attacken = new List<byte>();
+                foreach ((byte, ushort) x in value)
+                    attacken.AddRange( new byte[] { x.Item1 }.Concat(BitConverter.GetBytes(x.Item2)) );
+                this.ErlernbareAttackenBlock = this.ErlernbareAttackenBlock.Set(0, attacken.ToArray());
+            }
         }
         #endregion
         #endregion properties

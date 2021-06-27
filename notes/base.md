@@ -65,7 +65,7 @@ Ende vom Block [3]
 Platzhalter [2]
     `FF FF`
 
-# Kartenattacken (0x16A - 0x170) [6]
+# Kartenattacken (0x16A - 0x174) [6]
 
 - {0x00 - 0x02}
     AttackenID 1 [2] (0x16A - 0x16C)
@@ -73,14 +73,20 @@ Platzhalter [2]
 - {0x02 - 0x04}
     AttackenID 2 [2] (0x16C - 0x16E)
         Die AttackenID von der 2. Attacke
+- {0x02 - 0x04}
+    AttackenID 3 [2] (0x16E - 0x170)
+        Die AttackenID von der 2. Attacke
+- {0x02 - 0x04}
+    AttackenID 4 [2] (0x170 - 0x172)
+        Die AttackenID von der 2. Attacke
 - {0x04 - 0x06}
-    Checksum[2] (0x16E - 0x170)
+    Checksum[2] (0x172 - 0x174)
         Checksum zur Überprüfung
 
 Platzhalter [3]
     `FF FF FF`
 
-# Erlernbare Attacken (0x173 - 0x1D3)
+# Erlernbare Attacken (0x177 - 0x1D3)
 
 96 Bytes lang
 

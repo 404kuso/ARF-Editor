@@ -82,12 +82,47 @@ namespace ARF_Editor.Forms
             this.txt_cardName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel_ErlernbareAttacken = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBox_ErlernbareAttacke1 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel1 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke2 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel2 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke3 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel3 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke4 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel4 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke5 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel5 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke6 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel6 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke7 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel7 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke8 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel8 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke9 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel9 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke10 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel10 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke11 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel11 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke12 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel12 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke13 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel13 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke14 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel14 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_ErlernbareAttacke15 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown_ErlernbarLevel15 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox_attack4 = new System.Windows.Forms.ComboBox();
+            this.comboBox_attack3 = new System.Windows.Forms.ComboBox();
             this.txt_StatsSum = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.numericUpDown_Level = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox_attack2 = new System.Windows.Forms.ComboBox();
             this.comboBox_attack1 = new System.Windows.Forms.ComboBox();
+            this.comboBox_attack2 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.numericUpDown_LP = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
@@ -97,6 +132,12 @@ namespace ARF_Editor.Forms
             this.numericUpDown_Att = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_EntferneItemAttacke = new System.Windows.Forms.Button();
+            this.btn_ClearItemAttacks = new System.Windows.Forms.Button();
+            this.btn_AddAttacke = new System.Windows.Forms.Button();
+            this.flowLayoutPanel_AttackenPerItem = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -108,11 +149,28 @@ namespace ARF_Editor.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_cardID)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.flowLayoutPanel_ErlernbareAttacken.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Level)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Spe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Def)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Att)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -155,7 +213,7 @@ namespace ARF_Editor.Forms
             // 
             resources.ApplyResources(this.attackearaToolStripMenuItem, "attackearaToolStripMenuItem");
             this.attackearaToolStripMenuItem.Name = "attackearaToolStripMenuItem";
-            this.attackearaToolStripMenuItem.Click += new System.EventHandler(this.NewARAFile_Click);
+            this.attackearaToolStripMenuItem.Click += new System.EventHandler(this.aRAWechselEditorToolStripMenuItem1_Click);
             // 
             // itemariToolStripMenuItem
             // 
@@ -315,6 +373,8 @@ namespace ARF_Editor.Forms
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage_Allgemein);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.toolTip_cardInfo.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
@@ -421,6 +481,7 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.comboBox_boostCards4, resources.GetString("comboBox_boostCards4.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.comboBox_boostCards4, resources.GetString("comboBox_boostCards4.ToolTip1"));
             this.comboBox_boostCards4.SelectedIndexChanged += new System.EventHandler(this.comboBox_boostCards_SelectedIndexChanged);
+            this.comboBox_boostCards4.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // comboBox_boostCards2
             // 
@@ -432,6 +493,7 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.comboBox_boostCards2, resources.GetString("comboBox_boostCards2.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.comboBox_boostCards2, resources.GetString("comboBox_boostCards2.ToolTip1"));
             this.comboBox_boostCards2.SelectedIndexChanged += new System.EventHandler(this.comboBox_boostCards_SelectedIndexChanged);
+            this.comboBox_boostCards2.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // comboBox_boostCards5
             // 
@@ -443,6 +505,7 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.comboBox_boostCards5, resources.GetString("comboBox_boostCards5.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.comboBox_boostCards5, resources.GetString("comboBox_boostCards5.ToolTip1"));
             this.comboBox_boostCards5.SelectedIndexChanged += new System.EventHandler(this.comboBox_boostCards_SelectedIndexChanged);
+            this.comboBox_boostCards5.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // comboBox_boostCards3
             // 
@@ -454,6 +517,7 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.comboBox_boostCards3, resources.GetString("comboBox_boostCards3.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.comboBox_boostCards3, resources.GetString("comboBox_boostCards3.ToolTip1"));
             this.comboBox_boostCards3.SelectedIndexChanged += new System.EventHandler(this.comboBox_boostCards_SelectedIndexChanged);
+            this.comboBox_boostCards3.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label5
             // 
@@ -472,6 +536,7 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.comboBox_boostCards1, resources.GetString("comboBox_boostCards1.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.comboBox_boostCards1, resources.GetString("comboBox_boostCards1.ToolTip1"));
             this.comboBox_boostCards1.SelectedIndexChanged += new System.EventHandler(this.comboBox_boostCards_SelectedIndexChanged);
+            this.comboBox_boostCards1.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // txt_cardHerkunft
             // 
@@ -553,12 +618,17 @@ namespace ARF_Editor.Forms
             // tabPage2
             // 
             resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.flowLayoutPanel_ErlernbareAttacken);
+            this.tabPage2.Controls.Add(this.comboBox_attack4);
+            this.tabPage2.Controls.Add(this.comboBox_attack3);
             this.tabPage2.Controls.Add(this.txt_StatsSum);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.numericUpDown_Level);
             this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.comboBox_attack2);
             this.tabPage2.Controls.Add(this.comboBox_attack1);
+            this.tabPage2.Controls.Add(this.comboBox_attack2);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.numericUpDown_LP);
             this.tabPage2.Controls.Add(this.label11);
@@ -572,6 +642,435 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip1"));
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            this.toolTip_cardInfo.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.label16, resources.GetString("label16.ToolTip1"));
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            this.toolTip_cardInfo.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.label17, resources.GetString("label17.ToolTip1"));
+            // 
+            // flowLayoutPanel_ErlernbareAttacken
+            // 
+            resources.ApplyResources(this.flowLayoutPanel_ErlernbareAttacken, "flowLayoutPanel_ErlernbareAttacken");
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke1);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel1);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke2);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel2);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke3);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel3);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke4);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel4);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke5);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel5);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke6);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel6);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke7);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel7);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke8);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel8);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke9);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel9);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke10);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel10);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke11);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel11);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke12);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel12);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke13);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel13);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke14);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel14);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.comboBox_ErlernbareAttacke15);
+            this.flowLayoutPanel_ErlernbareAttacken.Controls.Add(this.numericUpDown_ErlernbarLevel15);
+            this.flowLayoutPanel_ErlernbareAttacken.Name = "flowLayoutPanel_ErlernbareAttacken";
+            this.toolTip_cardInfo.SetToolTip(this.flowLayoutPanel_ErlernbareAttacken, resources.GetString("flowLayoutPanel_ErlernbareAttacken.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.flowLayoutPanel_ErlernbareAttacken, resources.GetString("flowLayoutPanel_ErlernbareAttacken.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke1
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke1, "comboBox_ErlernbareAttacke1");
+            this.comboBox_ErlernbareAttacke1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox_ErlernbareAttacke1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke1.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke1.Name = "comboBox_ErlernbareAttacke1";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke1, resources.GetString("comboBox_ErlernbareAttacke1.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke1, resources.GetString("comboBox_ErlernbareAttacke1.ToolTip1"));
+            this.comboBox_ErlernbareAttacke1.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke1.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel1
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel1, "numericUpDown_ErlernbarLevel1");
+            this.numericUpDown_ErlernbarLevel1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel1.Name = "numericUpDown_ErlernbarLevel1";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel1, resources.GetString("numericUpDown_ErlernbarLevel1.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel1, resources.GetString("numericUpDown_ErlernbarLevel1.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke2
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke2, "comboBox_ErlernbareAttacke2");
+            this.comboBox_ErlernbareAttacke2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke2.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke2.Name = "comboBox_ErlernbareAttacke2";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke2, resources.GetString("comboBox_ErlernbareAttacke2.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke2, resources.GetString("comboBox_ErlernbareAttacke2.ToolTip1"));
+            this.comboBox_ErlernbareAttacke2.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke2.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel2
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel2, "numericUpDown_ErlernbarLevel2");
+            this.numericUpDown_ErlernbarLevel2.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel2.Name = "numericUpDown_ErlernbarLevel2";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel2, resources.GetString("numericUpDown_ErlernbarLevel2.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel2, resources.GetString("numericUpDown_ErlernbarLevel2.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke3
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke3, "comboBox_ErlernbareAttacke3");
+            this.comboBox_ErlernbareAttacke3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke3.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke3.Name = "comboBox_ErlernbareAttacke3";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke3, resources.GetString("comboBox_ErlernbareAttacke3.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke3, resources.GetString("comboBox_ErlernbareAttacke3.ToolTip1"));
+            this.comboBox_ErlernbareAttacke3.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke3.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel3
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel3, "numericUpDown_ErlernbarLevel3");
+            this.numericUpDown_ErlernbarLevel3.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel3.Name = "numericUpDown_ErlernbarLevel3";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel3, resources.GetString("numericUpDown_ErlernbarLevel3.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel3, resources.GetString("numericUpDown_ErlernbarLevel3.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke4
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke4, "comboBox_ErlernbareAttacke4");
+            this.comboBox_ErlernbareAttacke4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke4.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke4.Name = "comboBox_ErlernbareAttacke4";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke4, resources.GetString("comboBox_ErlernbareAttacke4.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke4, resources.GetString("comboBox_ErlernbareAttacke4.ToolTip1"));
+            this.comboBox_ErlernbareAttacke4.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke4.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel4
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel4, "numericUpDown_ErlernbarLevel4");
+            this.numericUpDown_ErlernbarLevel4.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel4.Name = "numericUpDown_ErlernbarLevel4";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel4, resources.GetString("numericUpDown_ErlernbarLevel4.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel4, resources.GetString("numericUpDown_ErlernbarLevel4.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke5
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke5, "comboBox_ErlernbareAttacke5");
+            this.comboBox_ErlernbareAttacke5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke5.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke5.Name = "comboBox_ErlernbareAttacke5";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke5, resources.GetString("comboBox_ErlernbareAttacke5.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke5, resources.GetString("comboBox_ErlernbareAttacke5.ToolTip1"));
+            this.comboBox_ErlernbareAttacke5.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke5.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel5
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel5, "numericUpDown_ErlernbarLevel5");
+            this.numericUpDown_ErlernbarLevel5.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel5.Name = "numericUpDown_ErlernbarLevel5";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel5, resources.GetString("numericUpDown_ErlernbarLevel5.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel5, resources.GetString("numericUpDown_ErlernbarLevel5.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke6
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke6, "comboBox_ErlernbareAttacke6");
+            this.comboBox_ErlernbareAttacke6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke6.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke6.Name = "comboBox_ErlernbareAttacke6";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke6, resources.GetString("comboBox_ErlernbareAttacke6.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke6, resources.GetString("comboBox_ErlernbareAttacke6.ToolTip1"));
+            this.comboBox_ErlernbareAttacke6.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke6.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel6
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel6, "numericUpDown_ErlernbarLevel6");
+            this.numericUpDown_ErlernbarLevel6.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel6.Name = "numericUpDown_ErlernbarLevel6";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel6, resources.GetString("numericUpDown_ErlernbarLevel6.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel6, resources.GetString("numericUpDown_ErlernbarLevel6.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke7
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke7, "comboBox_ErlernbareAttacke7");
+            this.comboBox_ErlernbareAttacke7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke7.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke7.Name = "comboBox_ErlernbareAttacke7";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke7, resources.GetString("comboBox_ErlernbareAttacke7.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke7, resources.GetString("comboBox_ErlernbareAttacke7.ToolTip1"));
+            this.comboBox_ErlernbareAttacke7.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke7.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel7
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel7, "numericUpDown_ErlernbarLevel7");
+            this.numericUpDown_ErlernbarLevel7.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel7.Name = "numericUpDown_ErlernbarLevel7";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel7, resources.GetString("numericUpDown_ErlernbarLevel7.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel7, resources.GetString("numericUpDown_ErlernbarLevel7.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke8
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke8, "comboBox_ErlernbareAttacke8");
+            this.comboBox_ErlernbareAttacke8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke8.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke8.Name = "comboBox_ErlernbareAttacke8";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke8, resources.GetString("comboBox_ErlernbareAttacke8.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke8, resources.GetString("comboBox_ErlernbareAttacke8.ToolTip1"));
+            this.comboBox_ErlernbareAttacke8.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke8.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel8
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel8, "numericUpDown_ErlernbarLevel8");
+            this.numericUpDown_ErlernbarLevel8.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel8.Name = "numericUpDown_ErlernbarLevel8";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel8, resources.GetString("numericUpDown_ErlernbarLevel8.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel8, resources.GetString("numericUpDown_ErlernbarLevel8.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke9
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke9, "comboBox_ErlernbareAttacke9");
+            this.comboBox_ErlernbareAttacke9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke9.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke9.Name = "comboBox_ErlernbareAttacke9";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke9, resources.GetString("comboBox_ErlernbareAttacke9.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke9, resources.GetString("comboBox_ErlernbareAttacke9.ToolTip1"));
+            this.comboBox_ErlernbareAttacke9.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke9.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel9
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel9, "numericUpDown_ErlernbarLevel9");
+            this.numericUpDown_ErlernbarLevel9.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel9.Name = "numericUpDown_ErlernbarLevel9";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel9, resources.GetString("numericUpDown_ErlernbarLevel9.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel9, resources.GetString("numericUpDown_ErlernbarLevel9.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke10
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke10, "comboBox_ErlernbareAttacke10");
+            this.comboBox_ErlernbareAttacke10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke10.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke10.Name = "comboBox_ErlernbareAttacke10";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke10, resources.GetString("comboBox_ErlernbareAttacke10.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke10, resources.GetString("comboBox_ErlernbareAttacke10.ToolTip1"));
+            this.comboBox_ErlernbareAttacke10.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke10.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel10
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel10, "numericUpDown_ErlernbarLevel10");
+            this.numericUpDown_ErlernbarLevel10.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel10.Name = "numericUpDown_ErlernbarLevel10";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel10, resources.GetString("numericUpDown_ErlernbarLevel10.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel10, resources.GetString("numericUpDown_ErlernbarLevel10.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke11
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke11, "comboBox_ErlernbareAttacke11");
+            this.comboBox_ErlernbareAttacke11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke11.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke11.Name = "comboBox_ErlernbareAttacke11";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke11, resources.GetString("comboBox_ErlernbareAttacke11.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke11, resources.GetString("comboBox_ErlernbareAttacke11.ToolTip1"));
+            this.comboBox_ErlernbareAttacke11.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke11.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel11
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel11, "numericUpDown_ErlernbarLevel11");
+            this.numericUpDown_ErlernbarLevel11.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel11.Name = "numericUpDown_ErlernbarLevel11";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel11, resources.GetString("numericUpDown_ErlernbarLevel11.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel11, resources.GetString("numericUpDown_ErlernbarLevel11.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke12
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke12, "comboBox_ErlernbareAttacke12");
+            this.comboBox_ErlernbareAttacke12.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke12.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke12.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke12.Name = "comboBox_ErlernbareAttacke12";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke12, resources.GetString("comboBox_ErlernbareAttacke12.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke12, resources.GetString("comboBox_ErlernbareAttacke12.ToolTip1"));
+            this.comboBox_ErlernbareAttacke12.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke12.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel12
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel12, "numericUpDown_ErlernbarLevel12");
+            this.numericUpDown_ErlernbarLevel12.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel12.Name = "numericUpDown_ErlernbarLevel12";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel12, resources.GetString("numericUpDown_ErlernbarLevel12.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel12, resources.GetString("numericUpDown_ErlernbarLevel12.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke13
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke13, "comboBox_ErlernbareAttacke13");
+            this.comboBox_ErlernbareAttacke13.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke13.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke13.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke13.Name = "comboBox_ErlernbareAttacke13";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke13, resources.GetString("comboBox_ErlernbareAttacke13.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke13, resources.GetString("comboBox_ErlernbareAttacke13.ToolTip1"));
+            this.comboBox_ErlernbareAttacke13.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke13.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel13
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel13, "numericUpDown_ErlernbarLevel13");
+            this.numericUpDown_ErlernbarLevel13.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel13.Name = "numericUpDown_ErlernbarLevel13";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel13, resources.GetString("numericUpDown_ErlernbarLevel13.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel13, resources.GetString("numericUpDown_ErlernbarLevel13.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke14
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke14, "comboBox_ErlernbareAttacke14");
+            this.comboBox_ErlernbareAttacke14.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke14.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke14.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke14.Name = "comboBox_ErlernbareAttacke14";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke14, resources.GetString("comboBox_ErlernbareAttacke14.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke14, resources.GetString("comboBox_ErlernbareAttacke14.ToolTip1"));
+            this.comboBox_ErlernbareAttacke14.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke14.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel14
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel14, "numericUpDown_ErlernbarLevel14");
+            this.numericUpDown_ErlernbarLevel14.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel14.Name = "numericUpDown_ErlernbarLevel14";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel14, resources.GetString("numericUpDown_ErlernbarLevel14.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel14, resources.GetString("numericUpDown_ErlernbarLevel14.ToolTip1"));
+            // 
+            // comboBox_ErlernbareAttacke15
+            // 
+            resources.ApplyResources(this.comboBox_ErlernbareAttacke15, "comboBox_ErlernbareAttacke15");
+            this.comboBox_ErlernbareAttacke15.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_ErlernbareAttacke15.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_ErlernbareAttacke15.FormattingEnabled = true;
+            this.comboBox_ErlernbareAttacke15.Name = "comboBox_ErlernbareAttacke15";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_ErlernbareAttacke15, resources.GetString("comboBox_ErlernbareAttacke15.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_ErlernbareAttacke15, resources.GetString("comboBox_ErlernbareAttacke15.ToolTip1"));
+            this.comboBox_ErlernbareAttacke15.SelectedValueChanged += new System.EventHandler(this.comboBox_erlernbareAttackeSelectedIndexChanged);
+            this.comboBox_ErlernbareAttacke15.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // numericUpDown_ErlernbarLevel15
+            // 
+            resources.ApplyResources(this.numericUpDown_ErlernbarLevel15, "numericUpDown_ErlernbarLevel15");
+            this.numericUpDown_ErlernbarLevel15.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown_ErlernbarLevel15.Name = "numericUpDown_ErlernbarLevel15";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown_ErlernbarLevel15, resources.GetString("numericUpDown_ErlernbarLevel15.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown_ErlernbarLevel15, resources.GetString("numericUpDown_ErlernbarLevel15.ToolTip1"));
+            // 
+            // comboBox_attack4
+            // 
+            resources.ApplyResources(this.comboBox_attack4, "comboBox_attack4");
+            this.comboBox_attack4.FormattingEnabled = true;
+            this.comboBox_attack4.Name = "comboBox_attack4";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_attack4, resources.GetString("comboBox_attack4.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_attack4, resources.GetString("comboBox_attack4.ToolTip1"));
+            this.comboBox_attack4.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // comboBox_attack3
+            // 
+            resources.ApplyResources(this.comboBox_attack3, "comboBox_attack3");
+            this.comboBox_attack3.FormattingEnabled = true;
+            this.comboBox_attack3.Name = "comboBox_attack3";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_attack3, resources.GetString("comboBox_attack3.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_attack3, resources.GetString("comboBox_attack3.ToolTip1"));
+            this.comboBox_attack3.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // txt_StatsSum
             // 
@@ -593,7 +1092,7 @@ namespace ARF_Editor.Forms
             // 
             resources.ApplyResources(this.numericUpDown_Level, "numericUpDown_Level");
             this.numericUpDown_Level.Maximum = new decimal(new int[] {
-            255,
+            200,
             0,
             0,
             0});
@@ -619,15 +1118,6 @@ namespace ARF_Editor.Forms
             this.toolTip_cardInfo.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             this.toolTip_attackInfo.SetToolTip(this.label14, resources.GetString("label14.ToolTip1"));
             // 
-            // comboBox_attack2
-            // 
-            resources.ApplyResources(this.comboBox_attack2, "comboBox_attack2");
-            this.comboBox_attack2.FormattingEnabled = true;
-            this.comboBox_attack2.Name = "comboBox_attack2";
-            this.toolTip_attackInfo.SetToolTip(this.comboBox_attack2, resources.GetString("comboBox_attack2.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.comboBox_attack2, resources.GetString("comboBox_attack2.ToolTip1"));
-            this.comboBox_attack2.SelectedIndexChanged += new System.EventHandler(this.comboBox_attack_SelectedIndexChanged);
-            // 
             // comboBox_attack1
             // 
             resources.ApplyResources(this.comboBox_attack1, "comboBox_attack1");
@@ -636,6 +1126,17 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.comboBox_attack1, resources.GetString("comboBox_attack1.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.comboBox_attack1, resources.GetString("comboBox_attack1.ToolTip1"));
             this.comboBox_attack1.SelectedIndexChanged += new System.EventHandler(this.comboBox_attack_SelectedIndexChanged);
+            this.comboBox_attack1.Leave += new System.EventHandler(this.comboBox_Leave);
+            // 
+            // comboBox_attack2
+            // 
+            resources.ApplyResources(this.comboBox_attack2, "comboBox_attack2");
+            this.comboBox_attack2.FormattingEnabled = true;
+            this.comboBox_attack2.Name = "comboBox_attack2";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_attack2, resources.GetString("comboBox_attack2.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_attack2, resources.GetString("comboBox_attack2.ToolTip1"));
+            this.comboBox_attack2.SelectedIndexChanged += new System.EventHandler(this.comboBox_attack_SelectedIndexChanged);
+            this.comboBox_attack2.Leave += new System.EventHandler(this.comboBox_Leave);
             // 
             // label12
             // 
@@ -764,6 +1265,60 @@ namespace ARF_Editor.Forms
             this.toolTip_cardInfo.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             this.toolTip_attackInfo.SetToolTip(this.label8, resources.GetString("label8.ToolTip1"));
             // 
+            // tabPage1
+            // 
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Controls.Add(this.btn_EntferneItemAttacke);
+            this.tabPage1.Controls.Add(this.btn_ClearItemAttacks);
+            this.tabPage1.Controls.Add(this.btn_AddAttacke);
+            this.tabPage1.Controls.Add(this.flowLayoutPanel_AttackenPerItem);
+            this.tabPage1.Name = "tabPage1";
+            this.toolTip_attackInfo.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip1"));
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_EntferneItemAttacke
+            // 
+            resources.ApplyResources(this.btn_EntferneItemAttacke, "btn_EntferneItemAttacke");
+            this.btn_EntferneItemAttacke.Name = "btn_EntferneItemAttacke";
+            this.toolTip_cardInfo.SetToolTip(this.btn_EntferneItemAttacke, resources.GetString("btn_EntferneItemAttacke.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.btn_EntferneItemAttacke, resources.GetString("btn_EntferneItemAttacke.ToolTip1"));
+            this.btn_EntferneItemAttacke.UseVisualStyleBackColor = true;
+            this.btn_EntferneItemAttacke.Click += new System.EventHandler(this.btn_EntferneItemAttacke_Click);
+            // 
+            // btn_ClearItemAttacks
+            // 
+            resources.ApplyResources(this.btn_ClearItemAttacks, "btn_ClearItemAttacks");
+            this.btn_ClearItemAttacks.Name = "btn_ClearItemAttacks";
+            this.toolTip_cardInfo.SetToolTip(this.btn_ClearItemAttacks, resources.GetString("btn_ClearItemAttacks.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.btn_ClearItemAttacks, resources.GetString("btn_ClearItemAttacks.ToolTip1"));
+            this.btn_ClearItemAttacks.UseVisualStyleBackColor = true;
+            this.btn_ClearItemAttacks.Click += new System.EventHandler(this.btn_ClearItemAttacks_Click);
+            // 
+            // btn_AddAttacke
+            // 
+            resources.ApplyResources(this.btn_AddAttacke, "btn_AddAttacke");
+            this.btn_AddAttacke.Name = "btn_AddAttacke";
+            this.toolTip_cardInfo.SetToolTip(this.btn_AddAttacke, resources.GetString("btn_AddAttacke.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.btn_AddAttacke, resources.GetString("btn_AddAttacke.ToolTip1"));
+            this.btn_AddAttacke.UseVisualStyleBackColor = true;
+            this.btn_AddAttacke.Click += new System.EventHandler(this.btn_AddAttacke_Click);
+            // 
+            // flowLayoutPanel_AttackenPerItem
+            // 
+            resources.ApplyResources(this.flowLayoutPanel_AttackenPerItem, "flowLayoutPanel_AttackenPerItem");
+            this.flowLayoutPanel_AttackenPerItem.Name = "flowLayoutPanel_AttackenPerItem";
+            this.toolTip_cardInfo.SetToolTip(this.flowLayoutPanel_AttackenPerItem, resources.GetString("flowLayoutPanel_AttackenPerItem.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.flowLayoutPanel_AttackenPerItem, resources.GetString("flowLayoutPanel_AttackenPerItem.ToolTip1"));
+            // 
+            // tabPage3
+            // 
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            this.toolTip_attackInfo.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip1"));
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // openFileDialog
             // 
             resources.ApplyResources(this.openFileDialog, "openFileDialog");
@@ -819,11 +1374,28 @@ namespace ARF_Editor.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_cardID)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.flowLayoutPanel_ErlernbareAttacken.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ErlernbarLevel15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Level)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Spe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Def)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Att)).EndInit();
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -869,8 +1441,8 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox_attack2;
         private System.Windows.Forms.ComboBox comboBox_attack1;
+        private System.Windows.Forms.ComboBox comboBox_attack2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ToolStripMenuItem inDatenbankEintragenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prüfenToolStripMenuItem;
@@ -902,6 +1474,47 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem aRCEditorToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem aRIEditorToolStripMenuItem3;
+        private System.Windows.Forms.ComboBox comboBox_attack4;
+        private System.Windows.Forms.ComboBox comboBox_attack3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_ErlernbareAttacken;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel1;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke2;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel2;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke3;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel3;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke4;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel4;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke5;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel5;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke6;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel6;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke7;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel7;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke8;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel8;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke9;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel9;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke10;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel10;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke11;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel11;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke12;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel12;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke13;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel13;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke14;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel14;
+        private System.Windows.Forms.ComboBox comboBox_ErlernbareAttacke15;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ErlernbarLevel15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button btn_AddAttacke;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_AttackenPerItem;
+        private System.Windows.Forms.Button btn_ClearItemAttacks;
+        private System.Windows.Forms.Button btn_EntferneItemAttacke;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 

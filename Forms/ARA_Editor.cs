@@ -125,6 +125,12 @@ namespace ARF_Editor.Forms
         {
             attackStream = fs;
             this.attack = new Attacke(attackStream);
+            if (!this.attack.ValidChecksum)
+            {
+                DialogResult msg = MessageBox.Show("Die Checksum von der Attacke ist ungültig! Soll trotzdem fortgefahren werden? (Es können schwerwiegende Fehler auftreten)", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (msg == DialogResult.No || msg == DialogResult.Cancel)
+                    return;
+            }
 
             UpdateFormInfos();
         }

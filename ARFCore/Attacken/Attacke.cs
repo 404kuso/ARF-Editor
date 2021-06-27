@@ -6,7 +6,6 @@ using System.Linq;
 
 using ARF_Editor.Tools;
 using BitConverter = ARF_Editor.Tools.BitConverter;
-using System.Windows.Forms;
 
 namespace ARF_Editor.ARFCore.Attacken
 {
@@ -68,19 +67,6 @@ namespace ARF_Editor.ARFCore.Attacken
             this.fs.Flush();
         }
 
-        public byte[] CalculateChecksum(byte[] block)
-        {
-            return BitConverter.GetBytes(Checksum.CRC16_CCITT(block, 0, block.Length - ChecksumLen));
-        }
-
-        /// <summary>
-        /// Fixt die Checksum von der Karte
-        /// </summary>
-        private void FixChecksum()
-        {
-            this.FileChecksum = CalculateChecksum(Body);
-        }
-
         #region Attributes
         #region Header
         public byte[] Header
@@ -99,6 +85,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => this.fileContent[0x0D..0x135];
             set => this.fileContent = this.fileContent.Set(0x0D, value);
         }
+        
         /// <summary>
         /// Die ID von der Attacke
         /// </summary>
@@ -107,6 +94,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => BitConverter.ToUInt16(this.Body[0x00..0x02]);
             set => this.Body = this.Body.Set(0, BitConverter.GetBytes(value));
         }
+        
         /// <summary>
         /// Der Attackenname
         /// </summary>
@@ -115,6 +103,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => StringCode.DecodeBytes(this.Body[0x02..0x22]);
             set => this.Body = this.Body.Set(0x02, StringCode.EncodeString(value, 0x20));
         }
+        
         /// <summary>
         /// Der Text der angezeigt wird wenn eine Attacke ausgeführt wird
         /// </summary>
@@ -123,6 +112,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => StringCode.DecodeBytes(this.Body[0x22..0x122]);
             set => this.Body = this.Body.Set(0x22, StringCode.EncodeString(value, 0x100));
         }
+        
         /// <summary>
         /// Der Typ von der Attacke
         /// <list type="bullet">
@@ -138,6 +128,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => this.Body[0x122];
             set => this.Body = this.Body.Set(0x122, value);
         }
+        
         /// <summary>
         /// Der "Effekt" Block
         /// </summary>
@@ -146,6 +137,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => this.Body[0x123..0x125];
             set => this.Body = this.Body.Set(0x123, value);
         }
+        
         /// <summary>
         /// Der Typ vom Effekt
         /// 
@@ -165,6 +157,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => this.EffektBlock[0];
             set => this.EffektBlock = this.EffektBlock.Set(0, value);
         }
+        
         /// <summary>
         /// Die Chance bei der der Effekt auftritt
         /// 1:value = die Chance dass der Effekt auftritt liegt bei 1 zu dem Wert
@@ -175,6 +168,7 @@ namespace ARF_Editor.ARFCore.Attacken
             get => this.EffektBlock[1];
             set => this.EffektBlock = this.EffektBlock.Set(1, value);
         }
+        
         /// <summary>
         /// Wie stark die Attacke ist
         /// </summary>
@@ -183,6 +177,8 @@ namespace ARF_Editor.ARFCore.Attacken
             get => (byte)BitConverter.ToUInt16(this.Body[0125..0x126]);
             set => this.Body = this.Body.Set(0x125, value);
         }
+
+        #region Checksum
         /// <summary>
         /// Die Checksum von der Datei
         /// </summary>
@@ -191,6 +187,33 @@ namespace ARF_Editor.ARFCore.Attacken
             get => this.Body[0x126..0x128];
             set => this.Body = this.Body.Set(0x126, value);
         }
+
+        /// <summary>
+        /// Berrechnet die Checksum für die Datei
+        /// </summary>
+        /// <returns>Die berrechnete Checksum (2 bytes)</returns>
+        public byte[] CalculateChecksum()
+        {
+            return BitConverter.GetBytes(Checksum.CRC16_CCITT(this.Body, 0, this.Body.Length - ChecksumLen));
+        }
+
+        /// <summary>
+        /// Fixt die Checksum von der Karte
+        /// </summary>
+        private void FixChecksum()
+        {
+            this.FileChecksum = CalculateChecksum();
+        }
+
+        /// <summary>
+        /// Ob die Checksum von der Datei gültig ist
+        /// </summary>
+        public bool ValidChecksum
+        {
+            get => this.FileChecksum.EqualTo(this.CalculateChecksum());
+        }
+
+        #endregion
         #endregion
     }
 }
