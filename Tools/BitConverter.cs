@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ARF_Editor.Tools
 {
@@ -18,9 +19,9 @@ namespace ARF_Editor.Tools
         }
         public static ushort ToUInt16(byte[] val, string byteorder = "big")
         {
-            if ( (byteorder == "big" && System.BitConverter.IsLittleEndian) || (byteorder == "little" && !System.BitConverter.IsLittleEndian) )
+            if ((byteorder == "big" && System.BitConverter.IsLittleEndian) || (byteorder == "little" && !System.BitConverter.IsLittleEndian))
                 return System.BitConverter.ToUInt16(val.Reverse().ToArray());
-            else if ( (byteorder == "little" && System.BitConverter.IsLittleEndian) || (byteorder == "big" && !System.BitConverter.IsLittleEndian) )
+            else if ((byteorder == "little" && System.BitConverter.IsLittleEndian) || (byteorder == "big" && !System.BitConverter.IsLittleEndian))
                 return System.BitConverter.ToUInt16(val);
             else
                 throw new Exception("Bytorder muss 'big' oder 'little' sein");

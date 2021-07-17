@@ -137,7 +137,6 @@ namespace ARF_Editor.Forms
             this.btn_ClearItemAttacks = new System.Windows.Forms.Button();
             this.btn_AddAttacke = new System.Windows.Forms.Button();
             this.flowLayoutPanel_AttackenPerItem = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -374,7 +373,6 @@ namespace ARF_Editor.Forms
             this.tabControl1.Controls.Add(this.tabPage_Allgemein);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.toolTip_cardInfo.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
@@ -1311,14 +1309,6 @@ namespace ARF_Editor.Forms
             this.toolTip_cardInfo.SetToolTip(this.flowLayoutPanel_AttackenPerItem, resources.GetString("flowLayoutPanel_AttackenPerItem.ToolTip"));
             this.toolTip_attackInfo.SetToolTip(this.flowLayoutPanel_AttackenPerItem, resources.GetString("flowLayoutPanel_AttackenPerItem.ToolTip1"));
             // 
-            // tabPage3
-            // 
-            resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Name = "tabPage3";
-            this.toolTip_attackInfo.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip1"));
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // openFileDialog
             // 
             resources.ApplyResources(this.openFileDialog, "openFileDialog");
@@ -1514,7 +1504,6 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_AttackenPerItem;
         private System.Windows.Forms.Button btn_ClearItemAttacks;
         private System.Windows.Forms.Button btn_EntferneItemAttacke;
-        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 

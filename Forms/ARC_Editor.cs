@@ -16,6 +16,7 @@ using ARF_Editor.ARFCore;
 using ARF_Editor.ARFCore.Karten;
 using System.Threading;
 using System.Net;
+using System.Transactions;
 
 namespace ARF_Editor.Forms
 {
@@ -300,9 +301,39 @@ namespace ARF_Editor.Forms
             #region Erlernbare Attacken
             for (int i = 0; i < card.ErlernbareAtacken.Length; i++)
             {
+                var me = this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().ToArray()[i];
                 this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<NumericUpDown>().ToArray()[i].Value = card.ErlernbareAtacken[i].Item1;
-                this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().ToArray()[i].SelectedIndex = card.ErlernbareAtacken[i].Item2;
+                
+
+                for(int j = 0; j < me.Items.Count; j++)
+                {
+                    ComboBoxItem item = (me.Items[j] as ComboBoxItem);
+                    if ( Convert.ToUInt16(item.Value) == this.card.ErlernbareAtacken[i].Item2 )
+                        me.SelectedIndex = j;
+
+                }
+                
             }
+            #endregion
+            #region Attacken per Item
+            this.flowLayoutPanel_AttackenPerItem.Controls.Clear();
+
+            if (card.AttackenPerItem.Length != card.AttackenPerItem.Where(x => x == 0).Count())
+                foreach (ushort u in card.AttackenPerItem.Where(x => x != 0).ToArray())
+                {
+                    ComboBox box = new ComboBox();
+
+                    box.Size = new Size(235, 23);
+                    box.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    box.AutoCompleteSource = AutoCompleteSource.ListItems;
+                    box.Leave += new EventHandler(this.comboBox_Leave);
+                    box.Items.Add(new ComboBoxItem("(keine)", 0x00));
+                    box.Items.AddRange(attacks.Select(x => new ComboBoxItem(x.Item3, x.Item2)).ToArray());
+                    box.SelectedIndex = u;
+
+                    this.flowLayoutPanel_AttackenPerItem.Controls.Add(box);
+                }
+
             #endregion
         }
         /// <summary>
@@ -345,6 +376,9 @@ namespace ARF_Editor.Forms
             for (int i = 0; i < attacks.Length; i++)
                 erlernbareAttacken[i] = (levels[i], attacks[i]);
             card.ErlernbareAtacken = erlernbareAttacken;
+            #endregion
+            #region attacken per items
+            card.AttackenPerItem = this.flowLayoutPanel_AttackenPerItem.Controls.OfType<ComboBox>().Select(x => Convert.ToUInt16(x.SelectedIndex)).Where(x => x != 0).ToArray();
             #endregion
         }
         #endregion Update
@@ -880,7 +914,20 @@ namespace ARF_Editor.Forms
                 if (boxes[i] == me)
                 {
                     numUpDowns[i].Enabled = me.SelectedIndex != 0;
-                    numUpDowns[i].Value = me.SelectedIndex != 0 ? 1 : 0;
+
+                    // Wen keine Attacke
+                    if (me.SelectedIndex == 0)
+                    {
+                        numUpDowns[i].Value = numUpDowns[i].Minimum = 0;
+                    }
+                    // Wenn eine Attacke ausgewählt
+                    else
+                    {
+                        numUpDowns[i].Minimum = 1;
+                        if (numUpDowns[i].Value == 0)
+                            numUpDowns[i].Value = 1;
+
+                    }
                 }
             }
         }
@@ -894,6 +941,11 @@ namespace ARF_Editor.Forms
 
         private void btn_AddAttacke_Click(object sender, EventArgs e)
         {
+            if (this.flowLayoutPanel_AttackenPerItem.Controls.Count == 100)
+            {
+                MessageBox.Show("Es können maximal 100 erlernbare Attacken hinzugefügt werden", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ComboBox box = new ComboBox();
 
             box.Size = new Size(235, 23);
@@ -909,12 +961,13 @@ namespace ARF_Editor.Forms
 
         private void btn_EntferneItemAttacke_Click(object sender, EventArgs e)
         {
-
+            if (this.flowLayoutPanel_AttackenPerItem.Controls.Count > 0)
+                this.flowLayoutPanel_AttackenPerItem.Controls.Remove(this.flowLayoutPanel_AttackenPerItem.Controls[^1]);
         }
 
         private void btn_ClearItemAttacks_Click(object sender, EventArgs e)
         {
-
+            this.flowLayoutPanel_AttackenPerItem.Controls.Clear();
         }
     }
 }

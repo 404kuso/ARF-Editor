@@ -678,15 +678,6 @@
   <data name="tabPage1.Text" xml:space="preserve">
     <value>Attacken erlernbar per Items</value>
   </data>
-  <data name="tabPage3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>754, 304</value>
-  </data>
-  <data name="tabPage3.Text" xml:space="preserve">
-    <value>Fähigkeit</value>
-  </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>762, 332</value>
   </data>

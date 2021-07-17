@@ -14,38 +14,109 @@ namespace ARF_Editor.ARFCore.Karten
     {
         
         #region defined
-        private static readonly byte ChecksumLen = 2;
+        /// <summary>
+        /// Wie groß die Checksum ist
+        /// </summary>
+        private const byte checksumLen = 2;
+        /// <summary>
+        /// Das Standart-Header für eine Karte
+        /// </summary>
         public static readonly byte[] headerBytes = new byte[] { 0x2B, 0x52, 0x4D, 0x51, 0x49, 0x3C, 0x53, 0x5D, 0x45, 0x50, 0x49, 0x0F, 0xFF };
+
+        /// <summary>
+        /// Leere Details
+        /// </summary>
         private static byte[] emptyDetails
         {
             get => Enumerable.Repeat((byte)0x00, 0x150).ToArray();
         }
+
+        /// <summary>
+        /// Leere Statuswerte
+        /// </summary>
         private static byte[] emptyStats
         {
-            get => Enumerable.Repeat((byte)0x00, 0x08).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 8).ToArray();
         }
+
+        /// <summary>
+        /// Leere Attacken
+        /// </summary>
         private static byte[] emptyAttacks
         {
-            get => Enumerable.Repeat((byte)0x00, 0x0A).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 10).ToArray();
         }
+
+        /// <summary>
+        /// Leere durch Levelaufstieg erlernbare Attacken
+        /// </summary>
         private static byte[] emptyErlernbareAttacken
         {
             get => Enumerable.Repeat((byte)0x00, 45).ToArray();
         }
 
+        /// <summary>
+        /// Leere Attacken die erlernbar sind
+        /// </summary>
+        public static byte[] emptyAttackenPerItem
+        {
+            get => Enumerable.Repeat((byte)0x00, 300).ToArray();
+        }
+
+        /// <summary>
+        /// Der Inhalt für eine komplett leere Karte
+        /// </summary>
         public static byte[] emptyCard
         {
             get => headerBytes
+                // Details + FF FF FF
                 .Concat(emptyDetails).ToArray().Concat(new byte[3] {0xFF, 0xFF, 0xFF}).ToArray()
+                // Stats + FF FF
                 .Concat(emptyStats).ToArray().Concat(new byte[2] { 0xFF, 0xFF }).ToArray()
+                // Attacken + FF FF FF
                 .Concat(emptyAttacks).ToArray().Concat(new byte[3] { 0xFF, 0xFF, 0xFF }).ToArray()
-                .Concat(emptyErlernbareAttacken).ToArray();
+                // Erlernbare Attacken
+                .Concat(emptyErlernbareAttacken).ToArray()
+                // Itemattacken
+                .Concat(emptyAttackenPerItem).ToArray();
         }
         #endregion
 
 
 
         #region newCard
+        /// <summary>
+        /// Erstellt eine leere neue Karte
+        /// </summary>
+        /// <value>
+        /// <b>Details</b>
+        /// <list type="bullet">
+        ///     <item>ID <c>1</c></item>
+        ///     <item>Name <c>""</c></item>
+        ///     <item>Beschreibung:<c>""</c></item>
+        ///     <item>Herkunft <c>""</c></item>
+        ///     <item>Geschlecht <c>männlich</c></item>
+        ///     <item>Seltenheit <c>gewöhnlich</c></item>
+        ///     <item></item>
+        /// </list>
+        /// <br/>
+        /// <b>Stats</b>
+        /// <list type="bullet">
+        ///     <item>Level <c>1</c></item>
+        ///     <item>Angriff <c>15</c></item>
+        ///     <item>Verteidigung <c>15</c></item>
+        ///     <item>Schnelligkeit <c>15</c></item>
+        ///     <item>LP <c>40</c></item>
+        /// </list>
+        /// <b>Attacken</b>
+        /// <list type="number">
+        ///     <item>Attacke <c>1</c></item>
+        ///     <item>Attacke <c>0</c></item>
+        ///     <item>Attacke <c>0</c></item>
+        ///     <item>Attacke <c>0</c></item>
+        /// </list>
+        /// <i>Die restlichen Werte sind alle 0 (leer)</i>
+        /// </value>
         public Karte()
         {
             this.fileContent = emptyCard;
@@ -65,34 +136,60 @@ namespace ARF_Editor.ARFCore.Karten
 
             this.AttackenID_1 = 1;
             this.AttackenID_2 = 0;
+            this.AttackenID_3 = 0;
+            this.AttackenID_4 = 0;
 
         }
 
         #region filestream
+        /// <summary>
+        /// Setzt den filestream der Karte
+        /// </summary>
+        /// <param name="fs">Der neue Filestream</param>
         public void setFS(FileStream fs) => this.fs = fs;
+        
+        /// <summary>
+        /// Ob der filestream gesetzt wurde
+        /// </summary>
         public bool fsSet
         {
             get => this.fs != null;
         }
         
+        /// <summary>
+        /// Der filestream fürs Lesen/Schreiben
+        /// </summary>
         private FileStream fs;
         #endregion fileStream
         #endregion
-
-        private byte[] fileContent;
+        
         /// <summary>
-        /// Der Primarykey int in der Datenbank
+        /// Der Datei-Inhalt für die Karte
+        /// </summary>
+        private byte[] fileContent;
+
+        /// <summary>
+        /// Der Primary-Key für die Datenbank
         /// </summary>
         public ushort PK = 0x00;
+
+        /// <summary>
+        /// Erstellt eine neue Karte abhängig von einem Filestream
+        /// </summary>
+        /// <param name="fs">Der Filestream, aus dem die Karteninfos rausgelesen werden sollen und in den auch geschrieben wird</param>
         public Karte(FileStream fs)
         {
             this.fs = fs;
             
-            this.fileContent = new byte[2000];
+            this.fileContent = new byte[3000];
             this.fs.Read(this.fileContent);
 
             this.UpdatePK();
         }
+
+        /// <summary>
+        /// Aktuallisiert den PK Wert, der aus der Datenbank ausgelesen wird
+        /// </summary>
         public void UpdatePK()
         {
             if (Database.connectionHergestellt)
@@ -106,14 +203,21 @@ namespace ARF_Editor.ARFCore.Karten
             }
         }
 
+        /// <summary>
+        /// Speichert die Karte in dem aktuellen Filestream
+        /// </summary>
         public void Save()
         {
+            // fixt checksums von den Blöcken
             this.FixSumDetailsBlock();
             this.FixSumStatsBlock();
             this.FixSumAttacksBlock();
 
+            // Setzt die filestream position zum Anfang (0x00)
             this.fs.Seek(0x00, SeekOrigin.Begin);
+            // Schreibt den Karten content in die Datei
             this.fs.Write(this.fileContent, 0, this.fileContent.Length);
+            // Speichert
             this.fs.Flush();
 
             #region seeks
@@ -136,20 +240,32 @@ namespace ARF_Editor.ARFCore.Karten
             #endregion
         }
 
-
+        /// <summary>
+        /// Berechnet die Checksum für einen Block
+        /// </summary>
+        /// <param name="block">Der Block für den berechnet werden soll</param>
+        /// <returns>Die berechnete Checksum</returns>
         public byte[] CalculateChecksum(byte[] block)
         {
-            return BitConverter.GetBytes(Checksum.CRC16_CCITT(block, 0, block.Length - ChecksumLen));
+            return BitConverter.GetBytes(Checksum.CRC16_CCITT(block, 0, block.Length - checksumLen));
         }
 
         #region Attributes
         #region Header
+        /// <summary>
+        /// Das Header der Datei, sollte normalerweise <c>2B 52 4D 51 49 3C 53 5D 45 50 49 0F FF</c> sein
+        /// <br/>
+        /// <b>Adresse</b>: [<c>0x00</c>] - [<c>0x0D</c>]
+        /// </summary>
         public byte[] Header
         {
             get => fileContent[0x00..0x0D];
             set => fileContent.Set(0x00, value);
         }
 
+        /// <summary>
+        /// Fixt das Header in dem das Header zu den Standartwerden gesetzt wird
+        /// </summary>
         public void fixHeader()
         {
             this.Header = headerBytes;
@@ -158,11 +274,20 @@ namespace ARF_Editor.ARFCore.Karten
 
 
         #region DetailsBlock
+        /// <summary>
+        /// Der Teil in der Datei in dem die Karteninfos stehen
+        /// <br/>
+        /// <b>Adresse</b>: [<c>0x0D</c>] - [<c>0x15D</c>]
+        /// </summary>
         public byte[] DetailsBlock
         {
             get => this.fileContent[0x0D..0x15D];
             set => this.fileContent.Set(0x0D, value);
         }
+
+        /// <summary>
+        /// Fixt die Checksum vom Details Block
+        /// </summary>
         public void FixSumDetailsBlock()
         {
             this.DetailsBlockChecksum = this.CalculateChecksum(this.DetailsBlock);
@@ -180,11 +305,20 @@ namespace ARF_Editor.ARFCore.Karten
         }
         #endregion StatsBlock
         #region AttacksBlock
+        /// <summary>
+        /// Der Block in denen die Attacken, die die Karte hat, enthalten sind
+        /// <br/>
+        /// <b>Adresse</b>: [<c>0x16A</c>] - [<c>0x174</c>]
+        /// </summary>
         public byte[] AttacksBlock
         {
             get => this.fileContent[0x16A..0x174];
             set => this.fileContent.Set(0x16A, value);
         }
+
+        /// <summary>
+        /// Fixt die Checksum vom Attacken Block
+        /// </summary>
         public void FixSumAttacksBlock()
         {
             this.AttacksBlockChecksum = this.CalculateChecksum(this.AttacksBlock);
@@ -194,38 +328,62 @@ namespace ARF_Editor.ARFCore.Karten
         #region CardDetails
         /// <summary>
         /// Die Karten ID
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x00</c>] - [<c>0x02</c>]
         /// </summary>
         public ushort ID
         {
             get => BitConverter.ToUInt16(this.DetailsBlock[0x00..0x02]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x00, BitConverter.GetBytes(value));
         }
+
         /// <summary>
         /// Der Name von der Karte
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x02</c>] - [<c>0x22</c>]
         /// </summary>
         public string Name
         {
             get => StringCode.DecodeBytes(this.DetailsBlock[0x02..0x22]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x02, StringCode.EncodeString(value, 32));
         }
+
         /// <summary>
         /// Die Beschreibung von der Karte
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x22</c>] - [<c>0x122</c>]
         /// </summary>
         public string Beschreibung
         {
             get => StringCode.DecodeBytes(this.DetailsBlock[0x22..0x122]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x22, StringCode.EncodeString(value, 256));
         }
+
         /// <summary>
         /// Aus welchem Anime die Karte stammt
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x122</c>] - [<c>0x142</c>]
         /// </summary>
         public string Herkunft
         {
             get => StringCode.DecodeBytes(this.DetailsBlock[0x122..0x142]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x122, StringCode.EncodeString(value, 32));
         }
+
         /// <summary>
-        /// Bei welchen Karten im Team diese Karte einen Status Boost bekommt
+        /// Die IDs von den Karten bei denen diese Karte im Team einen Status Boost bekommt
+        /// <br/>
+        /// <br/>
+        /// Adressen (im Block): <br/>
+        ///     [<c>0x142</c>] - [<c>0x144</c>] <br/>
+        ///     [<c>0x144</c>] - [<c>0x146</c>] <br/>
+        ///     [<c>0x146</c>] - [<c>0x148</c>] <br/>
+        ///     [<c>0x148</c>] - [<c>0x14A</c>] <br/>
+        ///     [<c>0x14A</c>] - [<c>0x14C</c>] <br/>
         /// </summary>
         public ushort[] ZusammenSpiel
         {
@@ -238,37 +396,53 @@ namespace ARF_Editor.ARFCore.Karten
             };
             set => this.DetailsBlock = this.DetailsBlock.Set(0x142, value.Select(b => BitConverter.GetBytes(b)).ToArray().TwoDimensionsToOne());
         }
+
         /// <summary>
         /// Die Seltenheit der Karte
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x14C</c>] - [<c>0x14D</c>]
         /// </summary>
         /// <value>
-        /// <list type="bullet">
+        /// <list type="table">
         /// <item><c>0x00</c> Gewöhnlich</item>
         /// <item><c>0x01</c> Ungewöhnlich</item>
         /// <item><c>0x02</c> Selten</item>
         /// <item><c>0x03</c> Episch</item>
         /// <item><c>0x04</c> Legendär</item>
         /// <item><c>0x05</c> Mystisch</item>
-        /// </value>
         /// </list>
+        /// </value>
         public byte Seltenheit
         {
             get => this.DetailsBlock[0x14C];
             set => this.DetailsBlock = this.DetailsBlock.Set(0x14C, value);
         }
+
         /// <summary>
         /// Das Geschlecht der Karte
-        /// 0x00 = Männlich
-        /// 0x01 = Webilich
-        /// 0x02 = 
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x14D</c>] - [<c>0x14E</c>]
         /// </summary>
+        /// <value>
+        /// <list type="table">
+        /// <item><c>0x00</c> Männlich</item>
+        /// <item><c>0x01</c> Webilich</item>
+        /// <item><c>0x02</c> Divers</item>
+        /// <item><c>0x03</c> Unbekannt</item>
+        /// </list>
+        /// </value>
         public byte Geschlecht
         {
             get => this.DetailsBlock[0x14D];
             set => this.DetailsBlock = this.DetailsBlock.Set(0x14D, value);
         }
+
         /// <summary>
-        /// Die Checksum für den Detailsblock, um korrupte Karten zu erkennen
+        /// 2 Byte Checksum für den Detailsblock, um korrupte Karten zu erkennen<br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x14E</c>] - [<c>0x150</c>]
         /// </summary>
         public byte[] DetailsBlockChecksum
         {
@@ -345,38 +519,57 @@ namespace ARF_Editor.ARFCore.Karten
         #region CardAttacks
         /// <summary>
         /// Die ID von der 1. Attacke
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x00</c>] - [<c>0x02</c>]
         /// </summary>
         public ushort AttackenID_1
         {
             get => BitConverter.ToUInt16(this.AttacksBlock[0x00..0x02]);
             set => this.AttacksBlock = this.AttacksBlock.Set(0x00, BitConverter.GetBytes(value));
         }
+
         /// <summary>
         /// Die ID von der 2. Attacke
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x02</c>] - [<c>0x04</c>]
         /// </summary>
         public ushort AttackenID_2
         {
             get => BitConverter.ToUInt16(this.AttacksBlock[0x02..0x04]);
             set => this.AttacksBlock = this.AttacksBlock.Set(0x02, BitConverter.GetBytes(value));
         }
+
         /// <summary>
         /// Die ID von der 3. Attacke
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x04</c>] - [<c>0x06</c>]
         /// </summary>
         public ushort AttackenID_3
         {
             get => BitConverter.ToUInt16(this.AttacksBlock[0x04..0x06]);
             set => this.AttacksBlock = this.AttacksBlock.Set(0x04, BitConverter.GetBytes(value));
         }
+
         /// <summary>
         /// Die ID von der 4. Attacke
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x06</c>] - [<c>0x08</c>]
         /// </summary>
         public ushort AttackenID_4
         {
             get => BitConverter.ToUInt16(this.AttacksBlock[0x06..0x08]);
             set => this.AttacksBlock = this.AttacksBlock.Set(0x06, BitConverter.GetBytes(value));
         }
+
         /// <summary>
-        /// Die Checksum für den Attackenblock
+        /// Checksum für den Attackenblock
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x08</c>] - [<c>0x0A</c>]
         /// </summary>
         public byte[] AttacksBlockChecksum
         {
@@ -385,13 +578,30 @@ namespace ARF_Editor.ARFCore.Karten
         }
         #endregion
         #region Erlernbare Atacken
+        /// <summary>
+        /// Block in dem die Attacken, die durch Levelaufstieg erlernbar sind enthalten sind
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b>: [<c>0x177</c>] - [<c>0x14A</c>]
+        /// </summary>
         public byte[] ErlernbareAttackenBlock
         {
             get => this.fileContent[0x177..0x1A4];
             set => this.fileContent = this.fileContent.Set(0x177, value);
         }
+
         /// <summary>
-        /// 15 erlernbare Attacken
+        /// 15 Attacken die durch Levelaufstieg erlernbar sind
+        /// <br/>
+        /// <br/>
+        /// 
+        /// <b>Variablen-Format</b> <br/>
+        ///     <c>(level, attackenID)</c> <br/> <br/>
+        ///     
+        /// <b>Datei-Format</b><br/>
+        ///     [<c>0x00</c>]                           Level
+        ///     <br/>
+        ///     [<c>0x01</c>] - [<c>0x02</c>]           Attacken ID
         /// </summary>
         public (byte, ushort)[] ErlernbareAtacken
         {
@@ -408,6 +618,57 @@ namespace ARF_Editor.ARFCore.Karten
                 foreach ((byte, ushort) x in value)
                     attacken.AddRange( new byte[] { x.Item1 }.Concat(BitConverter.GetBytes(x.Item2)) );
                 this.ErlernbareAttackenBlock = this.ErlernbareAttackenBlock.Set(0, attacken.ToArray());
+            }
+        }
+        #endregion
+        #region ItemAttacken
+        /// <summary>
+        /// Block in dem Attacken enthalten sind, die für die Karte erlernbar sind
+        /// <br/>
+        /// <br/>
+        /// <b>Adresse</b>: [<c>0x1A4</c>] - [<c>0x26C</c>]
+        /// </summary>
+        private byte[] AttackenPerItemBlock
+        {
+            get => this.fileContent[0x1A4..0x26C];
+            set => this.fileContent = this.fileContent.Set(0x1A4, value);
+        }
+
+        /// <summary>
+        /// 100 Attacken die die Karte erlernen kann
+        /// <br/>
+        /// <br/>
+        /// <b>Variablen-Format</b> <br/>
+        ///     <c>attackenID</c> <br/> <br/>
+        ///     
+        /// <b>Datei-Format</b><br/>
+        ///     [<c>0x00</c>]                           Level (immer 0)
+        ///     <br/>
+        ///     [<c>0x01</c>] - [<c>0x02</c>]           Attacken ID
+        /// </summary>
+        public ushort[] AttackenPerItem
+        {
+            get
+            {
+                ushort[] attacken = new ushort[100];
+
+                int attIndex = 0;
+                for (int i = 0; i < 150; i += 3)
+                {
+                    attacken[attIndex] = BitConverter.ToUInt16(this.AttackenPerItemBlock[(i + 1)..(i + 3)]);
+                    attIndex++;
+                }
+                return attacken;
+            }
+            set
+            {
+                List<byte> attacken = new List<byte>();
+                foreach (ushort u in value)
+                    attacken.AddRange(new byte[1] { 0x00 }.Concat(BitConverter.GetBytes(u)).ToArray());
+                for (int i = 0; i < 150 - attacken.Count; i++)
+                    attacken.AddRange(new byte[3] { 0x00, 0x00, 0x00 });
+                this.AttackenPerItemBlock = this.AttackenPerItemBlock.Set(0, attacken.ToArray());
+
             }
         }
         #endregion
