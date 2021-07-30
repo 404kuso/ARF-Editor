@@ -5,13 +5,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>ARF_Editor</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
-    <Authors>DaRealKuso</Authors>
+    <Authors>404kuso</Authors>
     <Company>AnimeJunkies.tv</Company>
-    <Description>Ein Editor für AnimeRoyale Karten, Item und Attackendateien, der das Erstellen und Bearbeiten erleichtern soll</Description>
+    <Description>Ein Editor für AnimeRoyale Karten- und Attackendateien, der das Erstellen und Bearbeiten von diesen erleichtern soll</Description>
     <PackageProjectUrl></PackageProjectUrl>
-    <RepositoryUrl>https://github.com/404kuso/ARF-Editor</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AnimeJunkies-TV/ARF-Editor</RepositoryUrl>
     <StartupObject></StartupObject>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>

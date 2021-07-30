@@ -630,7 +630,7 @@ namespace ARF_Editor.ARFCore.Karten
         /// </summary>
         private byte[] AttackenPerItemBlock
         {
-            get => this.fileContent[0x1A4..0x26C];
+            get => this.fileContent[0x1A4..0x2D0];
             set => this.fileContent = this.fileContent.Set(0x1A4, value);
         }
 
@@ -642,9 +642,9 @@ namespace ARF_Editor.ARFCore.Karten
         ///     <c>attackenID</c> <br/> <br/>
         ///     
         /// <b>Datei-Format</b><br/>
-        ///     [<c>0x00</c>]                           Level (immer 0)
+        ///     [<c>0x00</c>]                     Level (immer 0)
         ///     <br/>
-        ///     [<c>0x01</c>] - [<c>0x02</c>]           Attacken ID
+        ///     [<c>0x01</c>] - [<c>0x02</c>]     Attacken ID
         /// </summary>
         public ushort[] AttackenPerItem
         {
@@ -653,7 +653,7 @@ namespace ARF_Editor.ARFCore.Karten
                 ushort[] attacken = new ushort[100];
 
                 int attIndex = 0;
-                for (int i = 0; i < 150; i += 3)
+                for (int i = 0; i < AttackenPerItemBlock.Length; i += 3)
                 {
                     attacken[attIndex] = BitConverter.ToUInt16(this.AttackenPerItemBlock[(i + 1)..(i + 3)]);
                     attIndex++;
@@ -667,6 +667,7 @@ namespace ARF_Editor.ARFCore.Karten
                     attacken.AddRange(new byte[1] { 0x00 }.Concat(BitConverter.GetBytes(u)).ToArray());
                 for (int i = 0; i < 150 - attacken.Count; i++)
                     attacken.AddRange(new byte[3] { 0x00, 0x00, 0x00 });
+                MessageBox.Show(attacken.ToArray().Length.ToString());
                 this.AttackenPerItemBlock = this.AttackenPerItemBlock.Set(0, attacken.ToArray());
 
             }
