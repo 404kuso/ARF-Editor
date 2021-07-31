@@ -14,7 +14,7 @@ Der Headerblock ist geteilt in `0x00` : `0x0D`
 
 Das Header ist hauptsächlich immer das selbe für alle ARF-Dateien:
 ```
-00 01 02 03 04 05 06 07 08 09 0A	 0B		 0C
+00 01 02 03 04 05 06 07 08 09 0A     0B      0C
 2B 52 4D 51 49 3C 53 5D 45 50 49 {Headertyp} FF
 ```
 wo `0x0B` (Headertyp) den Dateitypen beschreibt (siehe unten Dateitypen)
