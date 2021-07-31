@@ -116,7 +116,7 @@ Erlernbare Attacken sind in zwei Blocke aufgeteilt:
 - `0x1D1` : `0x235`
 > 100 Attacken die durch andere Wege wie Items oder so erlernt werden können
 
-Das Format ist gleich, der Block ist unterteilt in jeweils 115 mal [`byte`: Level, `byte, byte` (ushort) Attacken ID].
+Das Format ist gleich, der gesamte Block ist unterteilt in 130 mal [`byte`: Level, `byte, byte` (ushort) Attacken ID].
 Das heißt, wenn die ersten 3 bytes des Blocks beispielsweise `05 00 02` wären, würde das heißen das bei Level 5 die Attacke mit der ID 2 erlernt werden könnte
 
 
