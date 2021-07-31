@@ -5,7 +5,7 @@ Dazu gehören Karten- und Attackendateien.
 
 # Typen
 
-ARF steht für AnimeRoyale-File und beschreibt alle Dateientypen für AnimeRoylae
+ARF steht für AnimeRoyale-File und beschreibt alle Dateientypen für AnimeRoyale
 
 
 ## Header
@@ -110,9 +110,9 @@ Die Attacken die die Karte im Kampf besitzt
 #### Erlernbare Attacken
 
 Erlernbare Attacken sind in zwei Blocke aufgeteilt:
-- `0x177` : `0x1A4`
-> 15 Attacken die durch Levelaufstieg erlernt werden können
-- `0x1A4` : `0x2D0`
+- `0x177` : `0x1D1`
+> 30 Attacken die durch Levelaufstieg erlernt werden können
+- `0x1D1` : `0x235`
 > 100 Attacken die durch andere Wege wie Items oder so erlernt werden können
 
 Das Format ist gleich, der Block ist unterteilt in jeweils 115 mal [`byte`: Level, `byte, byte` (ushort) Attacken ID].

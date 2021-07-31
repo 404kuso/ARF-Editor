@@ -11,9 +11,10 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/AnimeJunkies-TV/ARF-Editor</RepositoryUrl>
     <StartupObject></StartupObject>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishSingleFile>true</PublishSingleFile>
+    <RepositoryType>Git-repo</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

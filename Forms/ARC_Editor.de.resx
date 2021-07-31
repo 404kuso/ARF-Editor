@@ -471,6 +471,231 @@
   <data name="comboBox_ErlernbareAttacke15.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 23</value>
   </data>
+  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 438</value>
+  </data>
+  <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="numericUpDown1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 438</value>
+  </data>
+  <data name="numericUpDown1.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 467</value>
+  </data>
+  <data name="comboBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="numericUpDown2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 467</value>
+  </data>
+  <data name="numericUpDown2.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 496</value>
+  </data>
+  <data name="comboBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="numericUpDown3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 496</value>
+  </data>
+  <data name="numericUpDown3.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 525</value>
+  </data>
+  <data name="comboBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="numericUpDown4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 525</value>
+  </data>
+  <data name="numericUpDown4.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="comboBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 554</value>
+  </data>
+  <data name="comboBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="numericUpDown5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 554</value>
+  </data>
+  <data name="numericUpDown5.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="comboBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 583</value>
+  </data>
+  <data name="comboBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="numericUpDown6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 583</value>
+  </data>
+  <data name="numericUpDown6.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="comboBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 612</value>
+  </data>
+  <data name="comboBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox7.TabIndex" type="System.Int32, mscorlib">
+    <value>94</value>
+  </data>
+  <data name="numericUpDown7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 612</value>
+  </data>
+  <data name="numericUpDown7.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="comboBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 641</value>
+  </data>
+  <data name="comboBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>96</value>
+  </data>
+  <data name="numericUpDown8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 641</value>
+  </data>
+  <data name="numericUpDown8.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="comboBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 670</value>
+  </data>
+  <data name="comboBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="numericUpDown9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 670</value>
+  </data>
+  <data name="numericUpDown9.TabIndex" type="System.Int32, mscorlib">
+    <value>99</value>
+  </data>
+  <data name="comboBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 699</value>
+  </data>
+  <data name="comboBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox10.TabIndex" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="numericUpDown10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 699</value>
+  </data>
+  <data name="numericUpDown10.TabIndex" type="System.Int32, mscorlib">
+    <value>101</value>
+  </data>
+  <data name="comboBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 728</value>
+  </data>
+  <data name="comboBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox11.TabIndex" type="System.Int32, mscorlib">
+    <value>102</value>
+  </data>
+  <data name="numericUpDown11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 728</value>
+  </data>
+  <data name="numericUpDown11.TabIndex" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
+  <data name="comboBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 757</value>
+  </data>
+  <data name="comboBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox12.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="numericUpDown12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 757</value>
+  </data>
+  <data name="numericUpDown12.TabIndex" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <data name="comboBox13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 786</value>
+  </data>
+  <data name="comboBox13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox13.TabIndex" type="System.Int32, mscorlib">
+    <value>106</value>
+  </data>
+  <data name="numericUpDown13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 786</value>
+  </data>
+  <data name="numericUpDown13.TabIndex" type="System.Int32, mscorlib">
+    <value>107</value>
+  </data>
+  <data name="comboBox14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 815</value>
+  </data>
+  <data name="comboBox14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox14.TabIndex" type="System.Int32, mscorlib">
+    <value>108</value>
+  </data>
+  <data name="numericUpDown14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 815</value>
+  </data>
+  <data name="numericUpDown14.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="comboBox15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 844</value>
+  </data>
+  <data name="comboBox15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 23</value>
+  </data>
+  <data name="comboBox15.TabIndex" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="numericUpDown15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 844</value>
+  </data>
+  <data name="numericUpDown15.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
   <data name="flowLayoutPanel_ErlernbareAttacken.Size" type="System.Drawing.Size, System.Drawing">
     <value>384, 266</value>
   </data>

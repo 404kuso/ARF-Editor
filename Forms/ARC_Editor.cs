@@ -68,6 +68,15 @@ namespace ARF_Editor.Forms
 
         private void Form_Load(object sender, EventArgs e)
         {
+            #region formthings
+            var comboxes = this.flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().ToArray();
+            for(int i = 0; i < comboxes.Length; i++)
+            {
+                comboxes[i].SelectedIndexChanged += comboBox_erlernbareAttackeSelectedIndexChanged;
+                comboxes[i].Leave += comboBox_Leave;
+            }
+            #endregion
+
             #region settings
             // Directory für App Settings, etc.
             if (!Directory.Exists(Environment.GetEnvironmentVariable("appdata") + @"\ARF-Editor"))
@@ -372,7 +381,7 @@ namespace ARF_Editor.Forms
             ushort[] attacks = flowLayoutPanel_ErlernbareAttacken.Controls.OfType<ComboBox>().Select(x => Convert.ToUInt16((x.SelectedItem as ComboBoxItem).Value)).ToArray();
             byte[] levels = flowLayoutPanel_ErlernbareAttacken.Controls.OfType<NumericUpDown>().Select(x => (byte) x.Value).ToArray();
 
-            (byte, ushort)[] erlernbareAttacken = new (byte, ushort)[15];
+            (byte, ushort)[] erlernbareAttacken = new (byte, ushort)[30];
             for (int i = 0; i < attacks.Length; i++)
                 erlernbareAttacken[i] = (levels[i], attacks[i]);
             card.ErlernbareAtacken = erlernbareAttacken;

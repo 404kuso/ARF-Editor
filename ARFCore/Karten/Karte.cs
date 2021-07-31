@@ -52,7 +52,7 @@ namespace ARF_Editor.ARFCore.Karten
         /// </summary>
         private static byte[] emptyErlernbareAttacken
         {
-            get => Enumerable.Repeat((byte)0x00, 45).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 90).ToArray();
         }
 
         /// <summary>
@@ -582,16 +582,16 @@ namespace ARF_Editor.ARFCore.Karten
         /// Block in dem die Attacken, die durch Levelaufstieg erlernbar sind enthalten sind
         /// <br/>
         /// <br/>
-        /// <b>Adresse</b>: [<c>0x177</c>] - [<c>0x14A</c>]
+        /// <b>Adresse</b>: [<c>0x177</c>] - [<c>0x1D1</c>]
         /// </summary>
         public byte[] ErlernbareAttackenBlock
         {
-            get => this.fileContent[0x177..0x1A4];
+            get => this.fileContent[0x177..0x1D1];
             set => this.fileContent = this.fileContent.Set(0x177, value);
         }
 
         /// <summary>
-        /// 15 Attacken die durch Levelaufstieg erlernbar sind
+        /// 30 Attacken die durch Levelaufstieg erlernbar sind
         /// <br/>
         /// <br/>
         /// 
@@ -607,9 +607,11 @@ namespace ARF_Editor.ARFCore.Karten
         {
             get
             {
-                List<(byte, ushort)> attacken = new List<(byte, ushort)>();
+                (byte, ushort)[] attacken = new (byte, ushort)[30];
+
+                int attack_index = 0;
                 for (int i = 0; i < this.ErlernbareAttackenBlock.Length; i += 3)
-                    attacken.Add((this.ErlernbareAttackenBlock[i], BitConverter.ToUInt16(this.ErlernbareAttackenBlock[(i + 1)..(i + 3)])));
+                    attacken[attack_index++] = ( this.ErlernbareAttackenBlock[i], BitConverter.ToUInt16(this.ErlernbareAttackenBlock[(i + 1)..(i + 3)]) );
                 return attacken.ToArray();
             }
             set
@@ -626,12 +628,12 @@ namespace ARF_Editor.ARFCore.Karten
         /// Block in dem Attacken enthalten sind, die für die Karte erlernbar sind
         /// <br/>
         /// <br/>
-        /// <b>Adresse</b>: [<c>0x1A4</c>] - [<c>0x26C</c>]
+        /// <b>Adresse</b>: [<c>0x1D1</c>] - [<c>0x2FD</c>]
         /// </summary>
         private byte[] AttackenPerItemBlock
         {
-            get => this.fileContent[0x1A4..0x2D0];
-            set => this.fileContent = this.fileContent.Set(0x1A4, value);
+            get => this.fileContent[0x1D1..0x2FD];
+            set => this.fileContent = this.fileContent.Set(0x1D1, value);
         }
 
         /// <summary>
@@ -654,20 +656,17 @@ namespace ARF_Editor.ARFCore.Karten
 
                 int attIndex = 0;
                 for (int i = 0; i < AttackenPerItemBlock.Length; i += 3)
-                {
-                    attacken[attIndex] = BitConverter.ToUInt16(this.AttackenPerItemBlock[(i + 1)..(i + 3)]);
-                    attIndex++;
-                }
+                    attacken[attIndex++] = BitConverter.ToUInt16(this.AttackenPerItemBlock[(i + 1)..(i + 3)]);
                 return attacken;
             }
             set
             {
                 List<byte> attacken = new List<byte>();
                 foreach (ushort u in value)
-                    attacken.AddRange(new byte[1] { 0x00 }.Concat(BitConverter.GetBytes(u)).ToArray());
-                for (int i = 0; i < 150 - attacken.Count; i++)
-                    attacken.AddRange(new byte[3] { 0x00, 0x00, 0x00 });
-                MessageBox.Show(attacken.ToArray().Length.ToString());
+                    attacken.AddRange( (new byte[1] { 0x00 }).Concat(BitConverter.GetBytes(u)).ToArray());
+
+                if (300 - attacken.Count > 0)
+                    attacken.AddRange(Enumerable.Repeat((byte)0x00, 300 - attacken.Count));
                 this.AttackenPerItemBlock = this.AttackenPerItemBlock.Set(0, attacken.ToArray());
 
             }
