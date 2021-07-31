@@ -14,13 +14,16 @@ Der Headerblock ist geteilt in `0x00` : `0x0D`
 
 Das Header ist hauptsächlich immer das selbe für alle ARF-Dateien:
 ```
+00 01 02 03 04 05 06 07 08 09 0A	 0B		 0C
 2B 52 4D 51 49 3C 53 5D 45 50 49 {Headertyp} FF
 ```
-wo `0x0D` (Headertyp) den Dateitypen beschreibt (siehe unten Dateitypen)
+wo `0x0B` (Headertyp) den Dateitypen beschreibt (siehe unten Dateitypen)
 
 Genau wie das Header lassen sich ARF-Dateien in verschiedene Blöcke teilen, die sich je nach ARF-Typ unterscheiden
 
-
+**Dateitypen**
+- `0x0F`: Karte
+- `0x1F`: Attacke
 
 Notiz
 > Strings sind encodiert, für die Charactertabelle siehe [hier](#Chartable)
@@ -29,8 +32,6 @@ Notiz
 
 ARC (AnimeRoyale-Card) ist ein Dateiformat für eine AnimeRoyale Karte.
 In dieser sind alle Informationen über die Karte gespeichert
-
-Der Headertyp für eine Karte ist `0x0F`
 
 <details>
 <summary>Adressen</summary>
@@ -126,7 +127,6 @@ Das heißt, wenn die ersten 3 bytes des Blocks beispielsweise `05 00 02` wären,
 ARA (AnimeRoyale-Attack) ist ein Dateiformat für eine AnimeRoyale Attacke.
 Hier sind Informationen über die Attacke gespeichert
 
-Der Headertyp für eine Attacke ist `0x1F`
 
 <details>
 <summary>Adressen</summary>
