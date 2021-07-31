@@ -53,7 +53,7 @@ Allgemeine Daten über die Karte
 |Beschreibung		|`0x022`  :  `0x122`|string				|Beschreibung der Karte											|
 |Herkunft			|`0x122`  :  `0x142`|string				|Der Name vom Anime												|
 |Zusammenspiel		|`0x142`  :  `0x14C`|ushort[5]			|Fünf IDs bei denen die Karte einen Boost im Kampf bekommt		|
-|Seltenheit			|`0x14C`  :  `0x14D`|byte				|Das Geschlecht (0 männlich, 1 weblich, 2, divers, 3 unbekannt) |
+|Seltenheit			|`0x14C`  :  `0x14D`|byte				|Das Geschlecht (0 männlich, 1 webilich, 2 divers, 3 unbekannt) |
 |Checksum			|`0x14E`  :  `0x150`|byte[2]			|Checksum zum prüfen des Blockes								|
 
 
