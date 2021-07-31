@@ -108,6 +108,11 @@ Die Attacken die die Karte im Kampf besitzt
 |Checksum           |`0x08`   :   `0x0A`|byte[2]            |Checksum zum prüfen vom Block                                  |
 
 
+`0x174` : `0x177`
+```
+FF FF FF
+```
+
 #### Erlernbare Attacken
 
 Erlernbare Attacken sind in zwei Blocke aufgeteilt:
