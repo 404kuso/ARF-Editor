@@ -16,16 +16,16 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </summary>
         private const byte checksumLen = 2;
         /// <summary>
+        /// Das standart Header für eine Attacke
+        /// </summary>
+        public static readonly byte[] headerBytes = new byte[] { 0x2B, 0x52, 0x4D, 0x51, 0x49, 0x3C, 0x53, 0x5D, 0x45, 0x50, 0x49, 0x1F, 0xFF };
+        /// <summary>
         /// Eine leere Attacke
         /// </summary>
         private static byte[] emptyAttack
         {
-            get => headerBytes.Concat(Enumerable.Repeat((byte)0x00, 0x133).ToArray()).ToArray();
+            get => headerBytes.Concat(Enumerable.Repeat((byte)0x00, 0x229).ToArray()).ToArray();
         }
-        /// <summary>
-        /// Das standart Header für eine Attacke
-        /// </summary>
-        public static readonly byte[] headerBytes = new byte[] { 0x2B, 0x52, 0x4D, 0x51, 0x49, 0x3C, 0x53, 0x5D, 0x45, 0x50, 0x49, 0x1F, 0xFF };
         #endregion
 
         /// <summary>
@@ -43,6 +43,7 @@ namespace ARF_Editor.ARFCore.Attacken
         public Attacke()
         {
             this.fileContent = emptyAttack;
+            this.Range = 1;
         }
 
         #region fileStream
@@ -83,7 +84,7 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </summary>
         public void UpdatePK()
         {
-            if (Database.connectionHergestellt)
+            if (Database.connectionHergestellt && this.ID != 0 && this.Name != "")
             {
                 var reader = Database.Read($"SELECT * FROM attacks WHERE ID={this.ID} AND name='{this.Name}'");
                 if (reader.HasRows)
@@ -129,11 +130,11 @@ namespace ARF_Editor.ARFCore.Attacken
         /// <summary>
         /// Der Hauptblock der Attacke
         /// <br/> <br/>
-        /// <b>Adresse</b>: [<c>0x0D</c>] - [<c>0x135</c>]
+        /// <b>Adresse</b>: [<c>0x0D</c>] - [<c>0x236</c>]
         /// </summary>
         private byte[] Body
         {
-            get => this.fileContent[0x0D..0x135];
+            get => this.fileContent[0x0D..0x236];
             set => this.fileContent = this.fileContent.Set(0x0D, value);
         }
 
@@ -167,7 +168,7 @@ namespace ARF_Editor.ARFCore.Attacken
         public string AnzeigeText
         {
             get => StringCode.DecodeBytes(this.Body[0x22..0x122]);
-            set => this.Body = this.Body.Set(0x22, StringCode.EncodeString(value, 0x100));
+            set => this.Body = this.Body.Set(0x22, StringCode.EncodeString(value, 256));
         }
 
         /// <summary>
@@ -191,14 +192,24 @@ namespace ARF_Editor.ARFCore.Attacken
         }
 
         /// <summary>
+        /// Wieviele Gegner die Attacke trifft
+        /// <br/> <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x123</c>] - [<c>0x124</c>]
+        /// </summary>
+        public byte Range
+        {
+            get => this.Body[0x123];
+            set => this.Body = this.Body.Set(0x123, value);
+        }
+        /// <summary>
         /// Der Block in dem der Effekt gespeichert ist
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x123</c>] - [<c>0x125</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x124</c>] - [<c>0x126</c>]
         /// </summary>
         private byte[] EffektBlock
         {
-            get => this.Body[0x123..0x125];
-            set => this.Body = this.Body.Set(0x123, value);
+            get => this.Body[0x124..0x126];
+            set => this.Body = this.Body.Set(0x124, value);
         }
 
         /// <summary>
@@ -213,9 +224,20 @@ namespace ARF_Editor.ARFCore.Attacken
         ///     <item><c>0x02</c> Vergiftung</item>
         ///     <item><c>0x03</c> Paralyse</item>
         ///     <item><c>0x04</c> Verwirrung</item>
-        ///     <item><c>0x05</c> Angriffswert ></item>
-        ///     <item><c>0x06</c> Verteidigungswert ></item>
-        ///     <item><c>0x07</c> Angriffswert und Verteidigungswert ></item>
+        ///     <item><c>0x05</c> Angriffswert -</item>
+        ///     <item><c>0x06</c> Verteidigungswert -</item>
+        ///     <item><c>0x07</c> Angriffswert und Verteidigungswert -</item>
+        ///     <item><c>0x08</c> Schnelligkeitswert -</item>
+        ///     <item><c>0x09</c> Angriffswert, Schnelligkeitswert -</item>
+        ///     <item><c>0x0A</c> Angriffswert, Verteidigungswert, Schnelligkeitswert -</item>
+        ///     <item><c>0x0B</c> Verteidigungswert, Schnelligkeitswert -</item>
+        ///     <item><c>0x0C</c> Angriffswert +</item>
+        ///     <item><c>0x0D</c> Verteidigungswert +</item>
+        ///     <item><c>0x0E</c> Angriffswert, Verteidigungswert +</item>
+        ///     <item><c>0x0F</c> Schnelligkeitswert +</item>
+        ///     <item><c>0x10</c> Angriffswert und Schnelligkeitswert +</item>
+        ///     <item><c>0x11</c> Angriffswert, Verteidigungswert, Schnelligkeitswert +</item>
+        ///     <item><c>0x12</c> Verteidigungswert, Schnelligkeitswert +</item>
         /// </list>
         /// </value>
         public byte Effekt
@@ -229,7 +251,7 @@ namespace ARF_Editor.ARFCore.Attacken
         /// 1 : Wert = die Chance dass der Effekt auftritt liegt bei 1 zu dem Wert <br/>
         /// Wenn immer Status geändert wird, ist Wert 1, wenn keine Statusänderung auftritt 0
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x01</c>] - [<c>0xß2</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x01</c>] - [<c>0x02</c>]
         /// </summary>
         public byte Chance
         {
@@ -244,20 +266,31 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </summary>
         public byte Stärke
         {
-            get => (byte) this.Body[0x125];
-            set => this.Body = this.Body.Set(0x125, value);
+            get => (byte) this.Body[0x126];
+            set => this.Body = this.Body.Set(0x126, value);
+        }
+
+        /// <summary>
+        /// Die Beschreibung von der Karte
+        /// <br/> <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x126</c>] - [<c>0x227</c>]
+        /// </summary>
+        public string Beschreibung
+        {
+            get => StringCode.DecodeBytes(this.Body[0x127..0x227]);
+            set => this.Body = this.Body.Set(0x127, StringCode.EncodeString(value, 256));
         }
 
         #region Checksum
         /// <summary>
         /// Die Checksum von der Datei
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x126</c>] - [<c>0x128</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x227</c>] - [<c>0x229</c>]
         /// </summary>
         public byte[] FileChecksum
         {
-            get => this.Body[0x126..0x128];
-            set => this.Body = this.Body.Set(0x126, value);
+            get => this.Body[0x227..0x229];
+            set => this.Body = this.Body.Set(0x227, value);
         }
 
         /// <summary>

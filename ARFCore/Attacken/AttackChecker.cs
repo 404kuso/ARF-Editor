@@ -23,6 +23,7 @@ namespace ARF_Editor.ARFCore.Attacken
         }
 
         public static bool ValidHeader(Attacke attacke) => attacke.Header.EqualTo(Attacke.headerBytes);
+        public static bool ValidHeader(byte[] header) => header.EqualTo(Attacke.headerBytes);
 
         public static bool ValidID(Attacke attacke) => Database.connectionHergestellt ? !Database.Read($"SELECT * FROM attacks WHERE NOT pk={attacke.PK} AND ID={attacke.ID}").HasRows && attacke.ID > 0 : attacke.ID > 0;
     }

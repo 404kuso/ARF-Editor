@@ -17,16 +17,17 @@ Das Header ist hauptsächlich immer das selbe für alle ARF-Dateien:
 00 01 02 03 04 05 06 07 08 09 0A     0B      0C
 2B 52 4D 51 49 3C 53 5D 45 50 49 {Headertyp} FF
 ```
-wo `0x0B` (Headertyp) den Dateitypen beschreibt (siehe unten Dateitypen)
-
-Genau wie das Header lassen sich ARF-Dateien in verschiedene Blöcke teilen, die sich je nach ARF-Typ unterscheiden
+wo `0x0B` (Headertyp) den Dateitypen beschreibt
 
 **Dateitypen**
 - `0x0F`: Karte
 - `0x1F`: Attacke
 
+Genau wie das Header lassen sich ARF-Dateien in verschiedene Blöcke teilen, die sich je nach ARF-Typ unterscheiden
+
+
 Notiz
-> Strings sind encodiert, für die Charactertabelle siehe [hier](#Chartable)
+> Strings sind encodiert, für die Charactertabelle siehe [hier](#chartable)
 
 ## ARC
 
@@ -54,8 +55,8 @@ Allgemeine Daten über die Karte
 |Beschreibung		|`0x022`  :  `0x122`|string				|Beschreibung der Karte											|
 |Herkunft			|`0x122`  :  `0x142`|string				|Der Name vom Anime												|
 |Zusammenspiel		|`0x142`  :  `0x14C`|ushort[5]			|Fünf IDs bei denen die Karte einen Boost im Kampf bekommt		|
-|Seltenheit			|`0x14C`  :  `0x14D`|byte				|Das Geschlecht (0 männlich, 1 webilich, 2 divers, 3 unbekannt) |
-|Checksum			|`0x14E`  :  `0x150`|byte[2]			|Checksum zum prüfen des Blockes								|
+|Seltenheit			|`0x14C`  :  `0x14D`|byte				|Das [Geschlecht](#geschlecht)                                  |
+|Checksum			|`0x14E`  :  `0x150`|byte[2]			|Checksum zum Prüfen des Blockes								|
 
 
 `0x15D` : `0x160`
@@ -150,21 +151,38 @@ Die Attacke ist nur in zwei Blöcke geteilt, das Header und der Body
 |-------------------|-------------------|-------------------|---------------------------------------------------------------|
 |ID                 |`0x000`  :  `0x002`|ushort             |Die ID der Attacke                                             |
 |Name               |`0x002`  :  `0x022`|string             |Der Name der Karte                                             |
-|AnzeigeText        |`0x022`  :  `0x122`|string             |Der Text der angezeigt wird wenn die Attacke ausgeführt wird   |
-|Typ                |`0x122`  :  `0x123`|byte               |Der Typ der Attacke                                            |
-|Effekt             |`0x123`  :  `0x124`|byte               |Der Effekttyp von der Attacke                                  |
-|Chance             |`0x124`  :  `0x125`|byte               |Mit welcher Chance dieser Effekt eintritt                      |
-|Stärke             |`0x125`  :  `0x126`|byte               |Wie stark die Attacke ist
-|Checksum           |`0x126`  :  `0x128`|byte[2]            |Checksum zum prüfen vom Block
+|AnzeigeText        |`0x022`  :  `0x122`|string             |[Text](#atf) der angezeigt wird, wenn die Attacke benutzt wird |
+|Typ                |`0x122`  :  `0x123`|byte               |Der [Typ](#attackentyp) der Attacke                            |
+|Range				|`0x123`  :  `0x124`|byte				|Wieviele Gegner die Attacke treffen kann						|
+|Effekt             |`0x124`  :  `0x125`|byte               |Der [Effekttyp](#effekttyp) von der Attacke                    |
+|Chance             |`0x125`  :  `0x126`|byte               |Mit welcher Chance dieser Effekt eintritt                      |
+|Stärke             |`0x126`  :  `0x127`|byte               |Wie stark die Attacke ist										|
+|Beschreibung		|`0x127`  :  `0x227`|string				|Die Beschreibung über die Attacke								|
+|Checksum           |`0x227`  :  `0x229`|byte[2]            |Checksum zum prüfen vom Block									|
 
-**Attacken-Typen**
+</details>
+
+
+
+# Resourcen
+
+<h2 id="geschlecht">Geschlechter</h2>
+
+- `0x00`: Männlich
+- `0x01`: Weiblich
+- `0x02`: Divers
+- `0x03`: Unbekannt
+
+<h2 id="attackentyp">Attacken-Typen</h2>
+
 - `0x00`: Angriff
 - `0x01`: Verteidigung
 - `0x02`: Heilung
 - `0x03`: Boost
 - `0x04`: Effekt
 
-**Effekt-Typen**
+<h2 id="effekttyp">Effekt-Typen</h2>
+
 - `0x00`: Keiner
 - `0x01`: Verbrennung
 - `0x02`: Vergiftung
@@ -173,11 +191,26 @@ Die Attacke ist nur in zwei Blöcke geteilt, das Header und der Body
 - `0x05`: Angriffswert verniedrigen
 - `0x06`: Verteidigungswert verniedrigen
 - `0x07`: Angriffswert und Verteidigungswert verniedrigen
+- `0x08`: Schnelligkeitswert verniedrigen
+- `0x09`: Angriffswert und Schnelligkeitswert verniedrigen
+- `0x0A`: Angriffswert, Verteidigungswert, Schnelligkeitswert verniedrigen
+- `0x0B`: Verteidigungswert, Schnelligkeitswert verniedrigen
+- `0x0C`: Angriffswert erhöhen
+- `0x0D`: Verteidigungswert erhöhen
+- `0x0E`: Angriffswert, Verteidigungswert erhöhen
+- `0x0F`: Schnelligkeitswert erhöhen
+- `0x10`: Angriffswert und Schnelligkeitswert erhöhen
+- `0x11`: Angriffswert, Verteidigungswert, Schnelligkeitswert erhöhen
+- `0x12`: Verteidigungswert, Schnelligkeitswert erhöhen
 
-</details>
+<h2 id="atf">Anzeige-Text Format</h2>
+
+- `{executor}`: Die Karte die die Attacke ausführt
+- `{target}`: Die Karte auf die die Attacke angewendet werden soll
+- `{attack}`: Der Name der Attacke
 
 
-# Chartable
+<h2 id="chartable">Chartable</h2>
 
 Die Charactertabelle zum encodieren/decodieren von Text
 
@@ -252,6 +285,203 @@ Die Charactertabelle zum encodieren/decodieren von Text
 |`Ä`   |0x63        |
 |`Ö`   |0x64        |
 |`Ü`   |0x65        |
+|`\n`  |0x6A		|
 |` `   |0x70        |
 |`,`   |0x71        |
 |`.`   |0x72        |
+|`{`   |0x80		|
+|`}`   |0x81		|
+
+# Editor
+
+Es gibt zwei Editoren, den ARC und ARA Editor.
+
+## Regeln
+
+Es gibt spezielle "Regeln" im Editor. Wenn beispielsweise der Inhalt vom Textfeld zu lang ist, wird jede weitere Eingabe ignoriert
+
+### Textfelder
+
+- Zu langer Text
+: Wenn der Text zu lang ist, wird weitere Eingabe ignoriert
+- Kein gültiger Character (siehe [Chartable](#chartable))
+: Wenn ein ungültiges Zeichen eingegeben wurde, wird dieses ignoriert
+
+### Auswahlmenüs
+
+- Nichts ausgewählt
+: Wenn nichts richtig ausgewählt wurde, wird beim Verlassen des Felds automatisch das erste Element in der Auswahlliste ausgewählt
+
+### Zahlenfelder
+
+- Zahl zu hoch oder zu niedrig
+: Wenn eine Zahl zu hoch oder zu niedrig ist, wird es automatisch zum Maximum/Minimum gesetzt
+
+## Menu
+
+-	<details>
+	<summary>Datei</summary>
+
+	-	<details>
+		<summary>Neu</summary>
+
+		- `Karte`
+		: Erstellt eine neue Karte
+		- `Attacke`
+		: Erstellt eine neue Attacke
+
+		</details>
+
+	- `öffnen`
+	: Öffnet eine Datei und den dazugehörigen Editor
+
+	- `Speichern`
+	: Überschreibt die aktuell geöffnete Datei wenn eine geöffnet wurde, ansonsten wird der _speichern unter_ Dialog angezeigt
+
+	- `Speichern unter`
+	: Speichert die aktuelle Daten in einer neuen Datei
+
+
+	</details>
+-	<details>
+	<summary>Tools</summary>
+
+	- `In Datenbank eintragen`
+	: Speichert die aktuellen Daten in der Datenbank (sollte nicht notwendig sein zu nutzen)
+
+	- `Prüfen`
+	: Sieht je nach Editor anders aus. Hiermit können die aktuellen Daten auf Gültigkeit überprüft werden
+
+	-	<details>
+		<summary>Fenster</summary>
+
+		-	<details>
+			<summary>Wechseln</summary>
+			
+			- `ARC-Editor`
+			: Wechselt zum Karteneditor
+			- `ARA-Editor`
+			: Wechselt zum Attackeneditor
+
+			</details>
+
+		</details>
+
+	</details>
+
+-   <details>
+    <summary>Optionen</summary>
+
+    - `Datenbankpfad auswählen`
+    : Setzt den Pfad zur Datenbank für Vervollständigung von Attacken und Karten
+
+    </details>
+
+</details>
+
+## ARC-Editor
+
+### Allgemein
+
+> Hier sind allgemeine Informationen über die Karte
+
+- `ID`
+: Die ID von der Karte
+
+- `Name`
+: Der Name von der Karte
+
+- `Beschreibung`
+: Eine kurze Beschreibung von der Karte
+
+- `Herkunft`
+: Der Anime aus der die Karte stammt
+
+- `Seltenheit`
+: Wie selten die Karte ist
+
+- `Geschlecht`
+: Das Geschlecht der Karte
+
+- `Boost mit Karten`
+: Fünf Karten, bei denen diese Karte im Kampf einen Statuswertboost bekommt
+
+
+### Stats
+
+> Hier sind alle Statuswerte der Karte
+
+- `Level`
+: Das Level der Karte wenn man diese erhält
+
+- `Statuswerte`
+: Dieses Feld zeigt die Summe der Statuswerte an, wenn dieses Feld überschritten wird, sind die Werte ungültig
+
+- `Angriff`
+: Wie stark die Angriffe der Karte sein sollen
+
+- `Verteidigung`
+: Wie stark der gegnerische Schaden verringert werden soll
+
+- `Schnelligkeit`
+: Dieser Wert gibt an welche Karte zuerst ran kommt, außerdem wird bei höherer Schnelligkeit die Chance auf einen Volltreffer verringert
+
+- `Lebenspunkte`
+: Wieviele Lebenspunkte die Karte hat
+
+- `Attacken`
+: 4 Attacken die die Karte standartmäßig für den Kampf besitzt
+
+- `Erlernbare Attacken`
+: 30 Attacken die per Levelaufstieg erlernt werden können, `Erlernbare Attacke` ist die Attacke die erlernt werden kann und `Level` das Level das erreicht werden muss um diese Attacke zu erlernen
+
+### Attacken erlernbar per Item
+
+Eine Liste von Attacken, die durch andere Wege wie Levelaufstieg erlernt werden können
+
+## ARA-Editor
+
+- `ID`
+: Die ID von der Attacke
+
+- `Name`
+: Der Name der Attacke
+
+- `Anzeigetext`
+: Der Text der Angezeigt wird wenn die Attacke ausgeführt wird. Siehe [Formatierung](#atf)
+
+- `Typ`
+: Der Typ der Attacke
+    - `Angriff`
+    : Die Attacke macht Schaden
+
+    - `Verteidigung`
+    : Die Attacke verringert Schaden
+
+    - `Heilung`
+    : Die Attacke heilt Schaden
+
+    - `Boost`
+    : Die Attacke boostet Statuswerte einer eigenen Karte
+
+    - `Statusänderung`
+    : Die Attacke gibt einer gegnerischen Karte einen schlechten Effekt
+
+- `Stärke`
+: Wie stark die Attacke ist
+
+- `Fläche`
+: Wieviele Gegner die Attacke trifft.
+> Bei 2 Gegnern wird das ausgewählte Ziel und ein Zufälliges der restlichen zwei Karten getroffen, bei 3 werden alle gegnerischen Karten getroffen
+
+- [x] `Statusänderung bei Attacke`
+: Wenn dieses Feld ausgewählt wird, macht die Attacke zusätlich einen Effekt
+
+- `Status`
+: Der Effekt der das Ziel erhält
+
+- `Chance`
+: Wie die Chance steht das dieser Effekt eintritt (1 zu dem Wert)
+
+- `Beschreibung`
+: Die Beschreibung von der Attacke

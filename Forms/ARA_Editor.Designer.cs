@@ -64,24 +64,24 @@ namespace ARF_Editor.Forms
             this.fensterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolstrip_changeToACA_Editor = new System.Windows.Forms.ToolStripMenuItem();
-            this.aRIEditorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aRCEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aRIEditorToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datenbankpfadAuswählenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numUpDown_Range = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.richTxt_beschreibung = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_attackID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StatusChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AttackenStaerke)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Range)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDown_PK
             // 
             this.numericUpDown_PK.Enabled = false;
-            this.numericUpDown_PK.Location = new System.Drawing.Point(39, 175);
+            this.numericUpDown_PK.Location = new System.Drawing.Point(39, 262);
             this.numericUpDown_PK.Name = "numericUpDown_PK";
             this.numericUpDown_PK.Size = new System.Drawing.Size(61, 23);
             this.numericUpDown_PK.TabIndex = 27;
@@ -90,7 +90,7 @@ namespace ARF_Editor.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(12, 177);
+            this.label13.Location = new System.Drawing.Point(12, 264);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(21, 15);
             this.label13.TabIndex = 26;
@@ -103,7 +103,8 @@ namespace ARF_Editor.Forms
             this.richtTxt_AttackText.Size = new System.Drawing.Size(352, 72);
             this.richtTxt_AttackText.TabIndex = 24;
             this.richtTxt_AttackText.Text = "";
-            this.richtTxt_AttackText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richtTxt_AttackenBeschreibung_KeyPress);
+            this.richtTxt_AttackText.TextChanged += new System.EventHandler(this.richText_Beschreibung_Changed);
+            this.richtTxt_AttackText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label3
             // 
@@ -154,7 +155,8 @@ namespace ARF_Editor.Forms
             this.txt_AttackName.Name = "txt_AttackName";
             this.txt_AttackName.Size = new System.Drawing.Size(214, 23);
             this.txt_AttackName.TabIndex = 23;
-            this.txt_AttackName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_AttackenName_KeyPress);
+            this.txt_AttackName.TextChanged += new System.EventHandler(this.richText_Name_Changed);
+            this.txt_AttackName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label1
             // 
@@ -220,9 +222,20 @@ namespace ARF_Editor.Forms
             "Vergiftung",
             "Paralyse",
             "Verwirrung",
-            "Angriffswert >",
-            "Verteidigungswert >",
-            "Angriffswert und Verteidigungswert >"});
+            "Angriffswert -",
+            "Verteidigungswert -",
+            "Angriffswert, Verteidigungswert -",
+            "Schnelligkeitswert -",
+            "Angriffswert, Schnelligkeitswert -",
+            "Angriffswert, Verteidigungswert, Schnelligkeitswert -",
+            "Verteidigungswert, Schnelligkeitswert -",
+            "Angriffswert +",
+            "Verteidigungswert +",
+            "Angriffswert, Verteidigungswert +",
+            "Schnelligkeitswert +",
+            "Angriffswert und Schnelligkeitswert +",
+            "Angriffswert, Verteidigungswert, Schnelligkeitswert +",
+            "Verteidigungswert, Schnelligkeitswert +"});
             this.comboBox_StatusTyp.Location = new System.Drawing.Point(453, 131);
             this.comboBox_StatusTyp.Name = "comboBox_StatusTyp";
             this.comboBox_StatusTyp.Size = new System.Drawing.Size(245, 23);
@@ -281,7 +294,7 @@ namespace ARF_Editor.Forms
             0,
             0});
             this.numericUpDown_AttackenStaerke.Name = "numericUpDown_AttackenStaerke";
-            this.numericUpDown_AttackenStaerke.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown_AttackenStaerke.Size = new System.Drawing.Size(99, 23);
             this.numericUpDown_AttackenStaerke.TabIndex = 37;
             this.numericUpDown_AttackenStaerke.Value = new decimal(new int[] {
             1,
@@ -413,8 +426,7 @@ namespace ARF_Editor.Forms
             // fensterToolStripMenuItem
             // 
             this.fensterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.neuToolStripMenuItem1});
+            this.toolStripMenuItem1});
             this.fensterToolStripMenuItem.Name = "fensterToolStripMenuItem";
             this.fensterToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.fensterToolStripMenuItem.Text = "Fenster";
@@ -423,8 +435,7 @@ namespace ARF_Editor.Forms
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolstrip_changeToACA_Editor,
-            this.aRIEditorToolStripMenuItem2});
+            this.toolstrip_changeToACA_Editor});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.toolStripMenuItem1.Text = "Wechseln";
@@ -438,52 +449,6 @@ namespace ARF_Editor.Forms
             this.toolstrip_changeToACA_Editor.Size = new System.Drawing.Size(255, 22);
             this.toolstrip_changeToACA_Editor.Text = "ARC-Editor";
             this.toolstrip_changeToACA_Editor.Click += new System.EventHandler(this.changeToARC_Editor);
-            // 
-            // aRIEditorToolStripMenuItem2
-            // 
-            this.aRIEditorToolStripMenuItem2.Name = "aRIEditorToolStripMenuItem2";
-            this.aRIEditorToolStripMenuItem2.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.I)));
-            this.aRIEditorToolStripMenuItem2.Size = new System.Drawing.Size(255, 22);
-            this.aRIEditorToolStripMenuItem2.Text = "ARI-Editor";
-            this.aRIEditorToolStripMenuItem2.Click += new System.EventHandler(this.changeToARI_Editor);
-            // 
-            // neuToolStripMenuItem1
-            // 
-            this.neuToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aRCEditorToolStripMenuItem1,
-            this.toolStripMenuItem4,
-            this.aRIEditorToolStripMenuItem3});
-            this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            this.neuToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
-            this.neuToolStripMenuItem1.Text = "Neu";
-            this.neuToolStripMenuItem1.ToolTipText = "Öffnet ein neues seperates Fenster";
-            // 
-            // aRCEditorToolStripMenuItem1
-            // 
-            this.aRCEditorToolStripMenuItem1.Name = "aRCEditorToolStripMenuItem1";
-            this.aRCEditorToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.Q)));
-            this.aRCEditorToolStripMenuItem1.Size = new System.Drawing.Size(261, 22);
-            this.aRCEditorToolStripMenuItem1.Text = "ARC-Editor";
-            this.aRCEditorToolStripMenuItem1.Click += new System.EventHandler(this.newARC_Editor);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.A)));
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem4.Text = "ARA-Editor";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.newARA_Editor);
-            // 
-            // aRIEditorToolStripMenuItem3
-            // 
-            this.aRIEditorToolStripMenuItem3.Name = "aRIEditorToolStripMenuItem3";
-            this.aRIEditorToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.I)));
-            this.aRIEditorToolStripMenuItem3.Size = new System.Drawing.Size(261, 22);
-            this.aRIEditorToolStripMenuItem3.Text = "ARI-Editor";
             // 
             // optionenToolStripMenuItem
             // 
@@ -499,11 +464,66 @@ namespace ARF_Editor.Forms
             this.datenbankpfadAuswählenToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.datenbankpfadAuswählenToolStripMenuItem.Text = "Datenbankpfad auswählen";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(558, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 15);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Fläche";
+            // 
+            // numUpDown_Range
+            // 
+            this.numUpDown_Range.Location = new System.Drawing.Point(605, 70);
+            this.numUpDown_Range.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numUpDown_Range.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDown_Range.Name = "numUpDown_Range";
+            this.numUpDown_Range.Size = new System.Drawing.Size(92, 23);
+            this.numUpDown_Range.TabIndex = 40;
+            this.numUpDown_Range.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 176);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 15);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Beschreibung";
+            // 
+            // richTxt_beschreibung
+            // 
+            this.richTxt_beschreibung.Location = new System.Drawing.Point(12, 194);
+            this.richTxt_beschreibung.Name = "richTxt_beschreibung";
+            this.richTxt_beschreibung.Size = new System.Drawing.Size(686, 61);
+            this.richTxt_beschreibung.TabIndex = 42;
+            this.richTxt_beschreibung.Text = "";
+            this.richTxt_beschreibung.TextChanged += new System.EventHandler(this.richText_Beschreibung_Changed);
+            this.richTxt_beschreibung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            // 
             // ARA_Editor
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 207);
+            this.ClientSize = new System.Drawing.Size(710, 290);
+            this.Controls.Add(this.richTxt_beschreibung);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.numUpDown_Range);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.numericUpDown_AttackenStaerke);
             this.Controls.Add(this.label5);
@@ -527,12 +547,15 @@ namespace ARF_Editor.Forms
             this.Name = "ARA_Editor";
             this.Text = "ARA_Editor";
             this.Load += new System.EventHandler(this.ARA_Editor_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARA_Editor_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARA_Editor_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_attackID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StatusChance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AttackenStaerke)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Range)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,12 +597,11 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem fensterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolstrip_changeToACA_Editor;
-        private System.Windows.Forms.ToolStripMenuItem aRIEditorToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aRCEditorToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem aRIEditorToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem optionenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem datenbankpfadAuswählenToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numUpDown_Range;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RichTextBox richTxt_beschreibung;
     }
 }

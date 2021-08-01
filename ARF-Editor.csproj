@@ -11,7 +11,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/AnimeJunkies-TV/ARF-Editor</RepositoryUrl>
     <StartupObject></StartupObject>
-    <Version>0.0.3</Version>
+    <Version>0.1.0</Version>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishSingleFile>true</PublishSingleFile>
     <RepositoryType>Git-repo</RepositoryType>
@@ -35,9 +35,6 @@
 
   <ItemGroup>
     <Content Include="Database\index.db" />
-    <Content Include="settings.ini">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>

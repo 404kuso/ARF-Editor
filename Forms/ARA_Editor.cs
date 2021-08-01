@@ -20,16 +20,6 @@ namespace ARF_Editor.Forms
     public partial class ARA_Editor : Form
     {
         /// <summary>
-        /// Die ID für die aktuelle Windows Form
-        /// </summary>
-        public byte ID = 0;
-        /// <summary>
-        /// Setzt die aktuelle ID
-        /// </summary>
-        /// <param name="ID"></param>
-        public void setID(byte ID) => this.ID = ID;
-
-        /// <summary>
         /// Der Filestream für die aktuell geöffnete Attacke
         /// </summary>
         private FileStream attackStream;
@@ -78,7 +68,7 @@ namespace ARF_Editor.Forms
         /// </summary>
         private void ShowOpenDialog()
         {
-            openFileDialog.Filter = openFileDialog.Filter = "AnimeRoyale-Dateien|*.arc;*.ara;*.ari|AnimeRoyale-Karte|*.arc|AnimeRoyale-Attacke|*.ara|AnimeRoyale-Item|*.ari";
+            openFileDialog.Filter = openFileDialog.Filter = "AnimeRoyale-Dateien|*.arc;*.ara|AnimeRoyale-Karte|*.arc|AnimeRoyale-Attacke|*.ara";
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
@@ -88,7 +78,27 @@ namespace ARF_Editor.Forms
                 attackStream.Close();
                 attackStream = null;
             }
+            OpenAttack(path);
+        }
+
+        #region Open
+        private void OpenAttack(string path)
+        {
+            if(attackStream != null)
+            {
+                attackStream.Close();
+                attackStream = null;
+            }
+
             FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] header = new byte[0x0D];
+            fs.Read(header);
+            if (!header.EqualTo(Attacke.headerBytes) && !header.EqualTo(Karte.headerBytes))
+            {
+                MessageBox.Show("Das ist keine gültige ARF-Datei!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             fs.Seek(11, SeekOrigin.Begin);
             byte typeFlag = (byte)fs.ReadByte();
             fs.Close();
@@ -97,16 +107,14 @@ namespace ARF_Editor.Forms
             {
                 Worker._Worker.startForm("ARC", new string[] { path });
                 this.Close();
+                return;
             }
             else if (typeFlag == Typen.ATTACKE)
-                OpenAttack(path);
+            {}
             else
                 MessageBox.Show("Der Datei konnte kein passender Typ zugewiesen werden");
-        }
 
-        #region Open
-        private void OpenAttack(string path)
-        {
+
             if (attackStream != null)
             {
                 attackStream.Dispose();
@@ -141,8 +149,10 @@ namespace ARF_Editor.Forms
             this.numUpDown_attackID.Value = attack.ID;
             this.txt_AttackName.Text = attack.Name;
             this.richtTxt_AttackText.Text = attack.AnzeigeText;
+            this.richTxt_beschreibung.Text = attack.Beschreibung;
             this.comboBox_AttackenTyp.SelectedIndex = attack.Typ;
             this.numericUpDown_AttackenStaerke.Value = attack.Stärke;
+            this.numUpDown_Range.Value = attack.Range;
 
             SetStatusAenderungCheckState(attack.Effekt != 0x00);
             if (attack.Effekt != 0x00)
@@ -166,7 +176,9 @@ namespace ARF_Editor.Forms
             attack.ID = (ushort)this.numUpDown_attackID.Value;
             attack.Name = this.txt_AttackName.Text;
             attack.AnzeigeText = this.richtTxt_AttackText.Text;
+            attack.Beschreibung = this.richTxt_beschreibung.Text;
             attack.Typ = (byte)this.comboBox_AttackenTyp.SelectedIndex;
+            attack.Range = (byte)this.numUpDown_Range.Value;
             attack.Stärke = (byte)this.numericUpDown_AttackenStaerke.Value;
             attack.Effekt = this.checkBox_StatusAenderung.Checked ? (byte)this.comboBox_StatusTyp.SelectedIndex : (byte)0x00;
             attack.Chance = (byte)this.numericUpDown_StatusChance.Value;
@@ -240,17 +252,12 @@ namespace ARF_Editor.Forms
         }
 
         #region textbox Filter
-        private void txt_AttackenName_KeyPress(object sender, KeyPressEventArgs e)
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((char.IsLetterOrDigit(e.KeyChar) || char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar)) && !StringCode.CanEncode(e.KeyChar))
                 e.Handled = true;
         }
 
-        private void richtTxt_AttackenBeschreibung_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((char.IsLetterOrDigit(e.KeyChar) || char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar)) && !StringCode.CanEncode(e.KeyChar))
-                e.Handled = true;
-        }
         #endregion textbox Filter
 
         #region CheckBox
@@ -373,28 +380,11 @@ namespace ARF_Editor.Forms
         #region windows
         private void changeToARC_Editor(object sender, EventArgs e)
         {
-            if (Worker._Worker.howMany("ARC") > 0)
-                if (MessageBox.Show("Es ist bereits ein Karten-Editor offen. Wenn ein weiteres Fenster gestartet wird, wird es sehr warscheinlich Probleme mit den Resourcen geben. Trotzdem fortfahren?", "Warnung", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
-                    return;
-
             if (attackStream != null && MessageBox.Show("Alle ungespeicherten Änderung werden verworfen, fortfahren?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                 return;
 
             Worker._Worker.startForm("ARC");
             this.Close();
-        }
-        private void changeToARI_Editor(object sender, EventArgs e)
-        {
-            MessageBox.Show("Der ARI Editor ist noch in Arbeit");
-        }
-
-        private void newARA_Editor(object sender, EventArgs e)
-        {
-            Worker._Worker.startForm("ARA");
-        }
-        private void newARC_Editor(object sender, EventArgs e)
-        {
-            Worker._Worker.startForm("ARC");
         }
         #endregion
 
@@ -410,7 +400,7 @@ namespace ARF_Editor.Forms
         #endregion
         private void comboBox_AttackenTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox_AttackenTyp.SelectedIndex == 4)
+            if(comboBox_AttackenTyp.SelectedIndex == 4 || comboBox_AttackenTyp.SelectedIndex == 3)
             {
                 this.numericUpDown_AttackenStaerke.Enabled = false;
                 this.numericUpDown_AttackenStaerke.Value = 0;
@@ -426,5 +416,36 @@ namespace ARF_Editor.Forms
             }
         }
 
+        private void richText_Name_Changed(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richText_Beschreibung_Changed(object sender, EventArgs e)
+        {
+            RichTextBox me = (sender as RichTextBox);
+            if (me.Text.Length >= 256)
+            {
+                me.Text = me.Text[..^(me.Text.Length - 256 + 1)];
+                me.SelectionStart = me.Text.Length;
+                me.SelectionLength = 0;
+                return;
+            }
+        }
+
+
+        private void ARA_Editor_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.All;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void ARA_Editor_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] filePaths = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
+            OpenAttack(filePaths[0]);
+        }
     }
 }

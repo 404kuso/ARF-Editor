@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace ARF_Editor.Forms
@@ -10,69 +11,36 @@ namespace ARF_Editor.Forms
     {
         public static class _Worker
         {
-            static List<object> windows = new List<object>();
+            static string current_form = "";
+            static void should_close(string formType)
+            {
+                if (current_form == formType)
+                    Application.Exit();
+            }
+
             public static void startForm(string formType, string[] args = null)
             {
                 if (formType.ToUpper() == "ARC")
                 {
                     var editor = new ARC_Editor(args != null ? args : new string[] { });
-                    editor.setID((byte)windows.Count);
 
-                    editor.FormClosing += ARC_FormClosing;
-                    windows.Add(editor);
+                    editor.FormClosing += (object sender, FormClosingEventArgs e) => should_close(formType);
                     editor.Show();
                 }
                 else if (formType.ToUpper() == "ARA")
                 {
                     var editor = new ARA_Editor(args != null ? args : new string[] { });
-                    editor.setID((byte)windows.Count);
 
-                    editor.FormClosing += ARA_FormClosing;
-                    windows.Add(editor);
+                    editor.FormClosing += (object sender, FormClosingEventArgs e) => should_close(formType);
                     editor.Show();
                 }
                 else
                 {
                     MessageBox.Show("Invalid Worker request!");
                 }
-            }
-            public static byte howMany(string formType)
-            {
-                if (formType.ToUpper() == "ARC")
-                    return (byte)windows.Where(x => x.GetType().ToString() == "ARF_Editor.Forms.ARC_Editor").Count();
-                else if (formType.ToUpper() == "ARA")
-                    return (byte)windows.Where(x => x.GetType().ToString() == "ARF_Editor.Forms.ARA_Editor").Count();
-                else
-                    return 0;
-            }
-            private static void CheckWindows()
-            {
-                if (windows.Count == 0)
-                    Application.Exit();
+                current_form = formType;
             }
             #region onClose
-            private static void ARC_FormClosing(object sender, FormClosingEventArgs e)
-            {
-                if (windows.IndexOf((sender as ARC_Editor)) == -1)
-                    return;
-
-                ARC_Editor me = (windows.Where(x => x.GetType().ToString() == "ARF_Editor.Forms.ARC_Editor" && (x as ARC_Editor).ID == (sender as ARC_Editor).ID).ToArray()[0] as ARC_Editor);
-                windows.Remove(me);
-
-                CheckWindows();
-                me.Close();
-            }
-            private static void ARA_FormClosing(object sender, FormClosingEventArgs e)
-            {
-                if (windows.IndexOf((sender as ARA_Editor)) == -1)
-                    return;
-
-                ARA_Editor me = (windows.Where(x => x.GetType().ToString() == "ARF_Editor.Forms.ARA_Editor" && (x as ARA_Editor).ID == (sender as ARA_Editor).ID).ToArray()[0] as ARA_Editor);
-                windows.Remove(me);
-
-                CheckWindows();
-                me.Close();
-            }
             #endregion
         }
 

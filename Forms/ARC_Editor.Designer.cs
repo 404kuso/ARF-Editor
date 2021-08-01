@@ -36,7 +36,6 @@ namespace ARF_Editor.Forms
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kartearcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attackearaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemariToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.öffnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernUnterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +51,6 @@ namespace ARF_Editor.Forms
             this.fensterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolstrip_changeToARA_Editor = new System.Windows.Forms.ToolStripMenuItem();
-            this.aRIEditorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aRCEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aRIEditorToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datenbankpfadAuswählenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -135,6 +129,16 @@ namespace ARF_Editor.Forms
             this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
             this.comboBox10 = new System.Windows.Forms.ComboBox();
             this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox15 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
             this.comboBox_attack4 = new System.Windows.Forms.ComboBox();
             this.comboBox_attack3 = new System.Windows.Forms.ComboBox();
             this.txt_StatsSum = new System.Windows.Forms.TextBox();
@@ -162,16 +166,6 @@ namespace ARF_Editor.Forms
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.toolTip_cardInfo = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_attackInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Allgemein.SuspendLayout();
@@ -204,22 +198,23 @@ namespace ARF_Editor.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Level)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Spe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Def)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Att)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.AllowDrop = true;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
             this.toolsToolStripMenuItem,
@@ -243,8 +238,7 @@ namespace ARF_Editor.Forms
             resources.ApplyResources(this.neuToolStripMenuItem, "neuToolStripMenuItem");
             this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kartearcToolStripMenuItem,
-            this.attackearaToolStripMenuItem,
-            this.itemariToolStripMenuItem});
+            this.attackearaToolStripMenuItem});
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
             // 
             // kartearcToolStripMenuItem
@@ -258,11 +252,6 @@ namespace ARF_Editor.Forms
             resources.ApplyResources(this.attackearaToolStripMenuItem, "attackearaToolStripMenuItem");
             this.attackearaToolStripMenuItem.Name = "attackearaToolStripMenuItem";
             this.attackearaToolStripMenuItem.Click += new System.EventHandler(this.aRAWechselEditorToolStripMenuItem1_Click);
-            // 
-            // itemariToolStripMenuItem
-            // 
-            resources.ApplyResources(this.itemariToolStripMenuItem, "itemariToolStripMenuItem");
-            this.itemariToolStripMenuItem.Name = "itemariToolStripMenuItem";
             // 
             // öffnenToolStripMenuItem
             // 
@@ -351,16 +340,14 @@ namespace ARF_Editor.Forms
             // 
             resources.ApplyResources(this.fensterToolStripMenuItem, "fensterToolStripMenuItem");
             this.fensterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.neuToolStripMenuItem1});
+            this.toolStripMenuItem1});
             this.fensterToolStripMenuItem.Name = "fensterToolStripMenuItem";
             // 
             // toolStripMenuItem1
             // 
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolstrip_changeToARA_Editor,
-            this.aRIEditorToolStripMenuItem2});
+            this.toolstrip_changeToARA_Editor});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             // 
             // toolstrip_changeToARA_Editor
@@ -368,36 +355,6 @@ namespace ARF_Editor.Forms
             resources.ApplyResources(this.toolstrip_changeToARA_Editor, "toolstrip_changeToARA_Editor");
             this.toolstrip_changeToARA_Editor.Name = "toolstrip_changeToARA_Editor";
             this.toolstrip_changeToARA_Editor.Click += new System.EventHandler(this.aRAWechselEditorToolStripMenuItem1_Click);
-            // 
-            // aRIEditorToolStripMenuItem2
-            // 
-            resources.ApplyResources(this.aRIEditorToolStripMenuItem2, "aRIEditorToolStripMenuItem2");
-            this.aRIEditorToolStripMenuItem2.Name = "aRIEditorToolStripMenuItem2";
-            // 
-            // neuToolStripMenuItem1
-            // 
-            resources.ApplyResources(this.neuToolStripMenuItem1, "neuToolStripMenuItem1");
-            this.neuToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aRCEditorToolStripMenuItem1,
-            this.toolStripMenuItem4,
-            this.aRIEditorToolStripMenuItem3});
-            this.neuToolStripMenuItem1.Name = "neuToolStripMenuItem1";
-            // 
-            // aRCEditorToolStripMenuItem1
-            // 
-            resources.ApplyResources(this.aRCEditorToolStripMenuItem1, "aRCEditorToolStripMenuItem1");
-            this.aRCEditorToolStripMenuItem1.Name = "aRCEditorToolStripMenuItem1";
-            // 
-            // toolStripMenuItem4
-            // 
-            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.aRANewEditorToolStripMenuItem_Click);
-            // 
-            // aRIEditorToolStripMenuItem3
-            // 
-            resources.ApplyResources(this.aRIEditorToolStripMenuItem3, "aRIEditorToolStripMenuItem3");
-            this.aRIEditorToolStripMenuItem3.Name = "aRIEditorToolStripMenuItem3";
             // 
             // optionenToolStripMenuItem
             // 
@@ -415,6 +372,7 @@ namespace ARF_Editor.Forms
             // tabControl1
             // 
             resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.AllowDrop = true;
             this.tabControl1.Controls.Add(this.tabPage_Allgemein);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -422,10 +380,13 @@ namespace ARF_Editor.Forms
             this.tabControl1.SelectedIndex = 0;
             this.toolTip_cardInfo.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
             this.toolTip_attackInfo.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip1"));
+            this.tabControl1.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
+            this.tabControl1.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
             // 
             // tabPage_Allgemein
             // 
             resources.ApplyResources(this.tabPage_Allgemein, "tabPage_Allgemein");
+            this.tabPage_Allgemein.AllowDrop = true;
             this.tabPage_Allgemein.Controls.Add(this.numericUpDown_PK);
             this.tabPage_Allgemein.Controls.Add(this.label13);
             this.tabPage_Allgemein.Controls.Add(this.comboBox_cardGeschlecht);
@@ -450,6 +411,8 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.tabPage_Allgemein, resources.GetString("tabPage_Allgemein.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.tabPage_Allgemein, resources.GetString("tabPage_Allgemein.ToolTip1"));
             this.tabPage_Allgemein.UseVisualStyleBackColor = true;
+            this.tabPage_Allgemein.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
+            this.tabPage_Allgemein.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
             // 
             // numericUpDown_PK
             // 
@@ -685,6 +648,8 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip1"));
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
+            this.tabPage2.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
             // 
             // label16
             // 
@@ -1347,6 +1312,116 @@ namespace ARF_Editor.Forms
             this.toolTip_cardInfo.SetToolTip(this.numericUpDown10, resources.GetString("numericUpDown10.ToolTip"));
             this.toolTip_attackInfo.SetToolTip(this.numericUpDown10, resources.GetString("numericUpDown10.ToolTip1"));
             // 
+            // comboBox11
+            // 
+            resources.ApplyResources(this.comboBox11, "comboBox11");
+            this.comboBox11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox11.FormattingEnabled = true;
+            this.comboBox11.Name = "comboBox11";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox11, resources.GetString("comboBox11.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox11, resources.GetString("comboBox11.ToolTip1"));
+            // 
+            // numericUpDown11
+            // 
+            resources.ApplyResources(this.numericUpDown11, "numericUpDown11");
+            this.numericUpDown11.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown11.Name = "numericUpDown11";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown11, resources.GetString("numericUpDown11.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown11, resources.GetString("numericUpDown11.ToolTip1"));
+            // 
+            // comboBox12
+            // 
+            resources.ApplyResources(this.comboBox12, "comboBox12");
+            this.comboBox12.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox12.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox12.FormattingEnabled = true;
+            this.comboBox12.Name = "comboBox12";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox12, resources.GetString("comboBox12.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox12, resources.GetString("comboBox12.ToolTip1"));
+            // 
+            // numericUpDown12
+            // 
+            resources.ApplyResources(this.numericUpDown12, "numericUpDown12");
+            this.numericUpDown12.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown12.Name = "numericUpDown12";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown12, resources.GetString("numericUpDown12.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown12, resources.GetString("numericUpDown12.ToolTip1"));
+            // 
+            // comboBox13
+            // 
+            resources.ApplyResources(this.comboBox13, "comboBox13");
+            this.comboBox13.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox13.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox13.FormattingEnabled = true;
+            this.comboBox13.Name = "comboBox13";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox13, resources.GetString("comboBox13.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox13, resources.GetString("comboBox13.ToolTip1"));
+            // 
+            // numericUpDown13
+            // 
+            resources.ApplyResources(this.numericUpDown13, "numericUpDown13");
+            this.numericUpDown13.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown13.Name = "numericUpDown13";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown13, resources.GetString("numericUpDown13.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown13, resources.GetString("numericUpDown13.ToolTip1"));
+            // 
+            // comboBox14
+            // 
+            resources.ApplyResources(this.comboBox14, "comboBox14");
+            this.comboBox14.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox14.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox14.FormattingEnabled = true;
+            this.comboBox14.Name = "comboBox14";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox14, resources.GetString("comboBox14.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox14, resources.GetString("comboBox14.ToolTip1"));
+            // 
+            // numericUpDown14
+            // 
+            resources.ApplyResources(this.numericUpDown14, "numericUpDown14");
+            this.numericUpDown14.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown14.Name = "numericUpDown14";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown14, resources.GetString("numericUpDown14.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown14, resources.GetString("numericUpDown14.ToolTip1"));
+            // 
+            // comboBox15
+            // 
+            resources.ApplyResources(this.comboBox15, "comboBox15");
+            this.comboBox15.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox15.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox15.FormattingEnabled = true;
+            this.comboBox15.Name = "comboBox15";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox15, resources.GetString("comboBox15.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox15, resources.GetString("comboBox15.ToolTip1"));
+            // 
+            // numericUpDown15
+            // 
+            resources.ApplyResources(this.numericUpDown15, "numericUpDown15");
+            this.numericUpDown15.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numericUpDown15.Name = "numericUpDown15";
+            this.toolTip_cardInfo.SetToolTip(this.numericUpDown15, resources.GetString("numericUpDown15.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.numericUpDown15, resources.GetString("numericUpDown15.ToolTip1"));
+            // 
             // comboBox_attack4
             // 
             resources.ApplyResources(this.comboBox_attack4, "comboBox_attack4");
@@ -1569,6 +1644,8 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
             this.toolTip_cardInfo.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip1"));
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
+            this.tabPage1.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
             // 
             // btn_EntferneItemAttacke
             // 
@@ -1636,119 +1713,10 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.UseAnimation = false;
             this.toolTip_attackInfo.UseFading = false;
             // 
-            // comboBox11
-            // 
-            resources.ApplyResources(this.comboBox11, "comboBox11");
-            this.comboBox11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
-            this.comboBox11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Name = "comboBox11";
-            this.toolTip_attackInfo.SetToolTip(this.comboBox11, resources.GetString("comboBox11.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.comboBox11, resources.GetString("comboBox11.ToolTip1"));
-            // 
-            // numericUpDown11
-            // 
-            resources.ApplyResources(this.numericUpDown11, "numericUpDown11");
-            this.numericUpDown11.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.toolTip_cardInfo.SetToolTip(this.numericUpDown11, resources.GetString("numericUpDown11.ToolTip"));
-            this.toolTip_attackInfo.SetToolTip(this.numericUpDown11, resources.GetString("numericUpDown11.ToolTip1"));
-            // 
-            // comboBox12
-            // 
-            resources.ApplyResources(this.comboBox12, "comboBox12");
-            this.comboBox12.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox12.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Name = "comboBox12";
-            this.toolTip_attackInfo.SetToolTip(this.comboBox12, resources.GetString("comboBox12.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.comboBox12, resources.GetString("comboBox12.ToolTip1"));
-            // 
-            // numericUpDown12
-            // 
-            resources.ApplyResources(this.numericUpDown12, "numericUpDown12");
-            this.numericUpDown12.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.toolTip_cardInfo.SetToolTip(this.numericUpDown12, resources.GetString("numericUpDown12.ToolTip"));
-            this.toolTip_attackInfo.SetToolTip(this.numericUpDown12, resources.GetString("numericUpDown12.ToolTip1"));
-            // 
-            // comboBox13
-            // 
-            resources.ApplyResources(this.comboBox13, "comboBox13");
-            this.comboBox13.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox13.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Name = "comboBox13";
-            this.toolTip_attackInfo.SetToolTip(this.comboBox13, resources.GetString("comboBox13.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.comboBox13, resources.GetString("comboBox13.ToolTip1"));
-            // 
-            // numericUpDown13
-            // 
-            resources.ApplyResources(this.numericUpDown13, "numericUpDown13");
-            this.numericUpDown13.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.toolTip_cardInfo.SetToolTip(this.numericUpDown13, resources.GetString("numericUpDown13.ToolTip"));
-            this.toolTip_attackInfo.SetToolTip(this.numericUpDown13, resources.GetString("numericUpDown13.ToolTip1"));
-            // 
-            // comboBox14
-            // 
-            resources.ApplyResources(this.comboBox14, "comboBox14");
-            this.comboBox14.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox14.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Name = "comboBox14";
-            this.toolTip_attackInfo.SetToolTip(this.comboBox14, resources.GetString("comboBox14.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.comboBox14, resources.GetString("comboBox14.ToolTip1"));
-            // 
-            // numericUpDown14
-            // 
-            resources.ApplyResources(this.numericUpDown14, "numericUpDown14");
-            this.numericUpDown14.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.toolTip_cardInfo.SetToolTip(this.numericUpDown14, resources.GetString("numericUpDown14.ToolTip"));
-            this.toolTip_attackInfo.SetToolTip(this.numericUpDown14, resources.GetString("numericUpDown14.ToolTip1"));
-            // 
-            // comboBox15
-            // 
-            resources.ApplyResources(this.comboBox15, "comboBox15");
-            this.comboBox15.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox15.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Name = "comboBox15";
-            this.toolTip_attackInfo.SetToolTip(this.comboBox15, resources.GetString("comboBox15.ToolTip"));
-            this.toolTip_cardInfo.SetToolTip(this.comboBox15, resources.GetString("comboBox15.ToolTip1"));
-            // 
-            // numericUpDown15
-            // 
-            resources.ApplyResources(this.numericUpDown15, "numericUpDown15");
-            this.numericUpDown15.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.toolTip_cardInfo.SetToolTip(this.numericUpDown15, resources.GetString("numericUpDown15.ToolTip"));
-            this.toolTip_attackInfo.SetToolTip(this.numericUpDown15, resources.GetString("numericUpDown15.ToolTip1"));
-            // 
             // ARC_Editor
             // 
             resources.ApplyResources(this, "$this");
+            this.AllowDrop = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
@@ -1760,6 +1728,8 @@ namespace ARF_Editor.Forms
             this.toolTip_cardInfo.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.toolTip_attackInfo.SetToolTip(this, resources.GetString("$this.ToolTip1"));
             this.Load += new System.EventHandler(this.Form_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -1795,17 +1765,17 @@ namespace ARF_Editor.Forms
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Level)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_LP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Spe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Def)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Att)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1821,7 +1791,6 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kartearcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem attackearaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem itemariToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionenToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1879,11 +1848,6 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem fensterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolstrip_changeToARA_Editor;
-        private System.Windows.Forms.ToolStripMenuItem aRIEditorToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aRCEditorToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem aRIEditorToolStripMenuItem3;
         private System.Windows.Forms.ComboBox comboBox_attack4;
         private System.Windows.Forms.ComboBox comboBox_attack3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_ErlernbareAttacken;

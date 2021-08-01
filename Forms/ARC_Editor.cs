@@ -17,21 +17,12 @@ using ARF_Editor.ARFCore.Karten;
 using System.Threading;
 using System.Net;
 using System.Transactions;
+using ARF_Editor.ARFCore.Attacken;
 
 namespace ARF_Editor.Forms
 {
     public partial class ARC_Editor : Form
     {
-        /// <summary>
-        /// Die momentane Forminstanzen ID
-        /// </summary>
-        public byte ID = 0;
-        /// <summary>
-        /// Seztt die ID zu einem Wert
-        /// </summary>
-        /// <param name="ID">Die momentane ID</param>
-        public void setID(byte ID) => this.ID = ID;
-
         /// <summary>
         /// Die momentan geöffnete Karte
         /// </summary>
@@ -451,7 +442,7 @@ namespace ARF_Editor.Forms
         /// </summary>
         private void ShowOpenDialog()
         {
-            openFileDialog.Filter = "AnimeRoyale-Dateien|*.arc;*.ara;*.ari|AnimeRoyale-Karte|*.arc|AnimeRoyale-Attacke|*.ara|AnimeRoyale-Item|*.ari";
+            openFileDialog.Filter = "AnimeRoyale-Dateien|*.arc;*.ara|AnimeRoyale-Karte|*.arc|AnimeRoyale-Attacke|*.ara";
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
@@ -466,13 +457,30 @@ namespace ARF_Editor.Forms
         }
         private void OpenFile(string path)
         {
+
+            if (cardStream != null)
+            {
+                cardStream.Close();
+                cardStream = null;
+            }
+
             FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] header = new byte[0x0D];
+            fs.Read(header);
+            if (!header.EqualTo(Karte.headerBytes) && !header.EqualTo(Attacke.headerBytes))
+            {
+                MessageBox.Show("Das ist keine gültige ARF-Datei!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             fs.Seek(11, SeekOrigin.Begin);
             byte typeFlag = (byte)fs.ReadByte();
             fs.Close();
 
             if (typeFlag == Typen.KARTE)
+            {
                 OpenCard(path);
+            }
             else if (typeFlag == Typen.ATTACKE)
             {
                 Worker._Worker.startForm("ARA", new string[] { path });
@@ -635,7 +643,7 @@ namespace ARF_Editor.Forms
         #region textbox Filter
         private void txt_cardName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsLetterOrDigit(e.KeyChar) || char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar)) && !StringCode.CanEncode(e.KeyChar))
+            if (!StringCode.CanEncode(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -857,22 +865,10 @@ namespace ARF_Editor.Forms
         #endregion
         #endregion
 
-        // Fenster -> Neu
-        private void aRANewEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Worker._Worker.howMany("ARA") > 0)
-                if (MessageBox.Show("Es ist bereits ein Attacken-Editor offen. Wenn ein weiteres Fenster gestartet wird, wird es sehr warscheinlich Probleme mit den Resourcen geben. Trotzdem fortfahren?", "Warnung", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
-                    return;
-
-            Worker._Worker.startForm("ARA");
-        }
+        #region Events
         // Fenster -> Wechseln
         private void aRAWechselEditorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (Worker._Worker.howMany("ARA") > 0)
-                if (MessageBox.Show("Es ist bereits ein Attacken-Editor offen. Wenn ein weiteres Fenster gestartet wird, wird es sehr warscheinlich Probleme mit den Resourcen geben. Trotzdem fortfahren?", "Warnung", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
-                    return;
-
             if (cardStream != null && MessageBox.Show("Alle ungespeicherten Änderung werden verworfen, fortfahren?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                 return;
 
@@ -978,5 +974,21 @@ namespace ARF_Editor.Forms
         {
             this.flowLayoutPanel_AttackenPerItem.Controls.Clear();
         }
+        #endregion
+
+        private void ARC_Editor_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.All;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        private void ARC_Editor_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            OpenFile(filePaths[0]);
+        }
     }
+
 }
