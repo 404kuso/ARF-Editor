@@ -33,6 +33,7 @@ namespace ARF_Editor.Forms
             this.label_description = new System.Windows.Forms.Label();
             this.label_company = new System.Windows.Forms.Label();
             this.label_version = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label_name
@@ -66,18 +67,30 @@ namespace ARF_Editor.Forms
             // label_version
             // 
             this.label_version.AutoSize = true;
-            this.label_version.Location = new System.Drawing.Point(400, 91);
+            this.label_version.Location = new System.Drawing.Point(400, 110);
             this.label_version.Name = "label_version";
             this.label_version.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label_version.Size = new System.Drawing.Size(31, 15);
             this.label_version.TabIndex = 3;
             this.label_version.Text = "0.0.0";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(13, 110);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(32, 15);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Hilfe";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Infos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 115);
+            this.ClientSize = new System.Drawing.Size(442, 128);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label_version);
             this.Controls.Add(this.label_company);
             this.Controls.Add(this.label_description);
@@ -98,5 +111,6 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.Label label_description;
         private System.Windows.Forms.Label label_company;
         private System.Windows.Forms.Label label_version;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

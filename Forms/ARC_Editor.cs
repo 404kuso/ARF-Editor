@@ -89,7 +89,7 @@ namespace ARF_Editor.Forms
             catch (System.Data.SQLite.SQLiteException)
             {
                 // Wenn der angegebene Pfad für die Datenbank nicht existiert
-                if (!File.Exists(Database.Settings.dbPath) || !Database.Settings.dbPath.EndsWith(".db"))
+                if (!(File.Exists(Database.Settings.dbPath) && Database.Settings.dbPath.EndsWith(".db")))
                 {
                     var dbResult = MessageBox.Show("Die Datenbank konnte nicht gefunden werden. Möchtest du sie lokalisieren (Ja) oder runterladen (Nein) oder gar nichts (abbrechen)?", "Datenbank Fehler", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                     // Fragt den User ob er die Datenbank manuell lokalisierten will

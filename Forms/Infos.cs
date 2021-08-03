@@ -39,5 +39,10 @@ namespace ARF_Editor.Forms
             this.label_company.Text = fileInfo.CompanyName;
             this.label_version.Text = string.Join("", fileInfo.ProductVersion.Reverse().ToArray());
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("cmd", "/c start https://github.com/AnimeJunkies-TV/ARF-Editor/blob/master/README.md#Editor");
+        }
     }
 }

@@ -66,17 +66,20 @@ namespace ARF_Editor.Forms
             this.toolstrip_changeToACA_Editor = new System.Windows.Forms.ToolStripMenuItem();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datenbankpfadAuswählenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.numUpDown_Range = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.richTxt_beschreibung = new System.Windows.Forms.RichTextBox();
-            this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_EffektStaerke = new System.Windows.Forms.Label();
+            this.numUpDown_EffektStaerke = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_attackID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StatusChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AttackenStaerke)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Range)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_EffektStaerke)).BeginInit();
             this.SuspendLayout();
             // 
             // numericUpDown_PK
@@ -466,6 +469,13 @@ namespace ARF_Editor.Forms
             this.datenbankpfadAuswählenToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.datenbankpfadAuswählenToolStripMenuItem.Text = "Datenbankpfad auswählen";
             // 
+            // informationenToolStripMenuItem
+            // 
+            this.informationenToolStripMenuItem.Name = "informationenToolStripMenuItem";
+            this.informationenToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.informationenToolStripMenuItem.Text = "Informationen";
+            this.informationenToolStripMenuItem.Click += new System.EventHandler(this.informationenToolStripMenuItem_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -516,12 +526,36 @@ namespace ARF_Editor.Forms
             this.richTxt_beschreibung.TextChanged += new System.EventHandler(this.richText_Beschreibung_Changed);
             this.richTxt_beschreibung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
-            // informationenToolStripMenuItem
+            // label_EffektStaerke
             // 
-            this.informationenToolStripMenuItem.Name = "informationenToolStripMenuItem";
-            this.informationenToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.informationenToolStripMenuItem.Text = "Informationen";
-            this.informationenToolStripMenuItem.Click += new System.EventHandler(this.informationenToolStripMenuItem_Click);
+            this.label_EffektStaerke.AutoSize = true;
+            this.label_EffektStaerke.Location = new System.Drawing.Point(558, 166);
+            this.label_EffektStaerke.Name = "label_EffektStaerke";
+            this.label_EffektStaerke.Size = new System.Drawing.Size(39, 15);
+            this.label_EffektStaerke.TabIndex = 43;
+            this.label_EffektStaerke.Text = "Stärke";
+            // 
+            // numUpDown_EffektStaerke
+            // 
+            this.numUpDown_EffektStaerke.Location = new System.Drawing.Point(606, 163);
+            this.numUpDown_EffektStaerke.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numUpDown_EffektStaerke.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDown_EffektStaerke.Name = "numUpDown_EffektStaerke";
+            this.numUpDown_EffektStaerke.Size = new System.Drawing.Size(92, 23);
+            this.numUpDown_EffektStaerke.TabIndex = 44;
+            this.numUpDown_EffektStaerke.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // ARA_Editor
             // 
@@ -529,6 +563,8 @@ namespace ARF_Editor.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 290);
+            this.Controls.Add(this.numUpDown_EffektStaerke);
+            this.Controls.Add(this.label_EffektStaerke);
             this.Controls.Add(this.richTxt_beschreibung);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.numUpDown_Range);
@@ -565,6 +601,7 @@ namespace ARF_Editor.Forms
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Range)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_EffektStaerke)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,5 +650,7 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTxt_beschreibung;
         private System.Windows.Forms.ToolStripMenuItem informationenToolStripMenuItem;
+        private System.Windows.Forms.Label label_EffektStaerke;
+        private System.Windows.Forms.NumericUpDown numUpDown_EffektStaerke;
     }
 }

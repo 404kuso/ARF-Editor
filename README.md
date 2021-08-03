@@ -3,6 +3,15 @@
 Das hier ist ein Windows-Form Editor geschrieben in C# um das Erstellen und Bearbeiten von AnimeRoyale Komponenten zu erleichtern. 
 Dazu gehören Karten- und Attackendateien.
 
+# Inhalt
+
+- [`Datei-Typen`](#Typen)
+: Die verschiedenen Dateitypen und deren Aufbau erklärt
+- [`Resourcen`](#Resourcen)
+: Wichtige Werte für die Dateien
+- [`Editor`](#Editor)
+: Hilfe für den Editor
+
 # Typen
 
 ARF steht für AnimeRoyale-File und beschreibt alle Dateientypen für AnimeRoyale
@@ -155,10 +164,11 @@ Die Attacke ist nur in zwei Blöcke geteilt, das Header und der Body
 |Typ                |`0x122`  :  `0x123`|byte               |Der [Typ](#attackentyp) der Attacke                            |
 |Range				|`0x123`  :  `0x124`|byte				|Wieviele Gegner die Attacke treffen kann						|
 |Effekt             |`0x124`  :  `0x125`|byte               |Der [Effekttyp](#effekttyp) von der Attacke                    |
-|Chance             |`0x125`  :  `0x126`|byte               |Mit welcher Chance dieser Effekt eintritt                      |
-|Stärke             |`0x126`  :  `0x127`|byte               |Wie stark die Attacke ist										|
-|Beschreibung		|`0x127`  :  `0x227`|string				|Die Beschreibung über die Attacke								|
-|Checksum           |`0x227`  :  `0x229`|byte[2]            |Checksum zum prüfen vom Block									|
+|Effekt Stärke		|`0x125`  :  `0x126`|byte				|Wie stark der Effekt wirkt										|
+|Chance             |`0x127`  :  `0x128`|byte               |Mit welcher Chance dieser Effekt eintritt                      |
+|Stärke             |`0x128`  :  `0x129`|byte               |Wie stark die Attacke ist										|
+|Beschreibung		|`0x128`  :  `0x228`|string				|Die Beschreibung über die Attacke								|
+|Checksum           |`0x228`  :  `0x22A`|byte[2]            |Checksum zum prüfen vom Block									|
 
 </details>
 
@@ -291,6 +301,47 @@ Die Charactertabelle zum encodieren/decodieren von Text
 |`.`   |0x72        |
 |`{`   |0x80		|
 |`}`   |0x81		|
+
+## Checksum
+
+Die Checksum wird berrechnet, indem alles vom Block außer die letzten 2 bytes (die Checksum)
+
+Python Code:
+```py
+def CRC16_CCITT(data: bytearray, start: int = 0, length: int = None):
+    top = 0xFF
+    bot = 0xFF
+
+    end = start + (length or len(data))
+    for i in range(start, end):
+        x = data[i] ^ top
+        x ^= (x >> 4)
+
+        top = (bot ^ (x >> 3) ^ (x << 4)) % 256
+        bot = (x ^ (x << 5)) % 256
+
+    return (top << 8 | bot)
+```
+
+C# Code:
+```py
+public static ushort CRC16_CCITT(byte[] data, int start, int lenght)
+{
+    byte top = 0xFF;
+    byte bot = 0xFF;
+
+    int end = start + lenght;
+    for(int i = 0; i < end; i++)
+    {
+        var x = data[i] ^ top;
+        x ^= (x >> 4);
+        
+        top = (byte)(bot ^ (x >> 3) ^ (x << 4));
+        bot = (byte)(x ^ (x << 5));
+    }
+    return (ushort)(top << 8 | bot);
+}
+```
 
 # Editor
 

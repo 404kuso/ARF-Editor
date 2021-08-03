@@ -159,6 +159,7 @@ namespace ARF_Editor.Forms
             if (attack.Effekt != 0x00)
             {
                 this.comboBox_StatusTyp.SelectedIndex = attack.Effekt;
+                this.numericUpDown_AttackenStaerke.Value = attack.EffektStärke;
                 this.numericUpDown_StatusChance.Value = attack.Chance;
             }
             else
@@ -182,6 +183,7 @@ namespace ARF_Editor.Forms
             attack.Range = (byte)this.numUpDown_Range.Value;
             attack.Stärke = (byte)this.numericUpDown_AttackenStaerke.Value;
             attack.Effekt = this.checkBox_StatusAenderung.Checked ? (byte)this.comboBox_StatusTyp.SelectedIndex : (byte)0x00;
+            attack.EffektStärke = (byte)this.numericUpDown_AttackenStaerke.Value;
             attack.Chance = (byte)this.numericUpDown_StatusChance.Value;
         }
         #endregion
@@ -272,7 +274,9 @@ namespace ARF_Editor.Forms
         {
             CheckBox me = (sender as CheckBox);
             this.comboBox_StatusTyp.Enabled = this.label_statusTyp.Enabled =
-                this.label_statusChancePrefix.Enabled = this.numericUpDown_StatusChance.Enabled = this.label_statusChance.Enabled = me.Checked;
+                this.label_statusChancePrefix.Enabled = this.numericUpDown_StatusChance.Enabled = 
+                this.label_statusChance.Enabled = this.label_EffektStaerke.Enabled = 
+                this.numUpDown_EffektStaerke.Enabled = me.Checked;
         }
         #endregion
 
