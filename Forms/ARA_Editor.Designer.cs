@@ -70,6 +70,7 @@ namespace ARF_Editor.Forms
             this.numUpDown_Range = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.richTxt_beschreibung = new System.Windows.Forms.RichTextBox();
+            this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_attackID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StatusChance)).BeginInit();
@@ -453,7 +454,8 @@ namespace ARF_Editor.Forms
             // optionenToolStripMenuItem
             // 
             this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.datenbankpfadAuswählenToolStripMenuItem});
+            this.datenbankpfadAuswählenToolStripMenuItem,
+            this.informationenToolStripMenuItem});
             this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
             this.optionenToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.optionenToolStripMenuItem.Text = "Optionen";
@@ -513,6 +515,13 @@ namespace ARF_Editor.Forms
             this.richTxt_beschreibung.Text = "";
             this.richTxt_beschreibung.TextChanged += new System.EventHandler(this.richText_Beschreibung_Changed);
             this.richTxt_beschreibung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
+            // 
+            // informationenToolStripMenuItem
+            // 
+            this.informationenToolStripMenuItem.Name = "informationenToolStripMenuItem";
+            this.informationenToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.informationenToolStripMenuItem.Text = "Informationen";
+            this.informationenToolStripMenuItem.Click += new System.EventHandler(this.informationenToolStripMenuItem_Click);
             // 
             // ARA_Editor
             // 
@@ -603,5 +612,6 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.NumericUpDown numUpDown_Range;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTxt_beschreibung;
+        private System.Windows.Forms.ToolStripMenuItem informationenToolStripMenuItem;
     }
 }

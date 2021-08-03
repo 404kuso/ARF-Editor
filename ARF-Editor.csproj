@@ -7,14 +7,14 @@
     <UseWindowsForms>true</UseWindowsForms>
     <Authors>404kuso</Authors>
     <Company>AnimeJunkies.tv</Company>
-    <Description>Ein Editor für AnimeRoyale Karten- und Attackendateien, der das Erstellen und Bearbeiten von diesen erleichtern soll</Description>
+    <Description>Ein Editor für AnimeRoyale Karten- und Attackendateien, der das Erstellen und Bearbeiten von dem Zeugs hier erleichtern soll</Description>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/AnimeJunkies-TV/ARF-Editor</RepositoryUrl>
     <StartupObject></StartupObject>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishSingleFile>true</PublishSingleFile>
-    <RepositoryType>Git-repo</RepositoryType>
+    <RepositoryType>git-repo</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -14,6 +14,7 @@ using ARF_Editor.ARFCore;
 using ARF_Editor.ARFCore.Karten;
 using System.Linq;
 using System.Windows.Forms.VisualStyles;
+using System.Diagnostics;
 
 namespace ARF_Editor.Forms
 {
@@ -446,6 +447,11 @@ namespace ARF_Editor.Forms
         {
             string[] filePaths = (string[]) e.Data.GetData(DataFormats.FileDrop, false);
             OpenAttack(filePaths[0]);
+        }
+
+        private void informationenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new Infos()).ShowDialog();
         }
     }
 }

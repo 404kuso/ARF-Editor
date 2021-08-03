@@ -166,6 +166,7 @@ namespace ARF_Editor.Forms
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.toolTip_cardInfo = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_attackInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Allgemein.SuspendLayout();
@@ -360,7 +361,8 @@ namespace ARF_Editor.Forms
             // 
             resources.ApplyResources(this.optionenToolStripMenuItem, "optionenToolStripMenuItem");
             this.optionenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.datenbankpfadAuswählenToolStripMenuItem});
+            this.datenbankpfadAuswählenToolStripMenuItem,
+            this.informationenToolStripMenuItem});
             this.optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
             // 
             // datenbankpfadAuswählenToolStripMenuItem
@@ -1713,6 +1715,12 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.UseAnimation = false;
             this.toolTip_attackInfo.UseFading = false;
             // 
+            // informationenToolStripMenuItem
+            // 
+            resources.ApplyResources(this.informationenToolStripMenuItem, "informationenToolStripMenuItem");
+            this.informationenToolStripMenuItem.Name = "informationenToolStripMenuItem";
+            this.informationenToolStripMenuItem.Click += new System.EventHandler(this.informationenToolStripMenuItem_Click);
+            // 
             // ARC_Editor
             // 
             resources.ApplyResources(this, "$this");
@@ -1918,6 +1926,7 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.NumericUpDown numericUpDown14;
         private System.Windows.Forms.ComboBox comboBox15;
         private System.Windows.Forms.NumericUpDown numericUpDown15;
+        private System.Windows.Forms.ToolStripMenuItem informationenToolStripMenuItem;
     }
 }
 

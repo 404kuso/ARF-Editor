@@ -989,6 +989,11 @@ namespace ARF_Editor.Forms
             string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             OpenFile(filePaths[0]);
         }
+
+        private void informationenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new Infos()).ShowDialog();
+        }
     }
 
 }
