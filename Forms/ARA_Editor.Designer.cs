@@ -73,6 +73,8 @@ namespace ARF_Editor.Forms
             this.richTxt_beschreibung = new System.Windows.Forms.RichTextBox();
             this.label_EffektStaerke = new System.Windows.Forms.Label();
             this.numUpDown_EffektStaerke = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox_Element = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_attackID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StatusChance)).BeginInit();
@@ -85,7 +87,7 @@ namespace ARF_Editor.Forms
             // numericUpDown_PK
             // 
             this.numericUpDown_PK.Enabled = false;
-            this.numericUpDown_PK.Location = new System.Drawing.Point(39, 262);
+            this.numericUpDown_PK.Location = new System.Drawing.Point(39, 281);
             this.numericUpDown_PK.Name = "numericUpDown_PK";
             this.numericUpDown_PK.Size = new System.Drawing.Size(61, 23);
             this.numericUpDown_PK.TabIndex = 27;
@@ -94,7 +96,7 @@ namespace ARF_Editor.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(12, 264);
+            this.label13.Location = new System.Drawing.Point(12, 283);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(21, 15);
             this.label13.TabIndex = 26;
@@ -102,10 +104,10 @@ namespace ARF_Editor.Forms
             // 
             // richtTxt_AttackText
             // 
-            this.richtTxt_AttackText.Location = new System.Drawing.Point(12, 93);
+            this.richtTxt_AttackText.Location = new System.Drawing.Point(12, 116);
             this.richtTxt_AttackText.Name = "richtTxt_AttackText";
             this.richtTxt_AttackText.Size = new System.Drawing.Size(352, 72);
-            this.richtTxt_AttackText.TabIndex = 24;
+            this.richtTxt_AttackText.TabIndex = 4;
             this.richtTxt_AttackText.Text = "";
             this.richtTxt_AttackText.TextChanged += new System.EventHandler(this.richText_Beschreibung_Changed);
             this.richtTxt_AttackText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
@@ -114,7 +116,7 @@ namespace ARF_Editor.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(12, 73);
+            this.label3.Location = new System.Drawing.Point(12, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 25;
@@ -158,7 +160,7 @@ namespace ARF_Editor.Forms
             this.txt_AttackName.Location = new System.Drawing.Point(150, 38);
             this.txt_AttackName.Name = "txt_AttackName";
             this.txt_AttackName.Size = new System.Drawing.Size(214, 23);
-            this.txt_AttackName.TabIndex = 23;
+            this.txt_AttackName.TabIndex = 2;
             this.txt_AttackName.TextChanged += new System.EventHandler(this.richText_Name_Changed);
             this.txt_AttackName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
@@ -185,7 +187,7 @@ namespace ARF_Editor.Forms
             this.comboBox_AttackenTyp.Location = new System.Drawing.Point(453, 37);
             this.comboBox_AttackenTyp.Name = "comboBox_AttackenTyp";
             this.comboBox_AttackenTyp.Size = new System.Drawing.Size(245, 23);
-            this.comboBox_AttackenTyp.TabIndex = 28;
+            this.comboBox_AttackenTyp.TabIndex = 6;
             this.comboBox_AttackenTyp.SelectedIndexChanged += new System.EventHandler(this.comboBox_AttackenTyp_SelectedIndexChanged);
             // 
             // label4
@@ -203,7 +205,7 @@ namespace ARF_Editor.Forms
             this.checkBox_StatusAenderung.Location = new System.Drawing.Point(392, 106);
             this.checkBox_StatusAenderung.Name = "checkBox_StatusAenderung";
             this.checkBox_StatusAenderung.Size = new System.Drawing.Size(171, 19);
-            this.checkBox_StatusAenderung.TabIndex = 30;
+            this.checkBox_StatusAenderung.TabIndex = 9;
             this.checkBox_StatusAenderung.Text = "Statusänderung bei Attacke";
             this.checkBox_StatusAenderung.UseVisualStyleBackColor = true;
             this.checkBox_StatusAenderung.CheckedChanged += new System.EventHandler(this.checkBox_StatusAenderung_CheckedChanged);
@@ -243,7 +245,7 @@ namespace ARF_Editor.Forms
             this.comboBox_StatusTyp.Location = new System.Drawing.Point(453, 131);
             this.comboBox_StatusTyp.Name = "comboBox_StatusTyp";
             this.comboBox_StatusTyp.Size = new System.Drawing.Size(245, 23);
-            this.comboBox_StatusTyp.TabIndex = 31;
+            this.comboBox_StatusTyp.TabIndex = 10;
             // 
             // label_statusChance
             // 
@@ -273,7 +275,7 @@ namespace ARF_Editor.Forms
             0});
             this.numericUpDown_StatusChance.Name = "numericUpDown_StatusChance";
             this.numericUpDown_StatusChance.Size = new System.Drawing.Size(52, 23);
-            this.numericUpDown_StatusChance.TabIndex = 35;
+            this.numericUpDown_StatusChance.TabIndex = 11;
             this.numericUpDown_StatusChance.Value = new decimal(new int[] {
             1,
             0,
@@ -283,7 +285,7 @@ namespace ARF_Editor.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(393, 70);
+            this.label5.Location = new System.Drawing.Point(392, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 15);
             this.label5.TabIndex = 36;
@@ -299,7 +301,7 @@ namespace ARF_Editor.Forms
             0});
             this.numericUpDown_AttackenStaerke.Name = "numericUpDown_AttackenStaerke";
             this.numericUpDown_AttackenStaerke.Size = new System.Drawing.Size(99, 23);
-            this.numericUpDown_AttackenStaerke.TabIndex = 37;
+            this.numericUpDown_AttackenStaerke.TabIndex = 7;
             this.numericUpDown_AttackenStaerke.Value = new decimal(new int[] {
             1,
             0,
@@ -479,15 +481,15 @@ namespace ARF_Editor.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(558, 73);
+            this.label6.Location = new System.Drawing.Point(559, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 15);
-            this.label6.TabIndex = 39;
+            this.label6.TabIndex = 8;
             this.label6.Text = "Fläche";
             // 
             // numUpDown_Range
             // 
-            this.numUpDown_Range.Location = new System.Drawing.Point(605, 70);
+            this.numUpDown_Range.Location = new System.Drawing.Point(606, 69);
             this.numUpDown_Range.Maximum = new decimal(new int[] {
             3,
             0,
@@ -510,7 +512,7 @@ namespace ARF_Editor.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 176);
+            this.label7.Location = new System.Drawing.Point(12, 195);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 15);
             this.label7.TabIndex = 41;
@@ -518,10 +520,10 @@ namespace ARF_Editor.Forms
             // 
             // richTxt_beschreibung
             // 
-            this.richTxt_beschreibung.Location = new System.Drawing.Point(12, 194);
+            this.richTxt_beschreibung.Location = new System.Drawing.Point(12, 213);
             this.richTxt_beschreibung.Name = "richTxt_beschreibung";
             this.richTxt_beschreibung.Size = new System.Drawing.Size(686, 61);
-            this.richTxt_beschreibung.TabIndex = 42;
+            this.richTxt_beschreibung.TabIndex = 5;
             this.richTxt_beschreibung.Text = "";
             this.richTxt_beschreibung.TextChanged += new System.EventHandler(this.richText_Beschreibung_Changed);
             this.richTxt_beschreibung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
@@ -539,7 +541,7 @@ namespace ARF_Editor.Forms
             // 
             this.numUpDown_EffektStaerke.Location = new System.Drawing.Point(606, 163);
             this.numUpDown_EffektStaerke.Maximum = new decimal(new int[] {
-            3,
+            255,
             0,
             0,
             0});
@@ -550,19 +552,51 @@ namespace ARF_Editor.Forms
             0});
             this.numUpDown_EffektStaerke.Name = "numUpDown_EffektStaerke";
             this.numUpDown_EffektStaerke.Size = new System.Drawing.Size(92, 23);
-            this.numUpDown_EffektStaerke.TabIndex = 44;
+            this.numUpDown_EffektStaerke.TabIndex = 12;
             this.numUpDown_EffektStaerke.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 72);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 15);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Element";
+            // 
+            // comboBox_Element
+            // 
+            this.comboBox_Element.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_Element.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_Element.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Element.FormattingEnabled = true;
+            this.comboBox_Element.Items.AddRange(new object[] {
+            "Feuer",
+            "Wasser",
+            "Blitz",
+            "Wind",
+            "Eis",
+            "Pflanze",
+            "Erde",
+            "Gift",
+            "Medizin"});
+            this.comboBox_Element.Location = new System.Drawing.Point(105, 72);
+            this.comboBox_Element.Name = "comboBox_Element";
+            this.comboBox_Element.Size = new System.Drawing.Size(259, 23);
+            this.comboBox_Element.TabIndex = 3;
+            // 
             // ARA_Editor
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 290);
+            this.ClientSize = new System.Drawing.Size(710, 309);
+            this.Controls.Add(this.comboBox_Element);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.numUpDown_EffektStaerke);
             this.Controls.Add(this.label_EffektStaerke);
             this.Controls.Add(this.richTxt_beschreibung);
@@ -652,5 +686,7 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ToolStripMenuItem informationenToolStripMenuItem;
         private System.Windows.Forms.Label label_EffektStaerke;
         private System.Windows.Forms.NumericUpDown numUpDown_EffektStaerke;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox_Element;
     }
 }

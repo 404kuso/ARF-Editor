@@ -55,7 +55,7 @@ Hier ist die Liste von Adressen in der Karte
 
 Allgemeine Daten über die Karte
 
-`0x0D` : `0x15D`
+`0x0D` : `0x160`
 
 |		Inhalt		|		Adresse		|		 Typ		|							Beschreibung						|
 |-------------------|-------------------|-------------------|---------------------------------------------------------------|
@@ -64,13 +64,15 @@ Allgemeine Daten über die Karte
 |Beschreibung		|`0x022`  :  `0x122`|string				|Beschreibung der Karte											|
 |Herkunft			|`0x122`  :  `0x142`|string				|Der Name vom Anime												|
 |Zusammenspiel		|`0x142`  :  `0x14C`|ushort[5]			|Fünf IDs bei denen die Karte einen Boost im Kampf bekommt		|
-|Seltenheit			|`0x14C`  :  `0x14D`|byte				|Das [Geschlecht](#geschlecht)                                  |
-|Checksum			|`0x14E`  :  `0x150`|byte[2]			|Checksum zum Prüfen des Blockes								|
+|Seltenheit			|`0x14C`  :  `0x14D`|byte				|Die [Seltenheit](#seltenheit)                                  |
+|Geschlecht         |`0x14D`  :  `0x14E`|byte               |Das [Geschlecht](#geschlecht)                                  |
+|Elemente           |`0x14E`  :  `0x151`|byte[2]            |Die zwei [Elemente](#elemente)                                 |
+|Checksum			|`0x151`  :  `0x153`|byte[2]			|Checksum zum Prüfen des Blockes								|
 
 
-`0x15D` : `0x160`
+`0x160` : `0x162`
 ```
-FF FF FF
+FF FF
 ```
 
 
@@ -78,7 +80,7 @@ FF FF FF
 
 Statuswerte der Karte
 
-`0x160` : `0x168`
+`0x162` : `0x16A`
 
 |		Inhalt		|		Adresse		|		 Typ		|							Beschreibung						|
 |-------------------|-------------------|-------------------|---------------------------------------------------------------|
@@ -90,7 +92,7 @@ Statuswerte der Karte
 |Checksum           |`0x06`   :   `0x08`|byte[2]            |Checksum zum prüfen des Blocks                                 |
 
 
-`0x168` : `0x16A`
+`0x16A` : `0x16C`
 ```
 FF FF
 ```
@@ -99,7 +101,7 @@ FF FF
 
 Alle Attackensachen der Karte
 
-`0x16A` : `0x174`
+`0x16C` : `0x176`
 
 > Der Attackenblock wird nochmal in 3 verschiedene Blöche unterteilt
 
@@ -168,7 +170,8 @@ Die Attacke ist nur in zwei Blöcke geteilt, das Header und der Body
 |Chance             |`0x127`  :  `0x128`|byte               |Mit welcher Chance dieser Effekt eintritt                      |
 |Stärke             |`0x128`  :  `0x129`|byte               |Wie stark die Attacke ist										|
 |Beschreibung		|`0x128`  :  `0x228`|string				|Die Beschreibung über die Attacke								|
-|Checksum           |`0x228`  :  `0x22A`|byte[2]            |Checksum zum prüfen vom Block									|
+|Element            |`0x228`  :  `0x229`|byte               |Das [Element](#element) der Attacke                            |
+|Checksum           |`0x229`  :  `0x22B`|byte[2]            |Checksum zum prüfen vom Block									|
 
 </details>
 
@@ -176,12 +179,33 @@ Die Attacke ist nur in zwei Blöcke geteilt, das Header und der Body
 
 # Resourcen
 
+<h2 id="element">Elemente</h2>
+
+- `0x00`: Feuer
+- `0x01`: Wasser
+- `0x02`: Blitz
+- `0x03`: Wind
+- `0x04`: Eis
+- `0x05`: Pflanze
+- `0x06`: Erde
+- `0x07`: Gift
+- `0x08`: Medizin
+
 <h2 id="geschlecht">Geschlechter</h2>
 
 - `0x00`: Männlich
 - `0x01`: Weiblich
 - `0x02`: Divers
 - `0x03`: Unbekannt
+
+<h2 id="seltenheit">Seltenheiten</h2>
+
+- `0x00`: Gewöhnlich
+- `0x01`: Ungewöhnlich
+- `0x02`: Selten
+- `0x03`: Episch
+- `0x04`: Legender
+- `0x05`: Mystisch
 
 <h2 id="attackentyp">Attacken-Typen</h2>
 
@@ -301,6 +325,9 @@ Die Charactertabelle zum encodieren/decodieren von Text
 |`.`   |0x72        |
 |`{`   |0x80		|
 |`}`   |0x81		|
+|`-`   |0x82        |
+|`(`   |0x83        |
+|`)`   |0x84        |
 
 ## Checksum
 

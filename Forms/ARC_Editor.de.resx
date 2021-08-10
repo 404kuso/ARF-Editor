@@ -57,11 +57,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="dateiToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Dateiverwaltung und so</value>
+  </data>
+  <data name="toolsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Tools für die Bearbeitung</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 24</value>
+  </data>
+  <data name="neuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 22</value>
+  </data>
+  <data name="neuToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Neue Datei</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="kartearcToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+N</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="kartearcToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 22</value>
   </data>
@@ -73,12 +88,6 @@
   </data>
   <data name="attackearaToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Neue Attacke</value>
-  </data>
-  <data name="neuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 22</value>
-  </data>
-  <data name="neuToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Neue Datei</value>
   </data>
   <data name="öffnenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+O</value>
@@ -107,9 +116,6 @@
   <data name="speichernUnterToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Speichert die Karte in einer anderen Datei</value>
   </data>
-  <data name="dateiToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Dateiverwaltung und so</value>
-  </data>
   <data name="inDatenbankEintragenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+Alt+Umschalttaste+D</value>
   </data>
@@ -125,6 +131,30 @@
   </data>
   <data name="inDatenbankEintragenToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Trägt die aktuelle Karte in die Datenbank ein</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+P</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Prüfen</value>
+  </data>
+  <data name="prüfenToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Prüft die Daten der Karte</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Strg+Alt+D</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="gültigeDetailsToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Überprüft die Kartendetails</value>
   </data>
   <data name="iDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 22</value>
@@ -143,18 +173,6 @@
   </data>
   <data name="nameToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Überprüft den Namen der Karte</value>
-  </data>
-  <data name="gültigeDetailsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Strg+Alt+D</value>
-  </data>
-  <data name="gültigeDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
-  </data>
-  <data name="gültigeDetailsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="gültigeDetailsToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Überprüft die Kartendetails</value>
   </data>
   <data name="statsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+Alt+S</value>
@@ -192,23 +210,14 @@
   <data name="attackenToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Prüft die Attacken</value>
   </data>
-  <data name="prüfenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Strg+Alt+P</value>
-  </data>
-  <data name="prüfenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="fensterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 22</value>
   </data>
-  <data name="prüfenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Prüfen</value>
+  <data name="fensterToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fenster</value>
   </data>
-  <data name="prüfenToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Prüft die Daten der Karte</value>
-  </data>
-  <data name="toolstrip_changeToARA_Editor.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+Umschalttaste+A</value>
-  </data>
-  <data name="toolstrip_changeToARA_Editor.Text" xml:space="preserve">
-    <value>ARA-Editor</value>
+  <data name="fensterToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Fensterverwaltung</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 22</value>
@@ -219,41 +228,59 @@
   <data name="toolStripMenuItem1.ToolTipText" xml:space="preserve">
     <value>Wechselt das aktuelle Fenster</value>
   </data>
-  <data name="fensterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+  <data name="toolstrip_changeToARA_Editor.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+Umschalttaste+A</value>
   </data>
-  <data name="fensterToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fenster</value>
-  </data>
-  <data name="fensterToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Fensterverwaltung</value>
-  </data>
-  <data name="toolsToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Tools für die Bearbeitung</value>
+  <data name="toolstrip_changeToARA_Editor.Text" xml:space="preserve">
+    <value>ARA-Editor</value>
   </data>
   <data name="datenbankpfadAuswählenToolStripMenuItem.Text" xml:space="preserve">
     <value>Datenbankpfad auswählen</value>
   </data>
-  <data name="informationenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 22</value>
-  </data>
   <data name="informationenToolStripMenuItem.Text" xml:space="preserve">
     <value>Informationen</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>762, 24</value>
+  <data name="comboBox_Element2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 228</value>
+  </data>
+  <data name="comboBox_Element2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="comboBox_Element1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 194</value>
+  </data>
+  <data name="comboBox_Element1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="label18.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 197</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 15</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Elemente</value>
   </data>
   <data name="numericUpDown_PK.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="numericUpDown_PK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 276</value>
+  </data>
   <data name="numericUpDown_PK.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 23</value>
+  </data>
+  <data name="numericUpDown_PK.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 269</value>
+    <value>22, 280</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 15</value>
@@ -279,11 +306,17 @@
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 197</value>
   </data>
+  <data name="comboBox_boostCards4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 129</value>
+  </data>
   <data name="comboBox_boostCards4.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 23</value>
   </data>
   <data name="comboBox_boostCards4.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
+  </data>
+  <data name="comboBox_boostCards2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 72</value>
   </data>
   <data name="comboBox_boostCards2.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 23</value>
@@ -291,11 +324,17 @@
   <data name="comboBox_boostCards2.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="comboBox_boostCards5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 158</value>
+  </data>
   <data name="comboBox_boostCards5.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 23</value>
   </data>
   <data name="comboBox_boostCards5.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
+  </data>
+  <data name="comboBox_boostCards3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 101</value>
   </data>
   <data name="comboBox_boostCards3.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 23</value>
@@ -357,6 +396,24 @@
   <data name="tabPage_Allgemein.Size" type="System.Drawing.Size, System.Drawing">
     <value>754, 304</value>
   </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>754, 304</value>
+  </data>
+  <data name="tabPage2.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>754, 304</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>Attacken erlernbar per Items</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 332</value>
+  </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -380,6 +437,12 @@
   </data>
   <data name="flowLayoutPanel_ErlernbareAttacken.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="flowLayoutPanel_ErlernbareAttacken.Size" type="System.Drawing.Size, System.Drawing">
+    <value>384, 266</value>
+  </data>
+  <data name="flowLayoutPanel_ErlernbareAttacken.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="comboBox_ErlernbareAttacke1.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 23</value>
@@ -651,14 +714,17 @@
   <data name="numericUpDown15.TabIndex" type="System.Int32, mscorlib">
     <value>111</value>
   </data>
-  <data name="flowLayoutPanel_ErlernbareAttacken.Size" type="System.Drawing.Size, System.Drawing">
-    <value>384, 266</value>
-  </data>
   <data name="comboBox_attack4.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 23</value>
   </data>
+  <data name="comboBox_attack4.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
   <data name="comboBox_attack3.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 23</value>
+  </data>
+  <data name="comboBox_attack3.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="txt_StatsSum.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -668,6 +734,9 @@
   </data>
   <data name="txt_StatsSum.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 23</value>
+  </data>
+  <data name="txt_StatsSum.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -680,6 +749,9 @@
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>Statuswerte</value>
+  </data>
+  <data name="numericUpDown_Level.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -700,7 +772,7 @@
     <value>208, 23</value>
   </data>
   <data name="comboBox_attack1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>7</value>
   </data>
   <data name="comboBox_attack2.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 215</value>
@@ -709,7 +781,7 @@
     <value>208, 23</value>
   </data>
   <data name="comboBox_attack2.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -728,6 +800,9 @@
   </data>
   <data name="numericUpDown_LP.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
+  </data>
+  <data name="numericUpDown_LP.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -771,11 +846,17 @@
   <data name="numericUpDown_Def.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
+  <data name="numericUpDown_Def.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="numericUpDown_Att.Location" type="System.Drawing.Point, System.Drawing">
     <value>117, 65</value>
   </data>
   <data name="numericUpDown_Att.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
+  </data>
+  <data name="numericUpDown_Att.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -807,17 +888,14 @@
   <data name="label8.Text" xml:space="preserve">
     <value>Angriff</value>
   </data>
-  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>754, 304</value>
-  </data>
-  <data name="tabPage2.Text" xml:space="preserve">
-    <value>Stats</value>
-  </data>
   <data name="btn_EntferneItemAttacke.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btn_EntferneItemAttacke.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 23</value>
+  </data>
+  <data name="btn_EntferneItemAttacke.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="btn_EntferneItemAttacke.Text" xml:space="preserve">
     <value>Attacke entfernen</value>
@@ -827,6 +905,9 @@
   </data>
   <data name="btn_ClearItemAttacks.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 23</value>
+  </data>
+  <data name="btn_ClearItemAttacks.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="btn_ClearItemAttacks.Text" xml:space="preserve">
     <value>Alles löschen</value>
@@ -849,17 +930,8 @@
   <data name="flowLayoutPanel_AttackenPerItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>742, 250</value>
   </data>
-  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>754, 304</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>Attacken erlernbar per Items</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>762, 332</value>
+  <data name="flowLayoutPanel_AttackenPerItem.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="notifyIcon1.Text" xml:space="preserve">
     <value>notifyIcon1</value>

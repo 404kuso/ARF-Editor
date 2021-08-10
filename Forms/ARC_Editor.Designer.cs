@@ -53,8 +53,12 @@ namespace ARF_Editor.Forms
             this.toolstrip_changeToARA_Editor = new System.Windows.Forms.ToolStripMenuItem();
             this.optionenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datenbankpfadAuswählenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_Allgemein = new System.Windows.Forms.TabPage();
+            this.comboBox_Element2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_Element1 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.numericUpDown_PK = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox_cardGeschlecht = new System.Windows.Forms.ComboBox();
@@ -166,7 +170,6 @@ namespace ARF_Editor.Forms
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.toolTip_cardInfo = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_attackInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Allgemein.SuspendLayout();
@@ -371,6 +374,12 @@ namespace ARF_Editor.Forms
             this.datenbankpfadAuswählenToolStripMenuItem.Name = "datenbankpfadAuswählenToolStripMenuItem";
             this.datenbankpfadAuswählenToolStripMenuItem.Click += new System.EventHandler(this.datenbankpfadAuswählenToolStripMenuItem_Click);
             // 
+            // informationenToolStripMenuItem
+            // 
+            resources.ApplyResources(this.informationenToolStripMenuItem, "informationenToolStripMenuItem");
+            this.informationenToolStripMenuItem.Name = "informationenToolStripMenuItem";
+            this.informationenToolStripMenuItem.Click += new System.EventHandler(this.informationenToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             resources.ApplyResources(this.tabControl1, "tabControl1");
@@ -389,6 +398,9 @@ namespace ARF_Editor.Forms
             // 
             resources.ApplyResources(this.tabPage_Allgemein, "tabPage_Allgemein");
             this.tabPage_Allgemein.AllowDrop = true;
+            this.tabPage_Allgemein.Controls.Add(this.comboBox_Element2);
+            this.tabPage_Allgemein.Controls.Add(this.comboBox_Element1);
+            this.tabPage_Allgemein.Controls.Add(this.label18);
             this.tabPage_Allgemein.Controls.Add(this.numericUpDown_PK);
             this.tabPage_Allgemein.Controls.Add(this.label13);
             this.tabPage_Allgemein.Controls.Add(this.comboBox_cardGeschlecht);
@@ -415,6 +427,54 @@ namespace ARF_Editor.Forms
             this.tabPage_Allgemein.UseVisualStyleBackColor = true;
             this.tabPage_Allgemein.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
             this.tabPage_Allgemein.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
+            // 
+            // comboBox_Element2
+            // 
+            resources.ApplyResources(this.comboBox_Element2, "comboBox_Element2");
+            this.comboBox_Element2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_Element2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Element2.FormattingEnabled = true;
+            this.comboBox_Element2.Items.AddRange(new object[] {
+            resources.GetString("comboBox_Element2.Items"),
+            resources.GetString("comboBox_Element2.Items1"),
+            resources.GetString("comboBox_Element2.Items2"),
+            resources.GetString("comboBox_Element2.Items3"),
+            resources.GetString("comboBox_Element2.Items4"),
+            resources.GetString("comboBox_Element2.Items5"),
+            resources.GetString("comboBox_Element2.Items6"),
+            resources.GetString("comboBox_Element2.Items7"),
+            resources.GetString("comboBox_Element2.Items8"),
+            resources.GetString("comboBox_Element2.Items9")});
+            this.comboBox_Element2.Name = "comboBox_Element2";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_Element2, resources.GetString("comboBox_Element2.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_Element2, resources.GetString("comboBox_Element2.ToolTip1"));
+            // 
+            // comboBox_Element1
+            // 
+            resources.ApplyResources(this.comboBox_Element1, "comboBox_Element1");
+            this.comboBox_Element1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox_Element1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Element1.FormattingEnabled = true;
+            this.comboBox_Element1.Items.AddRange(new object[] {
+            resources.GetString("comboBox_Element1.Items"),
+            resources.GetString("comboBox_Element1.Items1"),
+            resources.GetString("comboBox_Element1.Items2"),
+            resources.GetString("comboBox_Element1.Items3"),
+            resources.GetString("comboBox_Element1.Items4"),
+            resources.GetString("comboBox_Element1.Items5"),
+            resources.GetString("comboBox_Element1.Items6"),
+            resources.GetString("comboBox_Element1.Items7"),
+            resources.GetString("comboBox_Element1.Items8")});
+            this.comboBox_Element1.Name = "comboBox_Element1";
+            this.toolTip_attackInfo.SetToolTip(this.comboBox_Element1, resources.GetString("comboBox_Element1.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.comboBox_Element1, resources.GetString("comboBox_Element1.ToolTip1"));
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            this.toolTip_cardInfo.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.label18, resources.GetString("label18.ToolTip1"));
             // 
             // numericUpDown_PK
             // 
@@ -1715,12 +1775,6 @@ namespace ARF_Editor.Forms
             this.toolTip_attackInfo.UseAnimation = false;
             this.toolTip_attackInfo.UseFading = false;
             // 
-            // informationenToolStripMenuItem
-            // 
-            resources.ApplyResources(this.informationenToolStripMenuItem, "informationenToolStripMenuItem");
-            this.informationenToolStripMenuItem.Name = "informationenToolStripMenuItem";
-            this.informationenToolStripMenuItem.Click += new System.EventHandler(this.informationenToolStripMenuItem_Click);
-            // 
             // ARC_Editor
             // 
             resources.ApplyResources(this, "$this");
@@ -1927,6 +1981,9 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ComboBox comboBox15;
         private System.Windows.Forms.NumericUpDown numericUpDown15;
         private System.Windows.Forms.ToolStripMenuItem informationenToolStripMenuItem;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox comboBox_Element1;
+        private System.Windows.Forms.ComboBox comboBox_Element2;
     }
 }
 

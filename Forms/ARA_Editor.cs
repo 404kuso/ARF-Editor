@@ -147,12 +147,14 @@ namespace ARF_Editor.Forms
         #region UpdateInfos
         private void UpdateFormInfos()
         {
+            MessageBox.Show(string.Join(", ", attack.FileChecksum));
             this.numUpDown_attackID.Value = attack.ID;
             this.txt_AttackName.Text = attack.Name;
             this.richtTxt_AttackText.Text = attack.AnzeigeText;
             this.richTxt_beschreibung.Text = attack.Beschreibung;
             this.comboBox_AttackenTyp.SelectedIndex = attack.Typ;
             this.numericUpDown_AttackenStaerke.Value = attack.Stärke;
+            this.comboBox_Element.SelectedIndex = attack.Element;
             this.numUpDown_Range.Value = attack.Range;
 
             SetStatusAenderungCheckState(attack.Effekt != 0x00);
@@ -185,6 +187,7 @@ namespace ARF_Editor.Forms
             attack.Effekt = this.checkBox_StatusAenderung.Checked ? (byte)this.comboBox_StatusTyp.SelectedIndex : (byte)0x00;
             attack.EffektStärke = (byte)this.numericUpDown_AttackenStaerke.Value;
             attack.Chance = (byte)this.numericUpDown_StatusChance.Value;
+            attack.Element = (byte)this.comboBox_Element.SelectedIndex;
         }
         #endregion
 
@@ -457,5 +460,7 @@ namespace ARF_Editor.Forms
         {
             (new Infos()).ShowDialog();
         }
+
+ 
     }
 }

@@ -226,8 +226,10 @@ namespace ARF_Editor.Forms
             this.txt_cardName.Text = card.Name;
             this.richtTxt_CardBeschreibung.Text = card.Beschreibung;
             this.txt_cardHerkunft.Text = card.Herkunft;
-            this.comboBox_cardSeltenheit.SelectedItem = this.comboBox_cardSeltenheit.Items[card.Seltenheit];
-            this.comboBox_cardGeschlecht.SelectedItem = this.comboBox_cardGeschlecht.Items[card.Geschlecht];
+            this.comboBox_cardSeltenheit.SelectedIndex = card.Seltenheit;
+            this.comboBox_cardGeschlecht.SelectedIndex = card.Geschlecht;
+            this.comboBox_Element1.SelectedIndex = card.Elemente[0];
+            this.comboBox_Element2.SelectedIndex = card.Elemente[1];
             this.numericUpDown_PK.Value = card.PK;
 
             #region boostCards
@@ -348,6 +350,7 @@ namespace ARF_Editor.Forms
             card.Herkunft = this.txt_cardHerkunft.Text;
             card.Seltenheit = (byte)this.comboBox_cardSeltenheit.SelectedIndex;
             card.Geschlecht = (byte)this.comboBox_cardGeschlecht.SelectedIndex;
+            card.Elemente = new byte[2] { (byte)this.comboBox_Element1.SelectedIndex, (byte)this.comboBox_Element2.SelectedIndex };
 
             card.ZusammenSpiel = card.ZusammenSpiel.Set(0, Convert.ToUInt16((this.comboBox_boostCards1.SelectedItem as ComboBoxItem).Value));
             card.ZusammenSpiel = card.ZusammenSpiel.Set(1, Convert.ToUInt16((this.comboBox_boostCards2.SelectedItem as ComboBoxItem).Value));
@@ -392,10 +395,6 @@ namespace ARF_Editor.Forms
 
             // Wenn eine Verbindung zur Datenbank hergesetllt wurde, wird der höchste Index von der Karte +1 als ID genommen, ansonsten einfach 1
             card.ID = Database.connectionHergestellt ? Convert.ToUInt16(cards.Select(x => x.Item2).ToArray().Max() + 1) : (ushort)0x01;
-
-            // * Automatische Auswahl vom 0ten Objekt *
-            this.comboBox_cardGeschlecht.SelectedIndex = 0;
-            this.comboBox_cardSeltenheit.SelectedIndex = 0;
 
             // Updatet die Form Infos von der Karte
             UpdateFormInfos();
@@ -643,7 +642,7 @@ namespace ARF_Editor.Forms
         #region textbox Filter
         private void txt_cardName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!StringCode.CanEncode(e.KeyChar))
+            if ((char.IsLetterOrDigit(e.KeyChar) || char.IsPunctuation(e.KeyChar) || char.IsSymbol(e.KeyChar)) && !StringCode.CanEncode(e.KeyChar))
                 e.Handled = true;
         }
 

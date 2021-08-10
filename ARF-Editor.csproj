@@ -11,7 +11,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/AnimeJunkies-TV/ARF-Editor</RepositoryUrl>
     <StartupObject></StartupObject>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishSingleFile>true</PublishSingleFile>
     <RepositoryType>git-repo</RepositoryType>

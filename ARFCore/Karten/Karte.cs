@@ -28,7 +28,7 @@ namespace ARF_Editor.ARFCore.Karten
         /// </summary>
         private static byte[] emptyDetails
         {
-            get => Enumerable.Repeat((byte)0x00, 0x150).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 0x153).ToArray();
         }
 
         /// <summary>
@@ -70,11 +70,11 @@ namespace ARF_Editor.ARFCore.Karten
         {
             get => headerBytes
                 // Details + FF FF FF
-                .Concat(emptyDetails).ToArray().Concat(new byte[3] {0xFF, 0xFF, 0xFF}).ToArray()
+                .Concat(emptyDetails).ToArray().Concat(new byte[2] {0xFF, 0xFF}).ToArray()
                 // Stats + FF FF
                 .Concat(emptyStats).ToArray().Concat(new byte[2] { 0xFF, 0xFF }).ToArray()
                 // Attacken + FF FF FF
-                .Concat(emptyAttacks).ToArray().Concat(new byte[3] { 0xFF, 0xFF, 0xFF }).ToArray()
+                .Concat(emptyAttacks).ToArray().Concat(new byte[2] { 0xFF, 0xFF }).ToArray()
                 // Erlernbare Attacken
                 .Concat(emptyErlernbareAttacken).ToArray()
                 // Itemattacken
@@ -277,11 +277,11 @@ namespace ARF_Editor.ARFCore.Karten
         /// <summary>
         /// Der Teil in der Datei in dem die Karteninfos stehen
         /// <br/>
-        /// <b>Adresse</b>: [<c>0x0D</c>] - [<c>0x15D</c>]
+        /// <b>Adresse</b>: [<c>0x0D</c>] - [<c>0x160</c>]
         /// </summary>
         public byte[] DetailsBlock
         {
-            get => this.fileContent[0x0D..0x15D];
+            get => this.fileContent[0x0D..0x160];
             set => this.fileContent.Set(0x0D, value);
         }
 
@@ -296,8 +296,8 @@ namespace ARF_Editor.ARFCore.Karten
         #region StatsBlock
         public byte[] StatsBlock
         {
-            get => this.fileContent[0x160..0x168];
-            set => this.fileContent.Set(0x160, value);
+            get => this.fileContent[0x162..0x16A];
+            set => this.fileContent.Set(0x162, value);
         }
         public void FixSumStatsBlock()
         {
@@ -308,12 +308,12 @@ namespace ARF_Editor.ARFCore.Karten
         /// <summary>
         /// Der Block in denen die Attacken, die die Karte hat, enthalten sind
         /// <br/>
-        /// <b>Adresse</b>: [<c>0x16A</c>] - [<c>0x174</c>]
+        /// <b>Adresse</b>: [<c>0x16C</c>] - [<c>0x176</c>]
         /// </summary>
         public byte[] AttacksBlock
         {
-            get => this.fileContent[0x16A..0x174];
-            set => this.fileContent.Set(0x16A, value);
+            get => this.fileContent[0x16C..0x176];
+            set => this.fileContent.Set(0x16C, value);
         }
 
         /// <summary>
@@ -415,7 +415,7 @@ namespace ARF_Editor.ARFCore.Karten
         /// </value>
         public byte Seltenheit
         {
-            get => this.DetailsBlock[0x14C];
+            get => BitConverter.ToByte(this.DetailsBlock[0x14C..0x14D]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x14C, value);
         }
 
@@ -435,19 +435,25 @@ namespace ARF_Editor.ARFCore.Karten
         /// </value>
         public byte Geschlecht
         {
-            get => this.DetailsBlock[0x14D];
+            get => BitConverter.ToByte(this.DetailsBlock[0x14D..0x14E]);
             set => this.DetailsBlock = this.DetailsBlock.Set(0x14D, value);
+        }
+
+        public byte[] Elemente
+        {
+            get => this.DetailsBlock[0x14E..0x151];
+            set => this.DetailsBlock = this.DetailsBlock.Set(0x14E, value);
         }
 
         /// <summary>
         /// 2 Byte Checksum für den Detailsblock, um korrupte Karten zu erkennen<br/>
         /// <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x14E</c>] - [<c>0x150</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x151</c>] - [<c>0x153</c>]
         /// </summary>
         public byte[] DetailsBlockChecksum
         {
-            get => this.DetailsBlock[0x14E..0x150];
-            set => this.DetailsBlock = this.DetailsBlock.Set(0x14E, value);
+            get => this.DetailsBlock[0x151..0x153];
+            set => this.DetailsBlock = this.DetailsBlock.Set(0x151, value);
         }
         #endregion CardDetails
         #region CardStats
