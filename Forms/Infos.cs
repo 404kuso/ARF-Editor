@@ -42,7 +42,7 @@ namespace ARF_Editor.Forms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("cmd", "/c start https://github.com/AnimeJunkies-TV/ARF-Editor/blob/master/README.md#Editor");
+            Process.Start("cmd", "/c start https://github.com/AnimeJunkies-TV/ARF-Editor/wiki/UI");
         }
     }
 }
