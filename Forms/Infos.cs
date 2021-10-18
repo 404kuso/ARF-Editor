@@ -37,7 +37,7 @@ namespace ARF_Editor.Forms
             this.label_name.Text = fileInfo.ProductName;
             this.label_description.Text = description;
             this.label_company.Text = fileInfo.CompanyName;
-            this.label_version.Text = string.Join("", fileInfo.ProductVersion.Reverse().ToArray());
+            this.label_version.Text = fileInfo.ProductVersion;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

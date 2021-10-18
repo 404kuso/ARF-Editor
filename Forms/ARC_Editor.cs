@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using System.Web;
+using System.Net;
+using System.Data;
+using System.Linq;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
-using ARF_Editor;
 using ARF_Editor.Tools;
 using ARF_Editor.ARFCore;
 using ARF_Editor.ARFCore.Karten;
-using System.Threading;
-using System.Net;
-using System.Transactions;
 using ARF_Editor.ARFCore.Attacken;
 
 namespace ARF_Editor.Forms

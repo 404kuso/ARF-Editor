@@ -147,7 +147,6 @@ namespace ARF_Editor.Forms
         #region UpdateInfos
         private void UpdateFormInfos()
         {
-            MessageBox.Show(string.Join(", ", attack.FileChecksum));
             this.numUpDown_attackID.Value = attack.ID;
             this.txt_AttackName.Text = attack.Name;
             this.richtTxt_AttackText.Text = attack.AnzeigeText;
