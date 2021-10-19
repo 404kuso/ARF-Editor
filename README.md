@@ -1,8 +1,12 @@
-﻿# Was ist das hier
+# Was ist das hier
 
 Das hier ist ein Windows-Form Editor geschrieben in C# um das Erstellen und Bearbeiten von AnimeRoyale Komponenten zu erleichtern. 
 Dazu gehören Karten- und Attackendateien.
 
+## [Readme wurde zum Wiki verschoben](https://github.com/AnimeJunkies-TV/ARF-Editor/wiki)
+
+
+<!-- 
 # Inhalt
 
 - [`Datei-Typen`](#Typen)
@@ -562,4 +566,4 @@ Eine Liste von Attacken, die durch andere Wege wie Levelaufstieg erlernt werden 
 : Wie die Chance steht das dieser Effekt eintritt (1 zu dem Wert)
 
 - `Beschreibung`
-: Die Beschreibung von der Attacke
+: Die Beschreibung von der Attacke -->
