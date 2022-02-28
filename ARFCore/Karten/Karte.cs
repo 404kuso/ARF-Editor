@@ -74,7 +74,7 @@ namespace ARF_Editor.ARFCore.Karten
                 // Stats + FF FF
                 .Concat(emptyStats).ToArray().Concat(new byte[2] { 0xFF, 0xFF }).ToArray()
                 // Attacken + FF FF FF
-                .Concat(emptyAttacks).ToArray().Concat(new byte[2] { 0xFF, 0xFF }).ToArray()
+                .Concat(emptyAttacks).ToArray().Concat(new byte[1] { 0xFF }).ToArray()
                 // Erlernbare Attacken
                 .Concat(emptyErlernbareAttacken).ToArray()
                 // Itemattacken
