@@ -181,7 +181,7 @@ namespace ARF_Editor.ARFCore.Karten
         {
             this.fs = fs;
             
-            this.fileContent = new byte[3000];
+            this.fileContent = new byte[0x2FD];
             this.fs.Read(this.fileContent);
 
             this.UpdatePK();
