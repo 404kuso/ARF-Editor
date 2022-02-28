@@ -222,7 +222,14 @@ namespace ARF_Editor.Forms
             this.comboBox_cardSeltenheit.SelectedIndex = card.Seltenheit;
             this.comboBox_cardGeschlecht.SelectedIndex = card.Geschlecht;
             this.comboBox_Element1.SelectedIndex = card.Elemente[0];
-            this.comboBox_Element2.SelectedIndex = card.Elemente[1];
+            // Hier ist eine Besonderhit:
+            //      Kein Element entspricht `0xFF`.
+            //      Da nur Element 2 `keins` sein kann, muss hier ein 
+            //      manueller Check rein
+            if (card.Elemente[1] == 0xFF)
+                this.comboBox_Element2.SelectedIndex = 0;
+            else
+                this.comboBox_Element2.SelectedIndex = card.Elemente[1] + 1;
             this.numericUpDown_PK.Value = card.PK;
 
             #region boostCards
@@ -343,7 +350,10 @@ namespace ARF_Editor.Forms
             card.Herkunft = this.txt_cardHerkunft.Text;
             card.Seltenheit = (byte)this.comboBox_cardSeltenheit.SelectedIndex;
             card.Geschlecht = (byte)this.comboBox_cardGeschlecht.SelectedIndex;
-            card.Elemente = new byte[2] { (byte)this.comboBox_Element1.SelectedIndex, (byte)this.comboBox_Element2.SelectedIndex };
+            card.Elemente = new byte[2] { 
+                (byte)this.comboBox_Element1.SelectedIndex, 
+                this.comboBox_Element2.SelectedIndex == 0 ? (byte)0xFF : (byte)(this.comboBox_Element2.SelectedIndex - 1)
+            };
 
             card.ZusammenSpiel = card.ZusammenSpiel.Set(0, Convert.ToUInt16((this.comboBox_boostCards1.SelectedItem as ComboBoxItem).Value));
             card.ZusammenSpiel = card.ZusammenSpiel.Set(1, Convert.ToUInt16((this.comboBox_boostCards2.SelectedItem as ComboBoxItem).Value));
