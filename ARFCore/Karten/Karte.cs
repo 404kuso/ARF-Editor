@@ -441,8 +441,14 @@ namespace ARF_Editor.ARFCore.Karten
 
         public byte[] Elemente
         {
-            get => this.DetailsBlock[0x14E..0x151];
+            get => this.DetailsBlock[0x14E..0x150];
             set => this.DetailsBlock = this.DetailsBlock.Set(0x14E, value);
+        }
+
+        public byte EventFlag
+        {
+            get => this.DetailsBlock[0x150];
+            set => this.DetailsBlock = this.DetailsBlock.Set(0x150, value);
         }
 
         /// <summary>
@@ -624,7 +630,7 @@ namespace ARF_Editor.ARFCore.Karten
             {
                 List<byte> attacken = new List<byte>();
                 foreach ((byte, ushort) x in value)
-                    attacken.AddRange( new byte[] { x.Item1 }.Concat(BitConverter.GetBytes(x.Item2)) );
+                    attacken.AddRange( new byte[] { x.Item1 }.Concat( BitConverter.GetBytes(x.Item2)) );
                 this.ErlernbareAttackenBlock = this.ErlernbareAttackenBlock.Set(0, attacken.ToArray());
             }
         }

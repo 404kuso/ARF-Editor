@@ -74,7 +74,7 @@ namespace ARF_Editor.ARFCore.Attacken
         {
             this.fs = fs;
 
-            this.fileContent = new byte[1000];
+            this.fileContent = new byte[0x238];
             this.fs.Read(this.fileContent);
 
             this.UpdatePK();
@@ -321,7 +321,7 @@ namespace ARF_Editor.ARFCore.Attacken
         /// <returns>Die berrechnete Checksum (2 bytes)</returns>
         public byte[] CalculateChecksum()
         {
-            return BitConverter.GetBytes(Checksum.CRC16_CCITT(this.Body, 0, this.Body.Length - (1 + checksumLen)));
+            return BitConverter.GetBytes(Checksum.CRC16_CCITT(this.Body, 0, this.Body.Length - checksumLen));
         }
 
         /// <summary>

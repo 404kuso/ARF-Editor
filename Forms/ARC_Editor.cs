@@ -32,7 +32,7 @@ namespace ARF_Editor.Forms
         /// Die Parameter mit der das Programm gestartet wurde
         /// </summary>
         private string[] FileRunArgs;
-
+        
 
         /// <summary>
         /// Alle Karten aus der Datenbank
@@ -534,6 +534,7 @@ namespace ARF_Editor.Forms
                     card.Save();
 
                     
+
                     MessageBox.Show("Erfolgreich gespeichert!", "Gespeichert", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Form infos updaten
                     UpdateFormInfos();
