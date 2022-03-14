@@ -24,7 +24,7 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </summary>
         private static byte[] emptyAttack
         {
-            get => headerBytes.Concat(Enumerable.Repeat((byte)0x00, 0x22B).ToArray()).ToArray();
+            get => headerBytes.Concat(Enumerable.Repeat((byte)0x00, 0x22C).ToArray()).ToArray();
         }
         #endregion
 
@@ -74,7 +74,7 @@ namespace ARF_Editor.ARFCore.Attacken
         {
             this.fs = fs;
 
-            this.fileContent = new byte[0x238];
+            this.fileContent = new byte[0x239];
             this.fs.Read(this.fileContent);
 
             this.UpdatePK();
@@ -103,6 +103,32 @@ namespace ARF_Editor.ARFCore.Attacken
             this.fs.Seek(0x00, SeekOrigin.Begin);
             this.fs.Write(this.fileContent, 0, this.fileContent.Length);
             this.fs.Flush();
+        }
+
+        public void SetEffekt(byte[] bits)
+        {
+            ushort value = this.Effekt;
+            for(ushort i = 0; i < bits.Length; i++)
+            {
+                if (bits[i] == 1)
+                    value |= Convert.ToUInt16(bits[i] << i);
+                else
+                    value &= Convert.ToUInt16(~(~bits[i] << i));
+            }
+            this.Effekt = value;
+        }
+        public int[] GetEffektFlags()
+        {
+            return new int[8] {
+                this.Effekt & (0b1 << 0),
+                this.Effekt & (0b1 << 1),
+                this.Effekt & (0b1 << 2),
+                this.Effekt & (0b1 << 3),
+                this.Effekt & (0b1 << 4),
+                this.Effekt & (0b1 << 5),
+                this.Effekt & (0b1 << 6),
+                this.Effekt & (0b1 << 7)
+            };
         }
 
         #region Attributes
@@ -134,7 +160,7 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </summary>
         private byte[] Body
         {
-            get => this.fileContent[0x0D..0x238];
+            get => this.fileContent[0x0D..0x239];
             set => this.fileContent = this.fileContent.Set(0x0D, value);
         }
 
@@ -202,48 +228,37 @@ namespace ARF_Editor.ARFCore.Attacken
             set => this.Body = this.Body.Set(0x123, value);
         }
         /// <summary>
-        /// Der Typ vom Effekt
+        /// Bitflag was beeinträchtigt wird vom Effekt
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x124</c>] - [<c>0x0125</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x124</c>] - [<c>0x0126</c>]
         /// </summary>
         /// <value>
         /// <list type="bullet">
-        ///     <item><c>0x00</c> Keiner</item>
-        ///     <item><c>0x01</c> Verbrennung</item>
-        ///     <item><c>0x02</c> Vergiftung</item>
-        ///     <item><c>0x03</c> Paralyse</item>
-        ///     <item><c>0x04</c> Verwirrung</item>
-        ///     <item><c>0x05</c> Angriffswert -</item>
-        ///     <item><c>0x06</c> Verteidigungswert -</item>
-        ///     <item><c>0x07</c> Angriffswert und Verteidigungswert -</item>
-        ///     <item><c>0x08</c> Schnelligkeitswert -</item>
-        ///     <item><c>0x09</c> Angriffswert, Schnelligkeitswert -</item>
-        ///     <item><c>0x0A</c> Angriffswert, Verteidigungswert, Schnelligkeitswert -</item>
-        ///     <item><c>0x0B</c> Verteidigungswert, Schnelligkeitswert -</item>
-        ///     <item><c>0x0C</c> Angriffswert +</item>
-        ///     <item><c>0x0D</c> Verteidigungswert +</item>
-        ///     <item><c>0x0E</c> Angriffswert, Verteidigungswert +</item>
-        ///     <item><c>0x0F</c> Schnelligkeitswert +</item>
-        ///     <item><c>0x10</c> Angriffswert und Schnelligkeitswert +</item>
-        ///     <item><c>0x11</c> Angriffswert, Verteidigungswert, Schnelligkeitswert +</item>
-        ///     <item><c>0x12</c> Verteidigungswert, Schnelligkeitswert +</item>
+        ///     <item><c>1 _lshift 0</c>: Angriffswert</item>
+        ///     <item><c>1 _lshift 1</c>: Verteidigungswert</item>
+        ///     <item><c>1 _lshift 2</c>: Schnelligkeitswert</item>
+        ///     <item><c>1 _lshift 3</c>: LP</item>
+        ///     <item><c>1 _lshift 4</c>: Verbrennung</item>
+        ///     <item><c>1 _lshift 5</c>: Vergiftung</item>
+        ///     <item><c>1 _lshift 6</c>: Paralyse</item>
+        ///     <item><c>1 _lshift 7</c>: Verwirrung</item>
         /// </list>
         /// </value>
-        public byte Effekt
+        public ushort Effekt
         {
-            get => BitConverter.ToByte(this.Body[0x124..0x125]);
-            set => this.Body = this.Body.Set(0x124, value);
+            get => BitConverter.ToUInt16(this.Body[0x124..0x126]);
+            set => this.Body = this.Body.Set(0x124, BitConverter.GetBytes(value));
         }
 
         /// <summary>
         /// Wie stark der Effekt ist
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x125</c>] - [<c>0x126</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x126</c>] - [<c>0x127</c>]
         /// </summary>
         public byte EffektStärke
         {
-            get => BitConverter.ToByte(this.Body[0x125..0x126]);
-            set => this.Body = this.Body.Set(0x125, value);
+            get => BitConverter.ToByte(this.Body[0x126..0x127]);
+            set => this.Body = this.Body.Set(0x126, value);
         }
 
         /// <summary>
@@ -251,39 +266,39 @@ namespace ARF_Editor.ARFCore.Attacken
         /// 1 : Wert = die Chance dass der Effekt auftritt liegt bei 1 zu dem Wert <br/>
         /// Wenn immer Status geändert wird, ist Wert 1, wenn keine Statusänderung auftritt 0
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x126</c>] - [<c>0x127</c>]
-        /// </summary>
-        public byte Chance
-        {
-            get => BitConverter.ToByte(this.Body[0x126..0x127]);
-            set => this.Body = this.Body.Set(0x126, value);
-        }
-
-        /// <summary>
-        /// Wie stark die Attacke ist
-        /// <br/> <br/>
         /// <b>Adresse</b> (im Block): [<c>0x127</c>] - [<c>0x128</c>]
         /// </summary>
-        public byte Stärke
+        public byte Chance
         {
             get => BitConverter.ToByte(this.Body[0x127..0x128]);
             set => this.Body = this.Body.Set(0x127, value);
         }
 
         /// <summary>
+        /// Wie stark die Attacke ist
+        /// <br/> <br/>
+        /// <b>Adresse</b> (im Block): [<c>0x128</c>] - [<c>0x129</c>]
+        /// </summary>
+        public byte Stärke
+        {
+            get => BitConverter.ToByte(this.Body[0x128..0x129]);
+            set => this.Body = this.Body.Set(0x128, value);
+        }
+
+        /// <summary>
         /// Die Beschreibung von der Attacke
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x128</c>] - [<c>0x228</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x129</c>] - [<c>0x229</c>]
         /// </summary>
         public string Beschreibung
         {
-            get => StringCode.DecodeBytes(this.Body[0x128..0x228]);
-            set => this.Body = this.Body.Set(0x128, StringCode.EncodeString(value, 256));
+            get => StringCode.DecodeBytes(this.Body[0x129..0x229]);
+            set => this.Body = this.Body.Set(0x129, StringCode.EncodeString(value, 256));
         }
         /// <summary>
         /// Das Element der Attacke
         /// <br/> <br/>
-        /// <b>Adresse</b> (im Block): [<c>0x228</c>] - [<c>0x229</c>]
+        /// <b>Adresse</b> (im Block): [<c>0x229</c>] - [<c>0x22A</c>]
         /// </summary>
         /// <value>
         /// <list type="bullet">
@@ -299,8 +314,8 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </value>
         public byte Element
         {
-            get => BitConverter.ToByte(this.Body[0x228..0x229]);
-            set => this.Body = this.Body.Set(0x228, value);
+            get => BitConverter.ToByte(this.Body[0x229..0x22A]);
+            set => this.Body = this.Body.Set(0x229, value);
 
         }
         #region Checksum
@@ -311,8 +326,8 @@ namespace ARF_Editor.ARFCore.Attacken
         /// </summary>
         public byte[] FileChecksum
         {
-            get => this.Body[0x229..0x22B];
-            set => this.Body = this.Body.Set(0x229, value);
+            get => this.Body[0x22A..0x22C];
+            set => this.Body = this.Body.Set(0x22A, value);
         }
 
         /// <summary>

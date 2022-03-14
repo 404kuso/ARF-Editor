@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using ARF_Editor;
@@ -47,7 +43,6 @@ namespace ARF_Editor.Forms
         {
             this.checkBox_StatusAenderung_CheckedChanged(this.checkBox_StatusAenderung, null);
             this.comboBox_AttackenTyp.SelectedIndex = 0;
-            this.comboBox_StatusTyp.SelectedIndex = 0;
 
             if(Database.connectionHergestellt)
             {
@@ -159,13 +154,16 @@ namespace ARF_Editor.Forms
             SetStatusAenderungCheckState(attack.Effekt != 0x00);
             if (attack.Effekt != 0x00)
             {
-                this.comboBox_StatusTyp.SelectedIndex = attack.Effekt;
-                this.numericUpDown_AttackenStaerke.Value = attack.EffektStärke;
+                int[] flags = attack.GetEffektFlags();
+                for(int i = 0; i < flags.Length; i++) {
+                    this.checklist_veraenderung.SetItemChecked(i, Convert.ToBoolean(flags[i]));
+                }
+                this.numUpDown_EffektStaerke.Value = attack.EffektStärke;
                 this.numericUpDown_StatusChance.Value = attack.Chance;
             }
             else
             {
-                this.comboBox_StatusTyp.SelectedIndex = 0;
+                this.checklist_veraenderung.ClearSelected();
                 this.numericUpDown_StatusChance.Value = 1;
             }
 
@@ -183,8 +181,11 @@ namespace ARF_Editor.Forms
             attack.Typ = (byte)this.comboBox_AttackenTyp.SelectedIndex;
             attack.Range = (byte)this.numUpDown_Range.Value;
             attack.Stärke = (byte)this.numericUpDown_AttackenStaerke.Value;
-            attack.Effekt = this.checkBox_StatusAenderung.Checked ? (byte)this.comboBox_StatusTyp.SelectedIndex : (byte)0x00;
-            attack.EffektStärke = (byte)this.numericUpDown_AttackenStaerke.Value;
+            byte[] states = new byte[8];
+            for(int i = 0; i < checklist_veraenderung.Items.Count; i++)
+                states[i] = Convert.ToByte(this.checklist_veraenderung.GetItemChecked(i));
+            attack.SetEffekt(states);
+            attack.EffektStärke = (byte)this.numUpDown_EffektStaerke.Value;
             attack.Chance = (byte)this.numericUpDown_StatusChance.Value;
             attack.Element = (byte)this.comboBox_Element.SelectedIndex;
         }
@@ -275,7 +276,7 @@ namespace ARF_Editor.Forms
         private void checkBox_StatusAenderung_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox me = (sender as CheckBox);
-            this.comboBox_StatusTyp.Enabled = this.label_statusTyp.Enabled =
+            this.checklist_veraenderung.Enabled = this.label_EffektVeraenderung.Enabled =
                 this.label_statusChancePrefix.Enabled = this.numericUpDown_StatusChance.Enabled = 
                 this.label_statusChance.Enabled = this.label_EffektStaerke.Enabled = 
                 this.numUpDown_EffektStaerke.Enabled = me.Checked;
@@ -348,9 +349,9 @@ namespace ARF_Editor.Forms
                 attackDescriptor += @$"Stärke: {attack.Stärke}
                 ".Replace("  ", "");
             if (this.checkBox_StatusAenderung.Checked)
-                attackDescriptor += @$"{this.comboBox_StatusTyp.SelectedItem}
-                    Chance: 1/{attack.Chance}
-                ".Replace("  ", "");
+                //attackDescriptor += @$"{this.comboBox_StatusTyp.SelectedItem}
+                //    Chance: 1/{attack.Chance}
+                //".Replace("  ", "");
                 
             // Wenn noch kein Eintrag mit der PK vorliegt
             if (!reader.HasRows)

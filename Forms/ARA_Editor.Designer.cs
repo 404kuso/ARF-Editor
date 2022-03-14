@@ -42,8 +42,6 @@ namespace ARF_Editor.Forms
             this.comboBox_AttackenTyp = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox_StatusAenderung = new System.Windows.Forms.CheckBox();
-            this.label_statusTyp = new System.Windows.Forms.Label();
-            this.comboBox_StatusTyp = new System.Windows.Forms.ComboBox();
             this.label_statusChance = new System.Windows.Forms.Label();
             this.label_statusChancePrefix = new System.Windows.Forms.Label();
             this.numericUpDown_StatusChance = new System.Windows.Forms.NumericUpDown();
@@ -75,6 +73,8 @@ namespace ARF_Editor.Forms
             this.numUpDown_EffektStaerke = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox_Element = new System.Windows.Forms.ComboBox();
+            this.checklist_veraenderung = new System.Windows.Forms.CheckedListBox();
+            this.label_EffektVeraenderung = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_attackID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_StatusChance)).BeginInit();
@@ -183,7 +183,8 @@ namespace ARF_Editor.Forms
             "Verteidigung",
             "Heilung",
             "Boost",
-            "Statusänderung"});
+            "Verkleinerung",
+            "Status"});
             this.comboBox_AttackenTyp.Location = new System.Drawing.Point(453, 37);
             this.comboBox_AttackenTyp.Name = "comboBox_AttackenTyp";
             this.comboBox_AttackenTyp.Size = new System.Drawing.Size(245, 23);
@@ -209,43 +210,6 @@ namespace ARF_Editor.Forms
             this.checkBox_StatusAenderung.Text = "Statusänderung bei Attacke";
             this.checkBox_StatusAenderung.UseVisualStyleBackColor = true;
             this.checkBox_StatusAenderung.CheckedChanged += new System.EventHandler(this.checkBox_StatusAenderung_CheckedChanged);
-            // 
-            // label_statusTyp
-            // 
-            this.label_statusTyp.AutoSize = true;
-            this.label_statusTyp.Location = new System.Drawing.Point(392, 136);
-            this.label_statusTyp.Name = "label_statusTyp";
-            this.label_statusTyp.Size = new System.Drawing.Size(39, 15);
-            this.label_statusTyp.TabIndex = 32;
-            this.label_statusTyp.Text = "Status";
-            // 
-            // comboBox_StatusTyp
-            // 
-            this.comboBox_StatusTyp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_StatusTyp.FormattingEnabled = true;
-            this.comboBox_StatusTyp.Items.AddRange(new object[] {
-            "Verbrennung",
-            "Vergiftung",
-            "Paralyse",
-            "Verwirrung",
-            "Angriffswert -",
-            "Verteidigungswert -",
-            "Angriffswert, Verteidigungswert -",
-            "Schnelligkeitswert -",
-            "Angriffswert, Schnelligkeitswert -",
-            "Angriffswert, Verteidigungswert, Schnelligkeitswert -",
-            "Verteidigungswert, Schnelligkeitswert -",
-            "Angriffswert +",
-            "Verteidigungswert +",
-            "Angriffswert, Verteidigungswert +",
-            "Schnelligkeitswert +",
-            "Angriffswert und Schnelligkeitswert +",
-            "Angriffswert, Verteidigungswert, Schnelligkeitswert +",
-            "Verteidigungswert, Schnelligkeitswert +"});
-            this.comboBox_StatusTyp.Location = new System.Drawing.Point(453, 131);
-            this.comboBox_StatusTyp.Name = "comboBox_StatusTyp";
-            this.comboBox_StatusTyp.Size = new System.Drawing.Size(245, 23);
-            this.comboBox_StatusTyp.TabIndex = 10;
             // 
             // label_statusChance
             // 
@@ -589,12 +553,40 @@ namespace ARF_Editor.Forms
             this.comboBox_Element.Size = new System.Drawing.Size(259, 23);
             this.comboBox_Element.TabIndex = 3;
             // 
+            // checklist_veraenderung
+            // 
+            this.checklist_veraenderung.FormattingEnabled = true;
+            this.checklist_veraenderung.Items.AddRange(new object[] {
+            "Angriff",
+            "Verteidigung",
+            "Schnelligkeit",
+            "LP",
+            "Verbrennung",
+            "Vergiftung",
+            "Paralyse",
+            "Verwirrung"});
+            this.checklist_veraenderung.Location = new System.Drawing.Point(472, 131);
+            this.checklist_veraenderung.Name = "checklist_veraenderung";
+            this.checklist_veraenderung.Size = new System.Drawing.Size(226, 22);
+            this.checklist_veraenderung.TabIndex = 46;
+            // 
+            // label_EffektVeraenderung
+            // 
+            this.label_EffektVeraenderung.AutoSize = true;
+            this.label_EffektVeraenderung.Location = new System.Drawing.Point(392, 135);
+            this.label_EffektVeraenderung.Name = "label_EffektVeraenderung";
+            this.label_EffektVeraenderung.Size = new System.Drawing.Size(74, 15);
+            this.label_EffektVeraenderung.TabIndex = 47;
+            this.label_EffektVeraenderung.Text = "Veränderung";
+            // 
             // ARA_Editor
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 309);
+            this.Controls.Add(this.label_EffektVeraenderung);
+            this.Controls.Add(this.checklist_veraenderung);
             this.Controls.Add(this.comboBox_Element);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numUpDown_EffektStaerke);
@@ -609,8 +601,6 @@ namespace ARF_Editor.Forms
             this.Controls.Add(this.numericUpDown_StatusChance);
             this.Controls.Add(this.label_statusChancePrefix);
             this.Controls.Add(this.label_statusChance);
-            this.Controls.Add(this.label_statusTyp);
-            this.Controls.Add(this.comboBox_StatusTyp);
             this.Controls.Add(this.checkBox_StatusAenderung);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox_AttackenTyp);
@@ -655,8 +645,6 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.ComboBox comboBox_AttackenTyp;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBox_StatusAenderung;
-        private System.Windows.Forms.Label label_statusTyp;
-        private System.Windows.Forms.ComboBox comboBox_StatusTyp;
         private System.Windows.Forms.Label label_statusChance;
         private System.Windows.Forms.Label label_statusChancePrefix;
         private System.Windows.Forms.NumericUpDown numericUpDown_StatusChance;
@@ -688,5 +676,7 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.NumericUpDown numUpDown_EffektStaerke;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox_Element;
+        private System.Windows.Forms.CheckedListBox checklist_veraenderung;
+        private System.Windows.Forms.Label label_EffektVeraenderung;
     }
 }
