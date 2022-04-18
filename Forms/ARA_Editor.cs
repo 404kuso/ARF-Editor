@@ -118,9 +118,7 @@ namespace ARF_Editor.Forms
                 attackStream = null;
             }
             if (!File.Exists(path))
-            {
                 MessageBox.Show(path + " existiert nicht", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             OpenAttack(new FileStream(path, FileMode.Open, FileAccess.ReadWrite, FileShare.Read));
         }

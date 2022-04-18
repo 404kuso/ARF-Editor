@@ -268,6 +268,7 @@ namespace ARF_Editor.Forms
             this.numericUpDown_Def.Value = card.Verteidigung;
             this.numericUpDown_Spe.Value = card.Schnelligkeit;
             this.numericUpDown_LP.Value = card.LP;
+            this.numUpDown_Faehigkeit.Value = card.Fähigkeit;
             // Für den Statssum checker
             this.txt_StatsSum.Text = $"{card.StatsSum}/{card.MaxStatsSum}";
             #endregion
@@ -367,6 +368,7 @@ namespace ARF_Editor.Forms
             card.Verteidigung = (byte)this.numericUpDown_Def.Value;
             card.Schnelligkeit = (byte)this.numericUpDown_Spe.Value;
             card.LP = (ushort)this.numericUpDown_LP.Value;
+            card.Fähigkeit = (ushort)this.numUpDown_Faehigkeit.Value;
             #endregion
             #region attacks
             card.AttackenID_1 = Convert.ToUInt16((this.comboBox_attack1.SelectedItem as ComboBoxItem).Value);

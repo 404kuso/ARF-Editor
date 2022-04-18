@@ -56,6 +56,8 @@ namespace ARF_Editor.Forms
             this.informationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_Allgemein = new System.Windows.Forms.TabPage();
+            this.numUpDown_Faehigkeit = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
             this.comboBox_Element2 = new System.Windows.Forms.ComboBox();
             this.comboBox_Element1 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -173,6 +175,7 @@ namespace ARF_Editor.Forms
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Allgemein.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Faehigkeit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_cardID)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -398,6 +401,8 @@ namespace ARF_Editor.Forms
             // 
             resources.ApplyResources(this.tabPage_Allgemein, "tabPage_Allgemein");
             this.tabPage_Allgemein.AllowDrop = true;
+            this.tabPage_Allgemein.Controls.Add(this.numUpDown_Faehigkeit);
+            this.tabPage_Allgemein.Controls.Add(this.label19);
             this.tabPage_Allgemein.Controls.Add(this.comboBox_Element2);
             this.tabPage_Allgemein.Controls.Add(this.comboBox_Element1);
             this.tabPage_Allgemein.Controls.Add(this.label18);
@@ -427,6 +432,25 @@ namespace ARF_Editor.Forms
             this.tabPage_Allgemein.UseVisualStyleBackColor = true;
             this.tabPage_Allgemein.DragDrop += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragDrop);
             this.tabPage_Allgemein.DragEnter += new System.Windows.Forms.DragEventHandler(this.ARC_Editor_DragEnter);
+            // 
+            // numUpDown_Faehigkeit
+            // 
+            resources.ApplyResources(this.numUpDown_Faehigkeit, "numUpDown_Faehigkeit");
+            this.numUpDown_Faehigkeit.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.numUpDown_Faehigkeit.Name = "numUpDown_Faehigkeit";
+            this.toolTip_attackInfo.SetToolTip(this.numUpDown_Faehigkeit, resources.GetString("numUpDown_Faehigkeit.ToolTip"));
+            this.toolTip_cardInfo.SetToolTip(this.numUpDown_Faehigkeit, resources.GetString("numUpDown_Faehigkeit.ToolTip1"));
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            this.toolTip_cardInfo.SetToolTip(this.label19, resources.GetString("label19.ToolTip"));
+            this.toolTip_attackInfo.SetToolTip(this.label19, resources.GetString("label19.ToolTip1"));
             // 
             // comboBox_Element2
             // 
@@ -1797,6 +1821,7 @@ namespace ARF_Editor.Forms
             this.tabControl1.ResumeLayout(false);
             this.tabPage_Allgemein.ResumeLayout(false);
             this.tabPage_Allgemein.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Faehigkeit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_cardID)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -1984,6 +2009,8 @@ namespace ARF_Editor.Forms
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comboBox_Element1;
         private System.Windows.Forms.ComboBox comboBox_Element2;
+        private System.Windows.Forms.NumericUpDown numUpDown_Faehigkeit;
+        private System.Windows.Forms.Label label19;
     }
 }
 

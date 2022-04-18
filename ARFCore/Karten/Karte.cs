@@ -36,7 +36,7 @@ namespace ARF_Editor.ARFCore.Karten
         /// </summary>
         private static byte[] emptyStats
         {
-            get => Enumerable.Repeat((byte)0x00, 8).ToArray();
+            get => Enumerable.Repeat((byte)0x00, 10).ToArray();
         }
 
         /// <summary>
@@ -133,6 +133,7 @@ namespace ARF_Editor.ARFCore.Karten
             this.Verteidigung = 15;
             this.Schnelligkeit = 15;
             this.LP = 40;
+            this.Fähigkeit = 0;
 
             this.AttackenID_1 = 1;
             this.AttackenID_2 = 0;
@@ -296,7 +297,7 @@ namespace ARF_Editor.ARFCore.Karten
         #region StatsBlock
         public byte[] StatsBlock
         {
-            get => this.fileContent[0x162..0x16A];
+            get => this.fileContent[0x162..0x16C];
             set => this.fileContent.Set(0x162, value);
         }
         public void FixSumStatsBlock()
@@ -519,13 +520,18 @@ namespace ARF_Editor.ARFCore.Karten
         {
             get => (uint)((this.Level * 0.5f) * 50 + 100);
         }
+        public ushort Fähigkeit
+        {
+            get => BitConverter.ToUInt16(this.StatsBlock[0x06..0x08]);
+            set => this.StatsBlock = this.StatsBlock.Set(0x06, BitConverter.GetBytes(value));
+        }
         /// <summary>
         /// Die Checksum für den Stats Block um korrupte Dateien zu erkennen
         /// </summary>
         public byte[] StatsBlockChecksum
         {
-            get => this.StatsBlock[0x06..0x08];
-            set => this.StatsBlock = this.StatsBlock.Set(0x06, value);
+            get => this.StatsBlock[0x08..0x0A];
+            set => this.StatsBlock = this.StatsBlock.Set(0x08, value);
         }
         #endregion
         #region CardAttacks
